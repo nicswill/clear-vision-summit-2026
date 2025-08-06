@@ -1,7 +1,13 @@
 import React, { useState } from 'react';
+import { Routes, Route, Link, useNavigate, useLocation } from 'react-router-dom';
 import { Calendar, MapPin, Users, Heart, Target, Star, CheckCircle, ArrowRight, Menu, X, Clock, Award, Waves, Sun, Coffee, UserCheck } from 'lucide-react';
+import RegisterPage from './components/RegisterPage';
+import CoachRegistration from './components/CoachRegistration';
+import SpeakerRegistration from './components/SpeakerRegistration';
+import AttendeeRegistration from './components/AttendeeRegistration';
 
-function App() {
+const HomePage: React.FC = () => {
+  const navigate = useNavigate();
   const [activeTestimonial, setActiveTestimonial] = useState(0);
 
   const testimonials = [
@@ -34,6 +40,14 @@ function App() {
     element?.scrollIntoView({ behavior: 'smooth' });
   };
 
+  const handleRegisterClick = () => {
+    navigate('/register');
+    // Scroll to top after navigation
+    setTimeout(() => {
+      window.scrollTo(0, 0);
+    }, 100);
+  };
+
   return (
     <div className="min-h-screen bg-white">
       {/* Navigation */}
@@ -53,7 +67,7 @@ function App() {
               <button onClick={() => scrollToSection('schedule')} className="text-white/90 hover:text-white transition-colors font-medium">Schedule</button>
               <button onClick={() => scrollToSection('testimonials')} className="text-white/90 hover:text-white transition-colors font-medium">Testimonials</button>
               <button onClick={() => scrollToSection('outcomes')} className="text-white/90 hover:text-white transition-colors font-medium">Outcomes</button>
-              <button onClick={() => scrollToSection('register')} className="bg-white text-sky-600 px-6 py-2 rounded-full hover:bg-gray-100 transition-all duration-200 text-sm font-bold shadow-md">Register Now</button>
+              <button onClick={handleRegisterClick} className="bg-white text-sky-600 px-6 py-2 rounded-full hover:bg-gray-100 transition-all duration-200 text-sm font-bold shadow-md">Register Now</button>
             </div>
           </div>
         </div>
@@ -78,10 +92,13 @@ function App() {
                 January 30 – February 1, 2026 • Ft. Walton Beach, FL
               </span>
               <div className="flex justify-center items-center space-x-4 mt-4">
-                <div className="flex items-center space-x-2 text-emerald-700 bg-white/80 px-3 py-1 rounded-full">
+                <button 
+                  onClick={handleRegisterClick}
+                  className="flex items-center space-x-2 text-emerald-700 bg-white/80 px-3 py-1 rounded-full hover:bg-white hover:shadow-md transition-all duration-200 transform hover:scale-105 cursor-pointer"
+                >
                   <Clock className="w-4 h-4" />
                   <span className="text-sm font-medium">Early Bird Pricing</span>
-                </div>
+                </button>
               </div>
             </div>
             
@@ -110,7 +127,7 @@ function App() {
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <button 
-                onClick={() => scrollToSection('register')}
+                onClick={handleRegisterClick}
                 className="bg-gradient-to-r from-sky-600 to-emerald-600 text-white px-8 py-4 rounded-full text-lg font-semibold hover:from-sky-700 hover:to-emerald-700 transition-all duration-200 transform hover:scale-105 shadow-lg hover:shadow-xl flex items-center justify-center space-x-2"
               >
                 <span>Reserve Your Spot</span>
@@ -519,7 +536,7 @@ function App() {
 
                 <div className="text-center mb-8">
                   <button className="bg-gradient-to-r from-sky-600 to-emerald-600 text-white px-12 py-4 rounded-full text-xl font-bold hover:from-sky-700 hover:to-emerald-700 transition-all duration-200 transform hover:scale-105 shadow-lg hover:shadow-xl">
-                    Register Now
+                    <span onClick={handleRegisterClick}>Register Now</span>
                   </button>
                   <p className="text-gray-600 mt-4 text-sm">
                     <Clock className="w-4 h-4 inline mr-1" />
@@ -590,7 +607,7 @@ function App() {
                 <div className="space-y-2">
                   <button onClick={() => scrollToSection('experience')} className="block text-gray-400 hover:text-white transition-colors">Experience</button>
                   <button onClick={() => scrollToSection('schedule')} className="block text-gray-400 hover:text-white transition-colors">Schedule</button>
-                  <button onClick={() => scrollToSection('register')} className="block text-gray-400 hover:text-white transition-colors">Register</button>
+                  <button onClick={handleRegisterClick} className="block text-gray-400 hover:text-white transition-colors">Register</button>
                 </div>
               </div>
               <div>
@@ -616,6 +633,18 @@ function App() {
         </div>
       </footer>
     </div>
+  );
+};
+
+function App() {
+  return (
+    <Routes>
+      <Route path="/" element={<HomePage />} />
+      <Route path="/register" element={<RegisterPage />} />
+      <Route path="/register/coach" element={<CoachRegistration />} />
+      <Route path="/register/speaker" element={<SpeakerRegistration />} />
+      <Route path="/register/attendee" element={<AttendeeRegistration />} />
+    </Routes>
   );
 }
 
