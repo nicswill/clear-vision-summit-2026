@@ -146,7 +146,7 @@ const HomePage: React.FC = () => {
           <div className="text-center max-w-4xl mx-auto">
             <div className="mb-6">
               <span className="inline-block bg-sky-100 text-sky-800 px-6 py-3 rounded-full text-lg font-bold mb-6">
-                January 30 – February 1, 2026 • Ft. Walton Beach, FL
+                January 31 – February 2, 2026 • Ft. Walton Beach, FL
               </span>
               <div className="flex justify-center items-center space-x-4 mt-4">
                 <button
@@ -384,7 +384,7 @@ const HomePage: React.FC = () => {
               <ul className="space-y-3 text-gray-700">
                 <li className="flex items-start space-x-3">
                   <CheckCircle className="w-5 h-5 text-sky-600 mt-0.5 flex-shrink-0" />
-                  <span>Morning Mindfulness & Opening Session</span>
+                  <span>Mindfulness & Opening Session</span>
                 </li>
                 <li className="flex items-start space-x-3">
                   <CheckCircle className="w-5 h-5 text-sky-600 mt-0.5 flex-shrink-0" />
@@ -610,7 +610,7 @@ const HomePage: React.FC = () => {
                     </div>
                     <div>
                       <h3 className="text-xl font-bold text-gray-900">
-                        Friday, January 30
+                        Friday, January 31
                       </h3>
                       <p className="text-gray-600">See Well - Gain Clarity</p>
                     </div>
@@ -624,7 +624,7 @@ const HomePage: React.FC = () => {
                     </div>
                     <div>
                       <h3 className="text-xl font-bold text-gray-900">
-                        Saturday, January 31
+                        Saturday, February 1
                       </h3>
                       <p className="text-gray-600">
                         Be Well - Restore Wholeness
@@ -640,7 +640,7 @@ const HomePage: React.FC = () => {
                     </div>
                     <div>
                       <h3 className="text-xl font-bold text-gray-900">
-                        Sunday, February 1
+                        Sunday, February 2
                       </h3>
                       <p className="text-gray-600">
                         Lead Well - Proceed with Purpose
@@ -659,7 +659,7 @@ const HomePage: React.FC = () => {
                 </div>
                 <div className="flex items-center space-x-2">
                   <Calendar className="w-5 h-5 text-emerald-600" />
-                  <span>January 30 – February 1, 2026</span>
+                  <span>January 31 – February 2, 2026</span>
                 </div>
               </div>
             </div>
@@ -752,7 +752,7 @@ const HomePage: React.FC = () => {
                   <div className="flex flex-col sm:flex-row gap-4 justify-center items-center text-gray-600 mb-6">
                     <div className="flex items-center space-x-2">
                       <Calendar className="w-5 h-5 text-sky-600" />
-                      <span>January 30 – February 1, 2026</span>
+                      <span>January 31 – February 2, 2026</span>
                     </div>
                     <div className="flex items-center space-x-2">
                       <MapPin className="w-5 h-5 text-emerald-600" />
@@ -861,7 +861,7 @@ const HomePage: React.FC = () => {
               </span>
             </div>
             <p className="text-gray-400 mb-8">
-              January 30 – February 1, 2026 • Ft. Walton Beach, Florida
+              January 31 – February 2, 2026 • Ft. Walton Beach, Florida
             </p>
 
             <div className="grid md:grid-cols-3 gap-8 mb-8">
