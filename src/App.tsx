@@ -102,35 +102,36 @@ const HomePage: React.FC = () => {
               </div>
             </div>
             
-            <h1 className="text-5xl md:text-7xl font-bold text-gray-900 mb-6 leading-tight">
-              This Isn't Just a <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-600 to-emerald-600">Conference</span>. 
-              <br />It's Your Leadership <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 to-amber-500">Reset</span>.
-            </h1>
-            
-            <p className="text-xl text-gray-600 mb-8 leading-relaxed max-w-3xl mx-auto">
-              Step away from the noise. Refocus your mind. Reclaim your clarity. The Clear Vision Leadership Wellness Summit blends the strategic power of a leadership conference with the restorative calm of a retreat—so you can lead boldly in 2026.
-            </p>
-
-            <div className="text-center mb-12">
-              <h2 className="text-2xl font-semibold text-gray-800 mb-2">Theme: Pause. Plan. Proceed.</h2>
-              <div className="flex flex-wrap justify-center items-center gap-8 text-lg text-gray-700 font-medium">
-                <div className="flex items-center space-x-2">
-                  <Calendar className="w-6 h-6 text-sky-600" />
-                  <span>January 30 – February 1, 2026</span>
-                </div>
-                <div className="flex items-center space-x-2">
-                  <MapPin className="w-6 h-6 text-emerald-600" />
-                  <span>The Island Resort, Ft. Walton Beach, FL</span>
-                </div>
+            <div className="mb-6">
+              <div className="text-3xl md:text-4xl font-bold text-gray-700 mb-4">
+                👓✨ See Well. Be Well. Lead Well.
               </div>
             </div>
             
+            <h1 className="text-5xl md:text-7xl font-bold text-gray-900 mb-6 leading-tight">
+              A New <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-600 to-emerald-600">Rhythm</span>. 
+              <br />A New <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 to-amber-500">Cadence</span>.
+              <br /><span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-500 to-sky-600">Pause - Plan - Proceed™</span>
+            </h1>
+            
+            <div className="text-xl text-gray-600 mb-6 leading-relaxed max-w-3xl mx-auto">
+              <p className="mb-4 font-semibold">
+                We are here for the white coat. The clergy. The ones in uniform. The educators shaping minds and futures. The servant leaders carrying everyone else's weight.
+              </p>
+              <p className="mb-6">
+                At the Clear Vision Leadership Wellness Summit, we create space for leaders who give everything to others—but are ready to reclaim wholeness for themselves.
+              </p>
+              <p className="text-2xl font-bold text-gray-800">
+                This is your time to retreat. To reset. To rise whole.
+              </p>
+            </div>
+
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <button 
                 onClick={handleRegisterClick}
                 className="bg-gradient-to-r from-sky-600 to-emerald-600 text-white px-8 py-4 rounded-full text-lg font-semibold hover:from-sky-700 hover:to-emerald-700 transition-all duration-200 transform hover:scale-105 shadow-lg hover:shadow-xl flex items-center justify-center space-x-2"
               >
-                <span>Reserve Your Spot</span>
+                <span>Register Now</span>
                 <ArrowRight className="w-5 h-5" />
               </button>
               <button 
@@ -157,12 +158,12 @@ const HomePage: React.FC = () => {
               <div className="text-sm md:text-base opacity-90">Leaders Welcome</div>
             </div>
             <div className="space-y-2">
-              <div className="text-3xl md:text-4xl font-bold">6</div>
-              <div className="text-sm md:text-base opacity-90">Wellness Sessions</div>
+              <div className="text-3xl md:text-4xl font-bold">POD</div>
+              <div className="text-sm md:text-base opacity-90">Coaching Groups</div>
             </div>
             <div className="space-y-2">
-              <div className="text-3xl md:text-4xl font-bold">100%</div>
-              <div className="text-sm md:text-base opacity-90">Satisfaction Rate</div>
+              <div className="text-3xl md:text-4xl font-bold">👓✨</div>
+              <div className="text-sm md:text-base opacity-90">See. Be. Lead.</div>
             </div>
           </div>
         </div>
@@ -172,9 +173,9 @@ const HomePage: React.FC = () => {
       <section id="experience" className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">The Experience</h2>
+            <h2 className="text-4xl font-bold text-gray-900 mb-4">What to Expect</h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Tired of leadership events that leave you overwhelmed and exhausted? This summit is different.
+              A leadership retreat designed for wholeness, clarity, and renewal.
             </p>
           </div>
 
@@ -183,9 +184,9 @@ const HomePage: React.FC = () => {
               <div className="w-16 h-16 bg-sky-600 rounded-full flex items-center justify-center mx-auto mb-6">
                 <Heart className="w-8 h-8 text-white" />
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-4">Wellness + Strategy in One Space</h3>
+              <h3 className="text-xl font-bold text-gray-900 mb-4">Daily Mindfulness & Clarity Sessions</h3>
               <p className="text-gray-600">
-                Start your mornings with mindfulness sessions by the ocean. Spend your afternoons planning your next-level leadership moves.
+                Begin each day with intentional practices designed to center your mind and clarify your purpose as a leader.
               </p>
             </div>
 
@@ -193,9 +194,9 @@ const HomePage: React.FC = () => {
               <div className="w-16 h-16 bg-emerald-600 rounded-full flex items-center justify-center mx-auto mb-6">
                 <Users className="w-8 h-8 text-white" />
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-4">Connection + Community</h3>
+              <h3 className="text-xl font-bold text-gray-900 mb-4">Clear Vision POD Coaching Groups</h3>
               <p className="text-gray-600">
-                Join a circle of high-capacity leaders who understand the weight you carry—and the wholeness you crave.
+                Small group coaching sessions focused on Pause. Plan. Proceed. methodology with leaders who understand your journey.
               </p>
             </div>
 
@@ -203,37 +204,37 @@ const HomePage: React.FC = () => {
               <div className="w-16 h-16 bg-amber-600 rounded-full flex items-center justify-center mx-auto mb-6">
                 <Target className="w-8 h-8 text-white" />
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-4">Pause Before You Proceed</h3>
+              <h3 className="text-xl font-bold text-gray-900 mb-4">Inspiring Keynote Messages</h3>
               <p className="text-gray-600">
-                This isn't about cramming in content. It's about creating clarity, aligning priorities, and leaving with confidence.
+                Transformational speakers who will challenge, encourage, and equip you with tools to See Well. Be Well. Lead Well.
               </p>
             </div>
           </div>
 
-          {/* Daily Rhythm Preview */}
+          {/* Additional Benefits */}
           <div className="bg-gradient-to-br from-gray-50 to-sky-50 rounded-2xl p-8 mb-16">
-            <h3 className="text-2xl font-bold text-gray-900 text-center mb-8">Your Daily Rhythm</h3>
+            <h3 className="text-2xl font-bold text-gray-900 text-center mb-8">More Than Just Sessions</h3>
             <div className="grid md:grid-cols-3 gap-6">
               <div className="text-center">
                 <div className="w-12 h-12 bg-amber-500 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Sun className="w-6 h-6 text-white" />
+                  <Heart className="w-6 h-6 text-white" />
                 </div>
-                <h4 className="font-semibold text-gray-900 mb-2">Morning</h4>
-                <p className="text-gray-600 text-sm">Sunrise mindfulness & beach breathwork</p>
+                <h4 className="font-semibold text-gray-900 mb-2">Rest & Refresh</h4>
+                <p className="text-gray-600 text-sm">Space to rest, refresh, and reconnect with your purpose</p>
               </div>
               <div className="text-center">
                 <div className="w-12 h-12 bg-sky-500 rounded-full flex items-center justify-center mx-auto mb-4">
                   <Target className="w-6 h-6 text-white" />
                 </div>
-                <h4 className="font-semibold text-gray-900 mb-2">Afternoon</h4>
-                <p className="text-gray-600 text-sm">Strategic workshops & POD sessions</p>
+                <h4 className="font-semibold text-gray-900 mb-2">Practical Tools</h4>
+                <p className="text-gray-600 text-sm">Tools and strategies to See Well. Be Well. Lead Well.</p>
               </div>
               <div className="text-center">
                 <div className="w-12 h-12 bg-emerald-500 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Waves className="w-6 h-6 text-white" />
+                  <Users className="w-6 h-6 text-white" />
                 </div>
-                <h4 className="font-semibold text-gray-900 mb-2">Evening</h4>
-                <p className="text-gray-600 text-sm">Reflection time & community connection</p>
+                <h4 className="font-semibold text-gray-900 mb-2">Community</h4>
+                <p className="text-gray-600 text-sm">Connect with leaders who understand the weight you carry</p>
               </div>
             </div>
           </div>
@@ -241,92 +242,128 @@ const HomePage: React.FC = () => {
           <div className="text-center">
             <div className="inline-flex items-center space-x-2 bg-gradient-to-r from-sky-100 to-emerald-100 px-6 py-3 rounded-full">
               <MapPin className="w-5 h-5 text-sky-600" />
-              <span className="text-gray-800 font-medium">All of this happens in a stunning beachfront setting at The Island Resort, Ft. Walton Beach, Florida.</span>
+              <span className="text-gray-800 font-medium">Experience renewal in a stunning beachfront setting at The Island Resort, Ft. Walton Beach, Florida.</span>
             </div>
           </div>
         </div>
       </section>
 
-      {/* What to Expect Section */}
+      {/* Agenda Section */}
       <section className="py-20 bg-gradient-to-br from-gray-50 to-sky-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">What to Expect</h2>
+            <h2 className="text-4xl font-bold text-gray-900 mb-4">Agenda</h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              You'll experience a 3-day rhythm designed for transformation
+              A 3-day journey designed for servant leaders ready to retreat, reset, and rise whole
             </p>
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
-            {/* Day 1 */}
+            {/* Friday */}
             <div className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
               <div className="text-center mb-6">
                 <div className="w-12 h-12 bg-sky-600 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <span className="text-white font-bold text-xl">1</span>
+                  <span className="text-white font-bold text-lg">Fri</span>
                 </div>
                 <h3 className="text-2xl font-bold text-sky-600 mb-2">SEE WELL</h3>
-                <p className="text-gray-500 font-medium">Day 1 – Arrival & Alignment</p>
+                <p className="text-gray-500 font-medium">Friday – Gain Clarity</p>
               </div>
               <ul className="space-y-3 text-gray-700">
                 <li className="flex items-start space-x-3">
                   <CheckCircle className="w-5 h-5 text-sky-600 mt-0.5 flex-shrink-0" />
-                  <span>Arrive, unwind, and set your intentions in a serene atmosphere</span>
+                  <span>Morning Mindfulness & Opening Session</span>
                 </li>
                 <li className="flex items-start space-x-3">
                   <CheckCircle className="w-5 h-5 text-sky-600 mt-0.5 flex-shrink-0" />
-                  <span>Enjoy a welcome reception, light mindfulness practice, and clarity conversation</span>
+                  <span>Keynote Speaker (To Be Announced)</span>
+                </li>
+                <li className="flex items-start space-x-3">
+                  <CheckCircle className="w-5 h-5 text-sky-600 mt-0.5 flex-shrink-0" />
+                  <span>POD Sessions: Pause & Gain Clarity</span>
+                </li>
+                <li className="flex items-start space-x-3">
+                  <CheckCircle className="w-5 h-5 text-sky-600 mt-0.5 flex-shrink-0" />
+                  <span>Evening Networking & Reflection</span>
                 </li>
               </ul>
             </div>
 
-            {/* Day 2 */}
+            {/* Saturday */}
             <div className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
               <div className="text-center mb-6">
                 <div className="w-12 h-12 bg-emerald-600 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <span className="text-white font-bold text-xl">2</span>
+                  <span className="text-white font-bold text-lg">Sat</span>
                 </div>
                 <h3 className="text-2xl font-bold text-emerald-600 mb-2">BE WELL</h3>
-                <p className="text-gray-500 font-medium">Day 2 – Reset & Reflect</p>
+                <p className="text-gray-500 font-medium">Saturday – Restore Wholeness</p>
               </div>
               <ul className="space-y-3 text-gray-700">
                 <li className="flex items-start space-x-3">
                   <CheckCircle className="w-5 h-5 text-emerald-600 mt-0.5 flex-shrink-0" />
-                  <span>Start the day with sunrise mindfulness and beach breathwork</span>
+                  <span>Sunrise Wellness Activity</span>
                 </li>
                 <li className="flex items-start space-x-3">
                   <CheckCircle className="w-5 h-5 text-emerald-600 mt-0.5 flex-shrink-0" />
-                  <span>Engage in dynamic workshops on self-inspection, emotional wellness, and leadership alignment</span>
+                  <span>Keynote Speaker (To Be Announced)</span>
                 </li>
                 <li className="flex items-start space-x-3">
                   <CheckCircle className="w-5 h-5 text-emerald-600 mt-0.5 flex-shrink-0" />
-                  <span>Join your Pause + Plan PODs for intimate reflection and planning</span>
+                  <span>POD Sessions: Plan & Restore Wholeness</span>
+                </li>
+                <li className="flex items-start space-x-3">
+                  <CheckCircle className="w-5 h-5 text-emerald-600 mt-0.5 flex-shrink-0" />
+                  <span>Evening Wellness Experience</span>
                 </li>
               </ul>
             </div>
 
-            {/* Day 3 */}
+            {/* Sunday */}
             <div className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
               <div className="text-center mb-6">
                 <div className="w-12 h-12 bg-amber-600 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <span className="text-white font-bold text-xl">3</span>
+                  <span className="text-white font-bold text-lg">Sun</span>
                 </div>
                 <h3 className="text-2xl font-bold text-amber-600 mb-2">LEAD WELL</h3>
-                <p className="text-gray-500 font-medium">Day 3 – Proceed with Confidence</p>
+                <p className="text-gray-500 font-medium">Sunday – Proceed with Purpose</p>
               </div>
               <ul className="space-y-3 text-gray-700">
                 <li className="flex items-start space-x-3">
                   <CheckCircle className="w-5 h-5 text-amber-600 mt-0.5 flex-shrink-0" />
-                  <span>Create your vision map + actionable strategy for 2026</span>
+                  <span>Morning Mindfulness & Worship/Reflection</span>
                 </li>
                 <li className="flex items-start space-x-3">
                   <CheckCircle className="w-5 h-5 text-amber-600 mt-0.5 flex-shrink-0" />
-                  <span>Declare your P3 Leadership Commitment during our closing ceremony</span>
+                  <span>Keynote Speaker (To Be Announced)</span>
                 </li>
                 <li className="flex items-start space-x-3">
                   <CheckCircle className="w-5 h-5 text-amber-600 mt-0.5 flex-shrink-0" />
-                  <span>Leave with tools to lead with clarity and courage</span>
+                  <span>POD Sessions: Proceed with Purpose</span>
+                </li>
+                <li className="flex items-start space-x-3">
+                  <CheckCircle className="w-5 h-5 text-amber-600 mt-0.5 flex-shrink-0" />
+                  <span>Closing Celebration & Send-Off</span>
                 </li>
               </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Speakers Section */}
+      <section className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold text-gray-900 mb-4">Speakers & Faculty</h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-8">
+              Our lineup of keynote speakers, coaches, and facilitators will bring wisdom, wellness, and practical tools for leaders across professions.
+            </p>
+            
+            <div className="bg-gradient-to-r from-sky-50 to-emerald-50 border border-sky-200 rounded-xl p-8 max-w-2xl mx-auto">
+              <div className="text-6xl mb-4">🎯</div>
+              <h3 className="text-2xl font-bold text-gray-900 mb-3">(To Be Announced)</h3>
+              <p className="text-gray-700 text-lg">
+                Stay tuned—faculty will be revealed soon!
+              </p>
             </div>
           </div>
         </div>
@@ -375,22 +412,22 @@ const HomePage: React.FC = () => {
         </div>
       </section>
 
-      {/* What You'll Walk Away With */}
+      {/* Why Attend */}
       <section id="outcomes" className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">What You'll Walk Away With</h2>
-            <p className="text-xl text-gray-600">Tangible tools and lasting transformation</p>
+            <h2 className="text-4xl font-bold text-gray-900 mb-4">Why Attend</h2>
+            <p className="text-xl text-gray-600">Experience a leadership retreat designed for wholeness</p>
           </div>
 
           <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
             {[
-              "A Personal Clarity Statement",
-              "A Wholeness & Leadership Priority Map",
-              "A Vision Board + 2026 Action Plan",
-              "Practical tools from the P3 Method (Pause, Plan, Proceed)",
-              "Deep connections with like-minded leaders",
-              "A refreshed mind, body, and spirit"
+              "Gain clarity to move forward with confidence",
+              "Experience a leadership retreat designed for wholeness",
+              "Connect with leaders who understand the weight you carry",
+              "Leave refreshed, restored, and ready to lead with courage",
+              "Practical tools to See Well. Be Well. Lead Well.",
+              "Space to rest, refresh, and reconnect with your purpose"
             ].map((item, index) => (
               <div key={index} className="flex items-center space-x-4 p-4 rounded-lg hover:bg-gray-50 transition-colors">
                 <div className="w-8 h-8 bg-gradient-to-r from-sky-500 to-emerald-500 rounded-full flex items-center justify-center flex-shrink-0">
@@ -401,15 +438,6 @@ const HomePage: React.FC = () => {
             ))}
           </div>
 
-          <div className="text-center mt-12">
-            <div className="bg-gradient-to-r from-amber-50 to-amber-100 border border-amber-200 rounded-xl p-6 max-w-2xl mx-auto">
-              <div className="flex items-center justify-center space-x-2 mb-3">
-                <Award className="w-6 h-6 text-amber-600" />
-                <h3 className="text-xl font-bold text-gray-900">Bonus: 90-Day Follow-Up</h3>
-              </div>
-              <p className="text-gray-700">Receive a complimentary check-in session to ensure your momentum continues long after the summit ends.</p>
-            </div>
-          </div>
         </div>
       </section>
 
@@ -429,8 +457,8 @@ const HomePage: React.FC = () => {
                       <Calendar className="w-6 h-6 text-white" />
                     </div>
                     <div>
-                      <h3 className="text-xl font-bold text-gray-900">Thursday, January 30</h3>
-                      <p className="text-gray-600">Arrival & Welcome Reception</p>
+                      <h3 className="text-xl font-bold text-gray-900">Friday, January 31</h3>
+                      <p className="text-gray-600">See Well - Gain Clarity</p>
                     </div>
                   </div>
                 </div>
@@ -441,8 +469,8 @@ const HomePage: React.FC = () => {
                       <Heart className="w-6 h-6 text-white" />
                     </div>
                     <div>
-                      <h3 className="text-xl font-bold text-gray-900">Friday, January 31</h3>
-                      <p className="text-gray-600">Wellness + Strategy Workshops, POD Sessions</p>
+                      <h3 className="text-xl font-bold text-gray-900">Saturday, February 1</h3>
+                      <p className="text-gray-600">Be Well - Restore Wholeness</p>
                     </div>
                   </div>
                 </div>
@@ -453,8 +481,8 @@ const HomePage: React.FC = () => {
                       <Target className="w-6 h-6 text-white" />
                     </div>
                     <div>
-                      <h3 className="text-xl font-bold text-gray-900">Saturday, February 1</h3>
-                      <p className="text-gray-600">Vision Mapping, POD Sessions, Closing Ceremony</p>
+                      <h3 className="text-xl font-bold text-gray-900">Sunday, February 2</h3>
+                      <p className="text-gray-600">Lead Well - Proceed with Purpose</p>
                     </div>
                   </div>
                 </div>
@@ -487,9 +515,24 @@ const HomePage: React.FC = () => {
           <div className="max-w-4xl mx-auto">
             <div className="grid md:grid-cols-3 gap-8 mb-12">
               {[
-                "Leaders who feel the weight of constant decision-making",
-                "Professionals craving space to think, breathe, and plan",
-                "Change-makers ready to lead with clarity and confidence"
+                "Healthcare professionals in white coats carrying healing burdens",
+                "Clergy and spiritual leaders shepherding communities",
+                "Educators shaping minds and futures of the next generation"
+              ].map((item, index) => (
+                <div key={index} className="text-center p-6 rounded-xl bg-gradient-to-br from-gray-50 to-sky-50 hover:from-sky-50 hover:to-emerald-50 transition-all duration-300">
+                  <div className="w-12 h-12 bg-gradient-to-r from-sky-500 to-emerald-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <CheckCircle className="w-6 h-6 text-white" />
+                  </div>
+                  <p className="text-gray-700 font-medium">{item}</p>
+                </div>
+              ))}
+            </div>
+            
+            <div className="grid md:grid-cols-3 gap-8 mb-12">
+              {[
+                "Those in uniform serving and protecting communities",
+                "Servant leaders carrying everyone else's weight",
+                "Any leader ready to reclaim wholeness for themselves"
               ].map((item, index) => (
                 <div key={index} className="text-center p-6 rounded-xl bg-gradient-to-br from-gray-50 to-sky-50 hover:from-sky-50 hover:to-emerald-50 transition-all duration-300">
                   <div className="w-12 h-12 bg-gradient-to-r from-sky-500 to-emerald-500 rounded-full flex items-center justify-center mx-auto mb-4">
@@ -501,8 +544,8 @@ const HomePage: React.FC = () => {
             </div>
 
             <div className="text-center">
-              <p className="text-xl text-gray-600 font-medium bg-gradient-to-r from-sky-50 to-emerald-50 px-8 py-4 rounded-xl inline-block">
-                If you've been running on empty, this experience is your reset button.
+              <p className="text-2xl text-gray-800 font-bold bg-gradient-to-r from-sky-50 to-emerald-50 px-8 py-6 rounded-xl inline-block border border-sky-200">
+                👓✨ Leaders, it's time for a new rhythm. A new cadence.
               </p>
             </div>
           </div>
@@ -513,8 +556,11 @@ const HomePage: React.FC = () => {
       <section id="register" className="py-20 bg-gradient-to-br from-sky-600 to-emerald-600">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center text-white mb-16">
-            <h2 className="text-4xl font-bold mb-4">Reserve Your Spot Today</h2>
-            <p className="text-xl opacity-90 mb-8">Join leaders from around the world for this transformative experience.</p>
+            <h2 className="text-4xl font-bold mb-4">Leaders, It's Time.</h2>
+            <p className="text-xl opacity-90 mb-4">Time for a new rhythm. Time for a new cadence.</p>
+            <p className="text-2xl font-bold mb-8">Time to retreat, reset, and rise whole.</p>
+            <div className="text-3xl mb-6">👓✨</div>
+            <p className="text-xl opacity-90">Join us at the Clear Vision Leadership Wellness Summit.</p>
           </div>
 
           <div className="max-w-4xl mx-auto">
@@ -577,11 +623,11 @@ const HomePage: React.FC = () => {
                 <div className="text-center mt-8 pt-6 border-t border-gray-200">
                   <p className="text-gray-600 text-sm mb-4">Questions? We're here to help.</p>
                   <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                    <a href="mailto:info@clearvisionleadership.com" className="text-sky-600 hover:text-sky-700 font-medium">
-                      📧 info@clearvisionleadership.com
+                    <a href="mailto:ClearvisionConference@gmail.com" className="text-sky-600 hover:text-sky-700 font-medium">
+                      📧 ClearvisionConference@gmail.com
                     </a>
-                    <a href="tel:+1234567890" className="text-sky-600 hover:text-sky-700 font-medium">
-                      📞 (123) 456-7890
+                    <a href="tel:+18504993261" className="text-sky-600 hover:text-sky-700 font-medium">
+                      📞 (850) 499-3261
                     </a>
                   </div>
                 </div>
