@@ -1,11 +1,5 @@
-import React, { useState } from "react";
-import {
-  Routes,
-  Route,
-  Link,
-  useNavigate,
-  useLocation,
-} from "react-router-dom";
+import React, { useMemo, useState, useEffect } from "react";
+import { Routes, Route, useNavigate } from "react-router-dom";
 import {
   Calendar,
   MapPin,
@@ -15,14 +9,7 @@ import {
   Star,
   CheckCircle,
   ArrowRight,
-  Menu,
-  X,
   Clock,
-  Award,
-  Waves,
-  Sun,
-  Coffee,
-  UserCheck,
 } from "lucide-react";
 import RegisterPage from "./components/RegisterPage";
 import CoachRegistration from "./components/CoachRegistration";
@@ -33,33 +20,62 @@ const HomePage: React.FC = () => {
   const navigate = useNavigate();
   const [activeTestimonial, setActiveTestimonial] = useState(0);
 
-  const testimonials = [
-    {
-      quote:
-        "This summit completely transformed how I approach leadership. The combination of wellness and strategy was exactly what I needed.",
-      author: "Sarah Chen",
-      title: "CEO, TechForward",
-    },
-    {
-      quote:
-        "I left with clarity I hadn't felt in years. The P3 Method has become my go-to framework for decision-making.",
-      author: "Marcus Rodriguez",
-      title: "VP Operations, Global Dynamics",
-    },
-    {
-      quote:
-        "The beachfront setting and mindful approach made this unlike any leadership event I've attended. Truly transformative.",
-      author: "Dr. Amanda Foster",
-      title: "Director, Innovation Labs",
-    },
-  ];
+  // ---- Event dates (single source of truth) ----
+  // Use numeric Date constructor to avoid UTC parsing issues.
+  const EVENT = {
+    start: new Date(2026, 0, 30), // Fri, Jan 30, 2026
+    mid: new Date(2026, 0, 31), // Sat, Jan 31, 2026
+    end: new Date(2026, 1, 1), // Sun, Feb 1, 2026
+    city: "Ft. Walton Beach, FL",
+  };
 
-  React.useEffect(() => {
+  // Basic formatters
+  const md = (d: Date) =>
+    d.toLocaleString("en-US", { month: "short", day: "numeric" }); // "Jan 30"
+  const wd = (d: Date) => d.toLocaleString("en-US", { weekday: "long" }); // "Friday"
+
+  // Display strings
+  const rangeAbbr = `${md(EVENT.start)} – ${md(
+    EVENT.end
+  )}, ${EVENT.end.getFullYear()}`;
+  const day1Label = `${wd(EVENT.start)} ${md(EVENT.start)}`; // Friday Jan 30
+  const day2Label = `${wd(EVENT.mid)} ${md(EVENT.mid)}`; // Saturday Jan 31
+  const day3Label = `${wd(EVENT.end)} ${md(EVENT.end)}`; // Sunday Feb 1
+
+  const heroDateRange = `${rangeAbbr} • ${EVENT.city}`;
+  const rangeShort = rangeAbbr;
+
+  // ---- Testimonials ----
+  const testimonials = useMemo(
+    () => [
+      {
+        quote:
+          "This summit completely transformed how I approach leadership. The combination of wellness and strategy was exactly what I needed.",
+        author: "Sarah Chen",
+        title: "CEO, TechForward",
+      },
+      {
+        quote:
+          "I left with clarity I hadn't felt in years. The P3 Method has become my go-to framework for decision-making.",
+        author: "Marcus Rodriguez",
+        title: "VP Operations, Global Dynamics",
+      },
+      {
+        quote:
+          "The beachfront setting and mindful approach made this unlike any leadership event I've attended. Truly transformative.",
+        author: "Dr. Amanda Foster",
+        title: "Director, Innovation Labs",
+      },
+    ],
+    []
+  );
+
+  useEffect(() => {
     const interval = setInterval(() => {
       setActiveTestimonial((prev) => (prev + 1) % testimonials.length);
     }, 5000);
     return () => clearInterval(interval);
-  }, []);
+  }, [testimonials.length]);
 
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
@@ -68,10 +84,7 @@ const HomePage: React.FC = () => {
 
   const handleRegisterClick = () => {
     navigate("/register");
-    // Scroll to top after navigation
-    setTimeout(() => {
-      window.scrollTo(0, 0);
-    }, 100);
+    setTimeout(() => window.scrollTo(0, 0), 100);
   };
 
   return (
@@ -82,11 +95,13 @@ const HomePage: React.FC = () => {
           <div className="py-3">
             {/* Top line - Logo and Title */}
             <div className="flex items-center justify-between mb-2 text-white">
-              <img
-                src="/cv logo .png"
-                alt="Clear Vision Summit Logo"
-                className="h-24 w-auto object-contain"
-              />
+              <a href="https://clearvisionleader.com">
+                <img
+                  src="/cv logo .png"
+                  alt="Clear Vision Summit Logo"
+                  className="h-24 w-auto object-contain cursor-pointer hover:opacity-90 transition-opacity"
+                />
+              </a>
               <span className="font-bold text-2xl md:text-3xl absolute left-1/2 transform -translate-x-1/2 whitespace-nowrap">
                 Clear Vision Summit 2026
               </span>
@@ -146,7 +161,7 @@ const HomePage: React.FC = () => {
           <div className="text-center max-w-4xl mx-auto">
             <div className="mb-6">
               <span className="inline-block bg-sky-100 text-sky-800 px-6 py-3 rounded-full text-lg font-bold mb-6">
-                January 31 – February 2, 2026 • Ft. Walton Beach, FL
+                {heroDateRange}
               </span>
               <div className="flex justify-center items-center space-x-4 mt-4">
                 <button
@@ -371,7 +386,7 @@ const HomePage: React.FC = () => {
             {/* Friday */}
             <div className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
               <div className="text-center mb-6">
-                <div className="w-12 h-12 bg-sky-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                <div className="w-12 h-12 bg-sky-600 rounded-full flex itemscenter justify-center mx-auto mb-4">
                   <span className="text-white font-bold text-lg">Fri</span>
                 </div>
                 <h3 className="text-2xl font-bold text-sky-600 mb-2">
@@ -610,7 +625,7 @@ const HomePage: React.FC = () => {
                     </div>
                     <div>
                       <h3 className="text-xl font-bold text-gray-900">
-                        Friday, January 31
+                        {day1Label}
                       </h3>
                       <p className="text-gray-600">See Well - Gain Clarity</p>
                     </div>
@@ -624,7 +639,7 @@ const HomePage: React.FC = () => {
                     </div>
                     <div>
                       <h3 className="text-xl font-bold text-gray-900">
-                        Saturday, February 1
+                        {day2Label}
                       </h3>
                       <p className="text-gray-600">
                         Be Well - Restore Wholeness
@@ -640,7 +655,7 @@ const HomePage: React.FC = () => {
                     </div>
                     <div>
                       <h3 className="text-xl font-bold text-gray-900">
-                        Sunday, February 2
+                        {day3Label}
                       </h3>
                       <p className="text-gray-600">
                         Lead Well - Proceed with Purpose
@@ -659,7 +674,7 @@ const HomePage: React.FC = () => {
                 </div>
                 <div className="flex items-center space-x-2">
                   <Calendar className="w-5 h-5 text-emerald-600" />
-                  <span>January 31 – February 2, 2026</span>
+                  <span>{rangeShort}</span>
                 </div>
               </div>
             </div>
@@ -752,7 +767,7 @@ const HomePage: React.FC = () => {
                   <div className="flex flex-col sm:flex-row gap-4 justify-center items-center text-gray-600 mb-6">
                     <div className="flex items-center space-x-2">
                       <Calendar className="w-5 h-5 text-sky-600" />
-                      <span>January 31 – February 2, 2026</span>
+                      <span>{rangeShort}</span>
                     </div>
                     <div className="flex items-center space-x-2">
                       <MapPin className="w-5 h-5 text-emerald-600" />
@@ -851,17 +866,22 @@ const HomePage: React.FC = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <div className="flex items-center justify-center space-x-2 mb-4">
-              <img
-                src="/cv logo .png"
-                alt="Clear Vision Summit Logo"
-                className="h-10 w-auto object-contain"
-              />
-              <span className="font-bold text-xl">
+              <a href="https://clearvisionleader.com">
+                <img
+                  src="/cv logo .png"
+                  alt="Clear Vision Summit Logo"
+                  className="h-10 w-auto object-contain cursor-pointer hover:opacity-90 transition-opacity"
+                />
+              </a>
+              <a
+                href="https://clearvisionleader.com"
+                className="font-bold text-xl hover:opacity-90 transition-opacity"
+              >
                 Clear Vision Leadership Wellness Summit
-              </span>
+              </a>
             </div>
             <p className="text-gray-400 mb-8">
-              January 31 – February 2, 2026 • Ft. Walton Beach, Florida
+              {rangeShort} • Ft. Walton Beach, Florida
             </p>
 
             <div className="grid md:grid-cols-3 gap-8 mb-8">
