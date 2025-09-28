@@ -430,18 +430,19 @@ const AttendeeRegistration: React.FC = () => {
               </div>
 
               {/* Submit Button */}
-              <div className="text-center pt-6">
-                <button
-                  type="submit"
-                  onClick={() => window.open('https://clearvisionleader.com/?gf_page=preview&id=6', '_blank')}
-                  className="bg-gradient-to-r from-sky-600 to-blue-600 text-white px-12 py-4 rounded-full text-lg font-semibold hover:from-sky-700 hover:to-blue-700 transition-all duration-200 transform hover:scale-105 shadow-lg hover:shadow-xl cursor-pointer"
-                >
-                  Complete Attendee Registration
-                </button>
-                <p className="text-gray-600 mt-4 text-sm">
-                  You'll receive a confirmation email with payment details and next steps.
-                </p>
-              </div>
+<div className="text-center pt-6">
+  <button
+    type="button"
+    onClick={() => window.open('https://clearvisionleader.com/2026-clearvision-leadership-wellness-summit/', '_blank')}
+    className="bg-gradient-to-r from-sky-600 to-blue-600 text-white px-12 py-4 rounded-full text-lg font-semibold hover:from-sky-700 hover:to-blue-700 transition-all duration-200 transform hover:scale-105 shadow-lg hover:shadow-xl cursor-pointer"
+  >
+    Complete Attendee Registration
+  </button>
+  <p className="text-gray-600 mt-4 text-sm">
+    You'll receive a confirmation email with payment details and next steps.
+  </p>
+</div>
+
             </form>
           </div>
         </div>
