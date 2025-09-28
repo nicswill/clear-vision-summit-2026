@@ -411,19 +411,20 @@ const SpeakerRegistration: React.FC = () => {
                 </div>
               </div>
 
-              {/* Submit Button */}
-              <div className="text-center pt-6">
-                <button
-                  type="submit"
-                  onClick={() => window.open('https://clearvisionleader.com/?gf_page=preview&id=1', '_blank')}
-                  className="bg-gradient-to-r from-amber-600 to-orange-600 text-white px-12 py-4 rounded-full text-lg font-semibold hover:from-amber-700 hover:to-orange-700 transition-all duration-200 transform hover:scale-105 shadow-lg hover:shadow-xl cursor-pointer"
-                >
-                  Complete Speaker Registration
-                </button>
-                <p className="text-gray-600 mt-4 text-sm">
-                  We'll review your application and contact you within 48 hours.
-                </p>
-              </div>
+             {/* Submit Button */}
+<div className="text-center pt-6">
+  <button
+    type="button"
+    onClick={() => window.open('https://clearvisionleader.com/2025-speakers/', '_blank')}
+    className="bg-gradient-to-r from-amber-600 to-orange-600 text-white px-12 py-4 rounded-full text-lg font-semibold hover:from-amber-700 hover:to-orange-700 transition-all duration-200 transform hover:scale-105 shadow-lg hover:shadow-xl cursor-pointer"
+  >
+    Complete Speaker Registration
+  </button>
+  <p className="text-gray-600 mt-4 text-sm">
+    We'll review your application and contact you within 48 hours.
+  </p>
+</div>
+
             </form>
           </div>
         </div>
