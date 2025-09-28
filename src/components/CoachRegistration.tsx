@@ -321,19 +321,20 @@ const CoachRegistration: React.FC = () => {
               </div>
 
               {/* Submit Button */}
-              <div className="text-center pt-6">
-                <a
-                  href="https://clearvisionleader.com/?gf_page=preview&id=5"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center space-x-2 bg-gradient-to-r from-emerald-600 to-teal-600 text-white px-12 py-4 rounded-full text-lg font-semibold hover:from-emerald-700 hover:to-teal-700 transition-all duration-200 transform hover:scale-105 shadow-lg hover:shadow-xl"
-                >
-                  <span>Complete Registration</span>
-                </a>
-                <p className="text-gray-600 mt-4 text-sm">
-                  We'll review your application and contact you within 48 hours.
-                </p>
-              </div>
+<div className="text-center pt-6">
+  <a
+    href="https://clearvisionleader.com/2025-coaches/"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="inline-flex items-center space-x-2 bg-gradient-to-r from-emerald-600 to-teal-600 text-white px-12 py-4 rounded-full text-lg font-semibold hover:from-emerald-700 hover:to-teal-700 transition-all duration-200 transform hover:scale-105 shadow-lg hover:shadow-xl"
+  >
+    <span>Complete Registration</span>
+  </a>
+  <p className="text-gray-600 mt-4 text-sm">
+    We'll review your application and contact you within 48 hours.
+  </p>
+</div>
+
             </form>
           </div>
         </div>
