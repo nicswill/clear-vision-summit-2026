@@ -45,7 +45,6 @@ const CoachRegistration: React.FC = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission here
     console.log("Coach registration submitted:", formData);
     alert("Thank you for your coach registration! We will contact you soon.");
   };
@@ -179,7 +178,7 @@ const CoachRegistration: React.FC = () => {
                     />
                   </div>
                   <div>
-                    <label className="block text sm font-medium text-gray-700 mb-2">
+                    <label className="block text-sm font-medium text-gray-700 mb-2">
                       Email Address *
                     </label>
                     <input
@@ -383,22 +382,6 @@ const CoachRegistration: React.FC = () => {
               </div>
 
               {/* Submit Button */}
-<<<<<<< HEAD
-<div className="text-center pt-6">
-  <a
-    href="https://clearvisionleader.com/2025-coaches/"
-    target="_blank"
-    rel="noopener noreferrer"
-    className="inline-flex items-center space-x-2 bg-gradient-to-r from-emerald-600 to-teal-600 text-white px-12 py-4 rounded-full text-lg font-semibold hover:from-emerald-700 hover:to-teal-700 transition-all duration-200 transform hover:scale-105 shadow-lg hover:shadow-xl"
-  >
-    <span>Complete Registration</span>
-  </a>
-  <p className="text-gray-600 mt-4 text-sm">
-    We'll review your application and contact you within 48 hours.
-  </p>
-</div>
-
-=======
               <div className="text-center pt-6">
                 <a
                   href="https://clearvisionleader.com/2025-coaches/"
