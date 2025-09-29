@@ -1,45 +1,61 @@
-import React, { useState } from 'react';
-import { ArrowLeft, Mic, CheckCircle, User, Mail, Phone, Building, FileText, Video } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import React, { useState } from "react";
+import {
+  ArrowLeft,
+  Mic,
+  CheckCircle,
+  User,
+  Mail,
+  Phone,
+  Building,
+  FileText,
+  Video,
+} from "lucide-react";
+import { Link } from "react-router-dom";
 
 const SpeakerRegistration: React.FC = () => {
   const [formData, setFormData] = useState({
-    firstName: '',
-    lastName: '',
-    email: '',
-    phone: '',
-    organization: '',
-    title: '',
-    city: '',
-    state: '',
-    website: '',
-    speakingExperience: '',
-    topicProposal: '',
-    audienceSize: '',
-    speakingStyle: '',
-    techRequirements: '',
-    bio: '',
-    headshot: '',
-    socialMedia: '',
-    previousEvents: '',
-    dietaryRestrictions: '',
-    emergencyContact: '',
-    emergencyPhone: ''
+    firstName: "",
+    lastName: "",
+    email: "",
+    phone: "",
+    organization: "",
+    title: "",
+    city: "",
+    state: "",
+    website: "",
+    speakingExperience: "",
+    topicProposal: "",
+    audienceSize: "",
+    speakingStyle: "",
+    techRequirements: "",
+    bio: "",
+    headshot: "",
+    socialMedia: "",
+    previousEvents: "",
+    dietaryRestrictions: "",
+    emergencyContact: "",
+    emergencyPhone: "",
   });
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+  const handleInputChange = (
+    e: React.ChangeEvent<
+      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
+    >
+  ) => {
     const { name, value } = e.target;
-    setFormData(prev => ({
+    setFormData((prev) => ({
       ...prev,
-      [name]: value
+      [name]: value,
     }));
   };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     // Handle form submission here
-    console.log('Speaker registration submitted:', formData);
-    alert('Thank you for your speaker application! We will review and contact you soon.');
+    console.log("Speaker registration submitted:", formData);
+    alert(
+      "Thank you for your speaker application! We will review and contact you soon."
+    );
   };
 
   return (
@@ -49,14 +65,20 @@ const SpeakerRegistration: React.FC = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="py-3">
             <div className="flex items-center justify-between mb-2 text-white">
-              <img src="/cv logo .png" alt="Clear Vision Summit Logo" className="h-24 w-auto object-contain" />
-              <span className="font-bold text-2xl md:text-3xl absolute left-1/2 transform -translate-x-1/2 whitespace-nowrap">Clear Vision Summit 2026</span>
+              <img
+                src="/cv logo .png"
+                alt="Clear Vision Summit Logo"
+                className="h-24 w-auto object-contain"
+              />
+              <span className="font-bold text-2xl md:text-3xl absolute left-1/2 transform -translate-x-1/2 whitespace-nowrap">
+                Clear Vision Summit 2026
+              </span>
               <div></div>
             </div>
-            
+
             <div className="flex items-center justify-center">
-              <Link 
-                to="/register" 
+              <Link
+                to="/register"
                 className="flex items-center space-x-2 text-white/90 hover:text-white transition-colors font-medium"
               >
                 <ArrowLeft className="w-5 h-5" />
@@ -70,27 +92,36 @@ const SpeakerRegistration: React.FC = () => {
       {/* Hero Section */}
       <section className="relative pt-40 pb-12 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-amber-50 to-orange-50"></div>
-        
+
         <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <div className="w-20 h-20 bg-gradient-to-r from-amber-500 to-orange-500 rounded-full flex items-center justify-center mx-auto mb-6">
               <Mic className="w-10 h-10 text-white" />
             </div>
-            
+
             <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4 leading-tight">
-              Speaker <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-600 to-orange-600">Registration</span>
+              Speaker{" "}
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-600 to-orange-600">
+                Registration
+              </span>
             </h1>
-            
+
             <p className="text-xl text-gray-600 mb-6 leading-relaxed max-w-2xl mx-auto">
-              Share your expertise and inspire fellow leaders at the Clear Vision Leadership Wellness Summit. Join our lineup of transformational speakers.
+              Share your expertise and inspire fellow leaders at the Clear
+              Vision Leadership Wellness Summit. Join our lineup of
+              transformational speakers.
             </p>
 
             <div className="bg-gradient-to-r from-amber-50 to-orange-50 border border-amber-200 rounded-xl p-6 mb-8">
-              <h3 className="text-lg font-bold text-amber-800 mb-3">What's Included as a Speaker:</h3>
+              <h3 className="text-lg font-bold text-amber-800 mb-3">
+                What's Included as a Speaker:
+              </h3>
               <div className="grid md:grid-cols-2 gap-3 text-amber-700">
                 <div className="flex items-center space-x-2">
                   <CheckCircle className="w-4 h-4 flex-shrink-0" />
-                  <span className="text-sm">Speaking opportunity at the summit</span>
+                  <span className="text-sm">
+                    Speaking opportunity at the summit
+                  </span>
                 </div>
                 <div className="flex items-center space-x-2">
                   <CheckCircle className="w-4 h-4 flex-shrink-0" />
@@ -102,7 +133,9 @@ const SpeakerRegistration: React.FC = () => {
                 </div>
                 <div className="flex items-center space-x-2">
                   <CheckCircle className="w-4 h-4 flex-shrink-0" />
-                  <span className="text-sm">Professional headshots and bio inclusion</span>
+                  <span className="text-sm">
+                    Professional headshots and bio inclusion
+                  </span>
                 </div>
                 <div className="flex items-center space-x-2">
                   <CheckCircle className="w-4 h-4 flex-shrink-0" />
@@ -127,7 +160,9 @@ const SpeakerRegistration: React.FC = () => {
                 </h3>
                 <div className="grid md:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">First Name *</label>
+                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                      First Name *
+                    </label>
                     <input
                       type="text"
                       name="firstName"
@@ -138,7 +173,9 @@ const SpeakerRegistration: React.FC = () => {
                     />
                   </div>
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">Last Name *</label>
+                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                      Last Name *
+                    </label>
                     <input
                       type="text"
                       name="lastName"
@@ -149,7 +186,9 @@ const SpeakerRegistration: React.FC = () => {
                     />
                   </div>
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">Email Address *</label>
+                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                      Email Address *
+                    </label>
                     <input
                       type="email"
                       name="email"
@@ -160,7 +199,9 @@ const SpeakerRegistration: React.FC = () => {
                     />
                   </div>
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">Phone Number *</label>
+                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                      Phone Number *
+                    </label>
                     <input
                       type="tel"
                       name="phone"
@@ -181,7 +222,9 @@ const SpeakerRegistration: React.FC = () => {
                 </h3>
                 <div className="grid md:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">Organization/Company</label>
+                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                      Organization/Company
+                    </label>
                     <input
                       type="text"
                       name="organization"
@@ -191,7 +234,9 @@ const SpeakerRegistration: React.FC = () => {
                     />
                   </div>
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">Job Title</label>
+                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                      Job Title
+                    </label>
                     <input
                       type="text"
                       name="title"
@@ -201,7 +246,9 @@ const SpeakerRegistration: React.FC = () => {
                     />
                   </div>
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">City</label>
+                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                      City
+                    </label>
                     <input
                       type="text"
                       name="city"
@@ -211,7 +258,9 @@ const SpeakerRegistration: React.FC = () => {
                     />
                   </div>
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">State</label>
+                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                      State
+                    </label>
                     <input
                       type="text"
                       name="state"
@@ -221,7 +270,9 @@ const SpeakerRegistration: React.FC = () => {
                     />
                   </div>
                   <div className="md:col-span-2">
-                    <label className="block text-sm font-medium text-gray-700 mb-2">Website/LinkedIn Profile</label>
+                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                      Website/LinkedIn Profile
+                    </label>
                     <input
                       type="url"
                       name="website"
@@ -242,7 +293,9 @@ const SpeakerRegistration: React.FC = () => {
                 </h3>
                 <div className="space-y-4">
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">Speaking Experience Level *</label>
+                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                      Speaking Experience Level *
+                    </label>
                     <select
                       name="speakingExperience"
                       required
@@ -251,14 +304,24 @@ const SpeakerRegistration: React.FC = () => {
                       className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-amber-500"
                     >
                       <option value="">Select experience level</option>
-                      <option value="beginner">Beginner (0-5 speaking engagements)</option>
-                      <option value="intermediate">Intermediate (6-20 speaking engagements)</option>
-                      <option value="experienced">Experienced (21-50 speaking engagements)</option>
-                      <option value="expert">Expert (50+ speaking engagements)</option>
+                      <option value="beginner">
+                        Beginner (0-5 speaking engagements)
+                      </option>
+                      <option value="intermediate">
+                        Intermediate (6-20 speaking engagements)
+                      </option>
+                      <option value="experienced">
+                        Experienced (21-50 speaking engagements)
+                      </option>
+                      <option value="expert">
+                        Expert (50+ speaking engagements)
+                      </option>
                     </select>
                   </div>
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">Proposed Topic/Presentation Title *</label>
+                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                      Proposed Topic/Presentation Title *
+                    </label>
                     <input
                       type="text"
                       name="topicProposal"
@@ -270,7 +333,9 @@ const SpeakerRegistration: React.FC = () => {
                     />
                   </div>
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">Largest Audience You've Spoken To</label>
+                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                      Largest Audience You've Spoken To
+                    </label>
                     <select
                       name="audienceSize"
                       value={formData.audienceSize}
@@ -285,7 +350,9 @@ const SpeakerRegistration: React.FC = () => {
                     </select>
                   </div>
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">Speaking Style/Format Preference</label>
+                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                      Speaking Style/Format Preference
+                    </label>
                     <select
                       name="speakingStyle"
                       value={formData.speakingStyle}
@@ -300,7 +367,9 @@ const SpeakerRegistration: React.FC = () => {
                     </select>
                   </div>
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">Technical Requirements</label>
+                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                      Technical Requirements
+                    </label>
                     <textarea
                       name="techRequirements"
                       rows={3}
@@ -321,7 +390,9 @@ const SpeakerRegistration: React.FC = () => {
                 </h3>
                 <div className="space-y-4">
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">Professional Bio (150-200 words) *</label>
+                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                      Professional Bio (150-200 words) *
+                    </label>
                     <textarea
                       name="bio"
                       rows={5}
@@ -333,7 +404,9 @@ const SpeakerRegistration: React.FC = () => {
                     />
                   </div>
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">Professional Headshot URL</label>
+                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                      Professional Headshot URL
+                    </label>
                     <input
                       type="url"
                       name="headshot"
@@ -344,7 +417,9 @@ const SpeakerRegistration: React.FC = () => {
                     />
                   </div>
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">Social Media Handles</label>
+                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                      Social Media Handles
+                    </label>
                     <input
                       type="text"
                       name="socialMedia"
@@ -355,7 +430,9 @@ const SpeakerRegistration: React.FC = () => {
                     />
                   </div>
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">Previous Speaking Events</label>
+                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                      Previous Speaking Events
+                    </label>
                     <textarea
                       name="previousEvents"
                       rows={3}
@@ -376,7 +453,9 @@ const SpeakerRegistration: React.FC = () => {
                 </h3>
                 <div className="space-y-4">
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">Dietary Restrictions/Allergies</label>
+                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                      Dietary Restrictions/Allergies
+                    </label>
                     <input
                       type="text"
                       name="dietaryRestrictions"
@@ -388,7 +467,9 @@ const SpeakerRegistration: React.FC = () => {
                   </div>
                   <div className="grid md:grid-cols-2 gap-4">
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">Emergency Contact Name</label>
+                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                        Emergency Contact Name
+                      </label>
                       <input
                         type="text"
                         name="emergencyContact"
@@ -398,7 +479,9 @@ const SpeakerRegistration: React.FC = () => {
                       />
                     </div>
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">Emergency Contact Phone</label>
+                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                        Emergency Contact Phone
+                      </label>
                       <input
                         type="tel"
                         name="emergencyPhone"
@@ -411,6 +494,7 @@ const SpeakerRegistration: React.FC = () => {
                 </div>
               </div>
 
+<<<<<<< HEAD
              {/* Submit Button */}
 <div className="text-center pt-6">
   <button
@@ -425,6 +509,25 @@ const SpeakerRegistration: React.FC = () => {
   </p>
 </div>
 
+=======
+              {/* Submit Button */}
+              <div className="text-center pt-6">
+                <button
+                  type="button"
+                  onClick={() =>
+                    window.open(
+                      "https://clearvisionleader.com/2025-speakers/",
+                      "_blank"
+                    )
+                  }
+                  className="bg-gradient-to-r from-amber-600 to-orange-600 text-white px-12 py-4 rounded-full text-lg font-semibold hover:from-amber-700 hover:to-orange-700 transition-all duration-200 transform hover:scale-105 shadow-lg hover:shadow-xl cursor-pointer"
+                >
+                  Complete Speaker Registration
+                </button>
+                <p className="text-gray-600 mt-4 text-sm">
+                  We'll review your application and contact you within 48 hours.
+                </p>
+              </div>
             </form>
           </div>
         </div>
@@ -435,13 +538,24 @@ const SpeakerRegistration: React.FC = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <div className="flex items-center justify-center space-x-2 mb-4">
-              <img src="/cv logo .png" alt="Clear Vision Summit Logo" className="h-10 w-auto object-contain" />
-              <span className="font-bold text-xl">Clear Vision Leadership Wellness Summit</span>
+              <img
+                src="/cv logo .png"
+                alt="Clear Vision Summit Logo"
+                className="h-10 w-auto object-contain"
+              />
+              <span className="font-bold text-xl">
+                Clear Vision Leadership Wellness Summit
+              </span>
             </div>
-            <p className="text-gray-400 mb-8">January 30 – February 1, 2026 • Ft. Walton Beach, Florida</p>
-            
+            <p className="text-gray-400 mb-8">
+              January 30 – February 1, 2026 • Ft. Walton Beach, Florida
+            </p>
+
             <div className="border-t border-gray-800 pt-8">
-              <p className="text-gray-500">&copy; 2026 Clear Vision Leadership Wellness Summit. All rights reserved.</p>
+              <p className="text-gray-500">
+                &copy; 2026 Clear Vision Leadership Wellness Summit. All rights
+                reserved.
+              </p>
             </div>
           </div>
         </div>

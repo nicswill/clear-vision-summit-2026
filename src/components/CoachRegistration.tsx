@@ -1,39 +1,53 @@
-import React, { useState } from 'react';
-import { ArrowLeft, Target, CheckCircle, User, Mail, Phone, Building, MapPin, FileText } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import React, { useState } from "react";
+import {
+  ArrowLeft,
+  Target,
+  CheckCircle,
+  User,
+  Mail,
+  Phone,
+  Building,
+  MapPin,
+  FileText,
+} from "lucide-react";
+import { Link } from "react-router-dom";
 
 const CoachRegistration: React.FC = () => {
   const [formData, setFormData] = useState({
-    firstName: '',
-    lastName: '',
-    email: '',
-    phone: '',
-    organization: '',
-    title: '',
-    city: '',
-    state: '',
-    coachingExperience: '',
-    specialties: '',
-    whyCoach: '',
-    availability: '',
-    dietaryRestrictions: '',
-    emergencyContact: '',
-    emergencyPhone: ''
+    firstName: "",
+    lastName: "",
+    email: "",
+    phone: "",
+    organization: "",
+    title: "",
+    city: "",
+    state: "",
+    coachingExperience: "",
+    specialties: "",
+    whyCoach: "",
+    availability: "",
+    dietaryRestrictions: "",
+    emergencyContact: "",
+    emergencyPhone: "",
   });
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+  const handleInputChange = (
+    e: React.ChangeEvent<
+      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
+    >
+  ) => {
     const { name, value } = e.target;
-    setFormData(prev => ({
+    setFormData((prev) => ({
       ...prev,
-      [name]: value
+      [name]: value,
     }));
   };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     // Handle form submission here
-    console.log('Coach registration submitted:', formData);
-    alert('Thank you for your coach registration! We will contact you soon.');
+    console.log("Coach registration submitted:", formData);
+    alert("Thank you for your coach registration! We will contact you soon.");
   };
 
   return (
@@ -43,14 +57,20 @@ const CoachRegistration: React.FC = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="py-3">
             <div className="flex items-center justify-between mb-2 text-white">
-              <img src="/cv logo .png" alt="Clear Vision Summit Logo" className="h-24 w-auto object-contain" />
-              <span className="font-bold text-2xl md:text-3xl absolute left-1/2 transform -translate-x-1/2 whitespace-nowrap">Clear Vision Summit 2026</span>
+              <img
+                src="/cv logo .png"
+                alt="Clear Vision Summit Logo"
+                className="h-24 w-auto object-contain"
+              />
+              <span className="font-bold text-2xl md:text-3xl absolute left-1/2 transform -translate-x-1/2 whitespace-nowrap">
+                Clear Vision Summit 2026
+              </span>
               <div></div>
             </div>
-            
+
             <div className="flex items-center justify-center">
-              <Link 
-                to="/register" 
+              <Link
+                to="/register"
                 className="flex items-center space-x-2 text-white/90 hover:text-white transition-colors font-medium"
               >
                 <ArrowLeft className="w-5 h-5" />
@@ -64,27 +84,35 @@ const CoachRegistration: React.FC = () => {
       {/* Hero Section */}
       <section className="relative pt-40 pb-12 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-emerald-50 to-teal-50"></div>
-        
+
         <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <div className="w-20 h-20 bg-gradient-to-r from-emerald-500 to-teal-500 rounded-full flex items-center justify-center mx-auto mb-6">
               <Target className="w-10 h-10 text-white" />
             </div>
-            
+
             <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4 leading-tight">
-              Coach <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 to-teal-600">Registration</span>
+              Coach{" "}
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 to-teal-600">
+                Registration
+              </span>
             </h1>
-            
+
             <p className="text-xl text-gray-600 mb-6 leading-relaxed max-w-2xl mx-auto">
-              Join our team of experienced coaches to guide and mentor attendees through their leadership transformation journey.
+              Join our team of experienced coaches to guide and mentor attendees
+              through their leadership transformation journey.
             </p>
 
             <div className="bg-gradient-to-r from-emerald-50 to-teal-50 border border-emerald-200 rounded-xl p-6 mb-8">
-              <h3 className="text-lg font-bold text-emerald-800 mb-3">What's Included as a Coach:</h3>
+              <h3 className="text-lg font-bold text-emerald-800 mb-3">
+                What's Included as a Coach:
+              </h3>
               <div className="grid md:grid-cols-2 gap-3 text-emerald-700">
                 <div className="flex items-center space-x-2">
                   <CheckCircle className="w-4 h-4 flex-shrink-0" />
-                  <span className="text-sm">Lead POD (Pause + Plan) sessions</span>
+                  <span className="text-sm">
+                    Lead POD (Pause + Plan) sessions
+                  </span>
                 </div>
                 <div className="flex items-center space-x-2">
                   <CheckCircle className="w-4 h-4 flex-shrink-0" />
@@ -96,7 +124,9 @@ const CoachRegistration: React.FC = () => {
                 </div>
                 <div className="flex items-center space-x-2">
                   <CheckCircle className="w-4 h-4 flex-shrink-0" />
-                  <span className="text-sm">Networking with fellow coaches</span>
+                  <span className="text-sm">
+                    Networking with fellow coaches
+                  </span>
                 </div>
                 <div className="flex items-center space-x-2">
                   <CheckCircle className="w-4 h-4 flex-shrink-0" />
@@ -104,7 +134,9 @@ const CoachRegistration: React.FC = () => {
                 </div>
                 <div className="flex items-center space-x-2">
                   <CheckCircle className="w-4 h-4 flex-shrink-0" />
-                  <span className="text-sm">Professional development certificate</span>
+                  <span className="text-sm">
+                    Professional development certificate
+                  </span>
                 </div>
               </div>
             </div>
@@ -121,7 +153,9 @@ const CoachRegistration: React.FC = () => {
                 </h3>
                 <div className="grid md:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">First Name *</label>
+                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                      First Name *
+                    </label>
                     <input
                       type="text"
                       name="firstName"
@@ -132,7 +166,9 @@ const CoachRegistration: React.FC = () => {
                     />
                   </div>
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">Last Name *</label>
+                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                      Last Name *
+                    </label>
                     <input
                       type="text"
                       name="lastName"
@@ -143,7 +179,9 @@ const CoachRegistration: React.FC = () => {
                     />
                   </div>
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">Email Address *</label>
+                    <label className="block text sm font-medium text-gray-700 mb-2">
+                      Email Address *
+                    </label>
                     <input
                       type="email"
                       name="email"
@@ -154,7 +192,9 @@ const CoachRegistration: React.FC = () => {
                     />
                   </div>
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">Phone Number *</label>
+                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                      Phone Number *
+                    </label>
                     <input
                       type="tel"
                       name="phone"
@@ -175,7 +215,9 @@ const CoachRegistration: React.FC = () => {
                 </h3>
                 <div className="grid md:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">Organization/Company</label>
+                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                      Organization/Company
+                    </label>
                     <input
                       type="text"
                       name="organization"
@@ -185,7 +227,9 @@ const CoachRegistration: React.FC = () => {
                     />
                   </div>
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">Job Title</label>
+                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                      Job Title
+                    </label>
                     <input
                       type="text"
                       name="title"
@@ -195,7 +239,9 @@ const CoachRegistration: React.FC = () => {
                     />
                   </div>
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">City</label>
+                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                      City
+                    </label>
                     <input
                       type="text"
                       name="city"
@@ -205,7 +251,9 @@ const CoachRegistration: React.FC = () => {
                     />
                   </div>
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">State</label>
+                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                      State
+                    </label>
                     <input
                       type="text"
                       name="state"
@@ -225,7 +273,9 @@ const CoachRegistration: React.FC = () => {
                 </h3>
                 <div className="space-y-4">
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">Years of Coaching Experience *</label>
+                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                      Years of Coaching Experience *
+                    </label>
                     <select
                       name="coachingExperience"
                       required
@@ -241,7 +291,9 @@ const CoachRegistration: React.FC = () => {
                     </select>
                   </div>
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">Coaching Specialties/Areas of Expertise</label>
+                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                      Coaching Specialties/Areas of Expertise
+                    </label>
                     <textarea
                       name="specialties"
                       rows={3}
@@ -252,7 +304,9 @@ const CoachRegistration: React.FC = () => {
                     />
                   </div>
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">Why do you want to coach at this summit? *</label>
+                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                      Why do you want to coach at this summit? *
+                    </label>
                     <textarea
                       name="whyCoach"
                       rows={4}
@@ -264,7 +318,9 @@ const CoachRegistration: React.FC = () => {
                     />
                   </div>
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">Availability for Pre-Summit Training</label>
+                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                      Availability for Pre-Summit Training
+                    </label>
                     <textarea
                       name="availability"
                       rows={2}
@@ -285,7 +341,9 @@ const CoachRegistration: React.FC = () => {
                 </h3>
                 <div className="space-y-4">
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">Dietary Restrictions/Allergies</label>
+                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                      Dietary Restrictions/Allergies
+                    </label>
                     <input
                       type="text"
                       name="dietaryRestrictions"
@@ -297,7 +355,9 @@ const CoachRegistration: React.FC = () => {
                   </div>
                   <div className="grid md:grid-cols-2 gap-4">
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">Emergency Contact Name</label>
+                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                        Emergency Contact Name
+                      </label>
                       <input
                         type="text"
                         name="emergencyContact"
@@ -307,7 +367,9 @@ const CoachRegistration: React.FC = () => {
                       />
                     </div>
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">Emergency Contact Phone</label>
+                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                        Emergency Contact Phone
+                      </label>
                       <input
                         type="tel"
                         name="emergencyPhone"
@@ -321,6 +383,7 @@ const CoachRegistration: React.FC = () => {
               </div>
 
               {/* Submit Button */}
+<<<<<<< HEAD
 <div className="text-center pt-6">
   <a
     href="https://clearvisionleader.com/2025-coaches/"
@@ -335,6 +398,20 @@ const CoachRegistration: React.FC = () => {
   </p>
 </div>
 
+=======
+              <div className="text-center pt-6">
+                <a
+                  href="https://clearvisionleader.com/2025-coaches/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center space-x-2 bg-gradient-to-r from-emerald-600 to-teal-600 text-white px-12 py-4 rounded-full text-lg font-semibold hover:from-emerald-700 hover:to-teal-700 transition-all duration-200 transform hover:scale-105 shadow-lg hover:shadow-xl"
+                >
+                  <span>Complete Registration</span>
+                </a>
+                <p className="text-gray-600 mt-4 text-sm">
+                  We'll review your application and contact you within 48 hours.
+                </p>
+              </div>
             </form>
           </div>
         </div>
@@ -345,13 +422,24 @@ const CoachRegistration: React.FC = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <div className="flex items-center justify-center space-x-2 mb-4">
-              <img src="/cv logo .png" alt="Clear Vision Summit Logo" className="h-10 w-auto object-contain" />
-              <span className="font-bold text-xl">Clear Vision Leadership Wellness Summit</span>
+              <img
+                src="/cv logo .png"
+                alt="Clear Vision Summit Logo"
+                className="h-10 w-auto object-contain"
+              />
+              <span className="font-bold text-xl">
+                Clear Vision Leadership Wellness Summit
+              </span>
             </div>
-            <p className="text-gray-400 mb-8">January 30 – February 1, 2026 • Ft. Walton Beach, Florida</p>
-            
+            <p className="text-gray-400 mb-8">
+              January 30 – February 1, 2026 • Ft. Walton Beach, Florida
+            </p>
+
             <div className="border-t border-gray-800 pt-8">
-              <p className="text-gray-500">&copy; 2026 Clear Vision Leadership Wellness Summit. All rights reserved.</p>
+              <p className="text-gray-500">
+                &copy; 2026 Clear Vision Leadership Wellness Summit. All rights
+                reserved.
+              </p>
             </div>
           </div>
         </div>
