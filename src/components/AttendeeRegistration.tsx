@@ -71,7 +71,7 @@ const AttendeeRegistration: React.FC = () => {
                 className="h-24 w-auto object-contain"
               />
               <span className="font-bold text-2xl md:text-3xl absolute left-1/2 transform -translate-x-1/2 whitespace-nowrap">
-                Clear Vision Summit 2026
+                Clear Vision Wellness Summit 2027
               </span>
               <div></div>
             </div>
@@ -550,12 +550,12 @@ const AttendeeRegistration: React.FC = () => {
               </span>
             </div>
             <p className="text-gray-400 mb-8">
-              January 30 – February 1, 2026 • Ft. Walton Beach, Florida
+              January 29–30, 2027 • Okaloosa Island, Florida
             </p>
 
             <div className="border-t border-gray-800 pt-8">
               <p className="text-gray-500">
-                &copy; 2026 Clear Vision Leadership Wellness Summit. All rights
+                &copy; 2027 Clear Vision Leadership Wellness Summit. All rights
                 reserved.
               </p>
             </div>

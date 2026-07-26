@@ -81,7 +81,7 @@ const RegisterPage: React.FC<RegisterPageProps> = () => {
                 className="h-24 w-auto object-contain"
               />
               <span className="font-bold text-2xl md:text-3xl absolute left-1/2 transform -translate-x-1/2 whitespace-nowrap">
-                Clear Vision Summit 2026
+                Clear Vision Wellness Summit 2027
               </span>
               <div></div>
             </div>
@@ -123,11 +123,11 @@ const RegisterPage: React.FC<RegisterPageProps> = () => {
             <div className="flex flex-wrap justify-center items-center gap-8 text-lg text-gray-700 font-medium">
               <div className="flex items-center space-x-2">
                 <span className="w-2 h-2 bg-sky-600 rounded-full"></span>
-                <span>January 30 – February 1, 2026</span>
+                <span>January 29–30, 2027</span>
               </div>
               <div className="flex items-center space-x-2">
                 <span className="w-2 h-2 bg-emerald-600 rounded-full"></span>
-                <span>The Island Resort, Ft. Walton Beach, FL</span>
+                <span>The Island Resort, Okaloosa Island, FL</span>
               </div>
             </div>
           </div>
@@ -234,12 +234,12 @@ const RegisterPage: React.FC<RegisterPageProps> = () => {
               </span>
             </div>
             <p className="text-gray-400 mb-8">
-              January 30 – February 1, 2026 • Ft. Walton Beach, Florida
+              January 29–30, 2027 • Okaloosa Island, Florida
             </p>
 
             <div className="border-t border-gray-800 pt-8">
               <p className="text-gray-500">
-                &copy; 2026 Clear Vision Leadership Wellness Summit. All rights
+                &copy; 2027 Clear Vision Leadership Wellness Summit. All rights
                 reserved.
               </p>
             </div>

@@ -20,30 +20,21 @@ const HomePage: React.FC = () => {
   const navigate = useNavigate();
   const [activeTestimonial, setActiveTestimonial] = useState(0);
 
-  // ---- Event dates (single source of truth) ----
-  // Use numeric Date constructor to avoid UTC parsing issues.
+  // ---- Event details (single source of truth) ----
   const EVENT = {
-    start: new Date(2026, 0, 30), // Fri, Jan 30, 2026
-    mid: new Date(2026, 0, 31), // Sat, Jan 31, 2026
-    end: new Date(2026, 1, 1), // Sun, Feb 1, 2026
-    city: "Ft. Walton Beach, FL",
+    year: 2027,
+    dateRange: "January 29–30, 2027",
+    city: "Okaloosa Island, Florida",
+    venue: "The Island Resort at Fort Walton Beach",
   };
 
-  // Basic formatters
-  const md = (d: Date) =>
-    d.toLocaleString("en-US", { month: "short", day: "numeric" }); // "Jan 30"
-  const wd = (d: Date) => d.toLocaleString("en-US", { weekday: "long" }); // "Friday"
+  const heroDateRange = `${EVENT.dateRange} · ${EVENT.city}`;
+  const rangeShort = EVENT.dateRange;
 
-  // Display strings
-  const rangeAbbr = `${md(EVENT.start)} – ${md(
-    EVENT.end
-  )}, ${EVENT.end.getFullYear()}`;
-  const day1Label = `${wd(EVENT.start)} ${md(EVENT.start)}`; // Friday Jan 30
-  const day2Label = `${wd(EVENT.mid)} ${md(EVENT.mid)}`; // Saturday Jan 31
-  const day3Label = `${wd(EVENT.end)} ${md(EVENT.end)}`; // Sunday Feb 1
-
-  const heroDateRange = `${rangeAbbr} • ${EVENT.city}`;
-  const rangeShort = rangeAbbr;
+  // Day labels for the schedule section (updated in a later phase)
+  const day1Label = "Friday, Jan 29";
+  const day2Label = "Saturday, Jan 30";
+  const day3Label = "Saturday, Jan 30";
 
   // ---- Testimonials ----
   const testimonials = useMemo(
@@ -90,147 +81,116 @@ const HomePage: React.FC = () => {
   return (
     <div className="min-h-screen bg-white">
       {/* Navigation */}
-      <nav className="fixed top-0 w-full bg-gradient-to-r from-sky-600 to-emerald-600 z-50 shadow-lg">
+      <nav className="fixed top-0 w-full z-50 bg-navy-900/95 backdrop-blur-sm shadow-md">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="py-3">
-            {/* Top line - Logo and Title */}
-            <div className="flex items-center justify-between mb-2 text-white">
-              <a href="https://clearvisionleader.com">
-                <img
-                  src="/cv logo .png"
-                  alt="Clear Vision Summit Logo"
-                  className="h-24 w-auto object-contain cursor-pointer hover:opacity-90 transition-opacity"
-                />
-              </a>
-              <span className="font-bold text-2xl md:text-3xl absolute left-1/2 transform -translate-x-1/2 whitespace-nowrap">
-                Clear Vision Summit 2026
+          <div className="flex items-center justify-between h-20">
+            {/* Logo + event name */}
+            <a href="https://clearvisionleader.com" className="flex items-center gap-3">
+              <img
+                src="/cv logo .png"
+                alt="Clear Vision Leadership Wellness Summit"
+                className="h-12 w-auto object-contain"
+              />
+              <span className="hidden sm:block font-serif text-lg text-white tracking-wide leading-tight">
+                Clear Vision
+                <span className="block text-xs font-sans tracking-[0.2em] uppercase text-turquoise-200">
+                  Wellness Summit 2027
+                </span>
               </span>
-              <div></div>
-            </div>
+            </a>
 
-            {/* Bottom line - Navigation Menu */}
-            <div className="flex items-center justify-center space-x-4 md:space-x-6">
+            {/* Navigation Menu */}
+            <div className="hidden md:flex items-center space-x-8">
               <button
                 onClick={() => scrollToSection("experience")}
-                className="text-white/90 hover:text-white transition-colors font-medium"
+                className="text-white/85 hover:text-turquoise-200 transition-colors font-medium text-sm"
               >
                 Experience
               </button>
               <button
                 onClick={() => scrollToSection("schedule")}
-                className="text-white/90 hover:text-white transition-colors font-medium"
+                className="text-white/85 hover:text-turquoise-200 transition-colors font-medium text-sm"
               >
                 Schedule
               </button>
               <button
                 onClick={() => scrollToSection("testimonials")}
-                className="text-white/90 hover:text-white transition-colors font-medium"
+                className="text-white/85 hover:text-turquoise-200 transition-colors font-medium text-sm"
               >
                 Testimonials
               </button>
               <button
                 onClick={() => scrollToSection("outcomes")}
-                className="text-white/90 hover:text-white transition-colors font-medium"
+                className="text-white/85 hover:text-turquoise-200 transition-colors font-medium text-sm"
               >
                 Outcomes
               </button>
-              <button
-                onClick={handleRegisterClick}
-                className="bg-white text-sky-600 px-6 py-2 rounded-full hover:bg-gray-100 transition-all duration-200 text-sm font-bold shadow-md"
-              >
-                Register Now
-              </button>
             </div>
+
+            <button
+              onClick={handleRegisterClick}
+              className="bg-gold-400 text-navy-900 px-5 py-2 rounded-full hover:bg-gold-300 transition-all duration-200 text-sm font-semibold shadow-md"
+            >
+              Reserve Your Seat
+            </button>
           </div>
         </div>
       </nav>
 
       {/* Hero Section */}
-      <section className="relative pt-24 pb-20 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-sky-50 to-emerald-50"></div>
-        <div
-          className="absolute inset-0 opacity-10"
-          style={{
-            backgroundImage: `url('https://images.pexels.com/photos/1032650/pexels-photo-1032650.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080&fit=crop')`,
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-          }}
-        ></div>
+      <section className="relative min-h-screen flex items-center overflow-hidden">
+        {/* Coastal background */}
+        <div className="absolute inset-0">
+          <div
+            className="absolute inset-0"
+            style={{
+              backgroundImage: `url('https://images.pexels.com/photos/189349/pexels-photo-189349.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080&fit=crop')`,
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+            }}
+          ></div>
+          <div className="absolute inset-0 bg-gradient-to-b from-navy-900/80 via-navy-800/65 to-navy-900/85"></div>
+        </div>
 
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20">
-          <div className="text-center max-w-4xl mx-auto">
-            <div className="mb-6">
-              <span className="inline-block bg-sky-100 text-sky-800 px-6 py-3 rounded-full text-lg font-bold mb-6">
-                {heroDateRange}
-              </span>
-              <div className="flex justify-center items-center space-x-4 mt-4">
-                <button
-                  onClick={handleRegisterClick}
-                  className="flex items-center space-x-2 text-emerald-700 bg-white/80 px-3 py-1 rounded-full hover:bg-white hover:shadow-md transition-all duration-200 transform hover:scale-105 cursor-pointer"
-                >
-                  <Clock className="w-4 h-4" />
-                  <span className="text-sm font-medium">
-                    Early Bird Pricing
-                  </span>
-                </button>
-              </div>
-            </div>
+        <div className="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 pb-20 text-center">
+          <p className="text-turquoise-200 font-sans text-sm md:text-base tracking-[0.25em] uppercase mb-6 animate-fade-in">
+            Clear Vision Leadership Wellness Summit 2027
+          </p>
 
-            <div className="mb-6">
-              <div className="text-3xl md:text-4xl font-bold text-gray-700 mb-4">
-                👓✨ See Well. Be Well. Lead Well.
-              </div>
-            </div>
+          <h1 className="font-serif text-6xl md:text-8xl text-white mb-6 leading-[1.05] animate-fade-in-up">
+            We SEE You.
+          </h1>
 
-            <h1 className="text-5xl md:text-7xl font-bold text-gray-900 mb-6 leading-tight">
-              A New{" "}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-600 to-emerald-600">
-                Rhythm
-              </span>
-              .
-              <br />A New{" "}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 to-amber-500">
-                Cadence
-              </span>
-              .
-              <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-500 to-sky-600">
-                Pause - Plan - Proceed™
-              </span>
-            </h1>
+          <p className="font-serif text-xl md:text-2xl text-turquoise-100 italic mb-8 max-w-2xl mx-auto animate-fade-in-up" style={{ animationDelay: "0.15s" }}>
+            The world celebrates what leaders accomplish. We create a space
+            where leaders can breathe, reconnect, and restore.
+          </p>
 
-            <div className="text-xl text-gray-600 mb-6 leading-relaxed max-w-3xl mx-auto">
-              <p className="mb-4 font-semibold">
-                We are here for the white coat. The clergy. The ones in uniform.
-                The educators shaping minds and futures. The servant leaders
-                carrying everyone else's weight.
-              </p>
-              <p className="mb-6">
-                At the Clear Vision Leadership Wellness Summit, we create space
-                for leaders who give everything to others—but are ready to
-                reclaim wholeness for themselves.
-              </p>
-              <p className="text-2xl font-bold text-gray-800">
-                This is your time to retreat. To reset. To rise whole.
-              </p>
-            </div>
+          <p className="text-base md:text-lg text-sand-100/90 mb-10 max-w-2xl mx-auto leading-relaxed animate-fade-in-up" style={{ animationDelay: "0.3s" }}>
+            You spend every day carrying responsibilities, solving problems,
+            leading teams, serving families, and showing up for others. Now it
+            is time to restore the leader beneath the responsibility.
+          </p>
 
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button
-                onClick={handleRegisterClick}
-                className="bg-gradient-to-r from-sky-600 to-emerald-600 text-white px-8 py-4 rounded-full text-lg font-semibold hover:from-sky-700 hover:to-emerald-700 transition-all duration-200 transform hover:scale-105 shadow-lg hover:shadow-xl flex items-center justify-center space-x-2"
-              >
-                <span>Register Now</span>
-                <ArrowRight className="w-5 h-5" />
-              </button>
-              <button
-                onClick={() => scrollToSection("experience")}
-                className="border-2 border-gray-300 text-gray-700 px-8 py-4 rounded-full text-lg font-semibold hover:border-sky-600 hover:text-sky-600 transition-all duration-200 transform hover:scale-105"
-              >
-                Learn More
-              </button>
-            </div>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in-up" style={{ animationDelay: "0.45s" }}>
+            <button
+              onClick={handleRegisterClick}
+              className="bg-gold-400 text-navy-900 px-8 py-4 rounded-full text-base font-semibold hover:bg-gold-300 transition-all duration-200 transform hover:scale-105 shadow-lg flex items-center justify-center gap-2"
+            >
+              Reserve Your Seat
+              <ArrowRight className="w-5 h-5" />
+            </button>
+            <button
+              onClick={() => scrollToSection("experience")}
+              className="border border-turquoise-200/70 text-turquoise-50 px-8 py-4 rounded-full text-base font-semibold hover:bg-turquoise-200/10 transition-all duration-200"
+            >
+              Become a Partner
+            </button>
           </div>
+
+          <p className="mt-10 text-sm text-sand-100/80 tracking-wide animate-fade-in" style={{ animationDelay: "0.6s" }}>
+            {heroDateRange}
+          </p>
         </div>
       </section>
 
@@ -364,7 +324,7 @@ const HomePage: React.FC = () => {
               <MapPin className="w-5 h-5 text-sky-600" />
               <span className="text-gray-800 font-medium">
                 Experience renewal in a stunning beachfront setting at The
-                Island Resort, Ft. Walton Beach, Florida.
+                Island Resort at Fort Walton Beach, Okaloosa Island, Florida.
               </span>
             </div>
           </div>
@@ -670,7 +630,7 @@ const HomePage: React.FC = () => {
               <div className="flex flex-col sm:flex-row gap-4 justify-center items-center text-gray-600">
                 <div className="flex items-center space-x-2">
                   <MapPin className="w-5 h-5 text-sky-600" />
-                  <span>The Island Resort, Ft. Walton Beach, Florida</span>
+                  <span>The Island Resort at Fort Walton Beach, Okaloosa Island, Florida</span>
                 </div>
                 <div className="flex items-center space-x-2">
                   <Calendar className="w-5 h-5 text-emerald-600" />
@@ -730,7 +690,7 @@ const HomePage: React.FC = () => {
 
             <div className="text-center">
               <p className="text-2xl text-gray-800 font-bold bg-gradient-to-r from-sky-50 to-emerald-50 px-8 py-6 rounded-xl inline-block border border-sky-200">
-                👓✨ Leaders, it's time for a new rhythm. A new cadence.
+                👓✨ Leaders, it's time to be seen, to breathe, and to restore.
               </p>
             </div>
           </div>
@@ -746,14 +706,14 @@ const HomePage: React.FC = () => {
           <div className="text-center text-white mb-16">
             <h2 className="text-4xl font-bold mb-4">Leaders, It's Time.</h2>
             <p className="text-xl opacity-90 mb-4">
-              Time for a new rhythm. Time for a new cadence.
+              Time to breathe. Time to reconnect. Time to restore.
             </p>
             <p className="text-2xl font-bold mb-8">
-              Time to retreat, reset, and rise whole.
+              Restoring the leader beneath the responsibility.
             </p>
             <div className="text-3xl mb-6">👓✨</div>
             <p className="text-xl opacity-90">
-              Join us at the Clear Vision Leadership Wellness Summit.
+              Join us at the Clear Vision Leadership Wellness Summit 2027.
             </p>
           </div>
 
@@ -762,7 +722,7 @@ const HomePage: React.FC = () => {
               <div className="p-8 lg:p-12">
                 <div className="text-center mb-8">
                   <h3 className="text-2xl font-bold text-gray-900 mb-4">
-                    Clear Vision Leadership Wellness Summit 2026
+                    Clear Vision Leadership Wellness Summit 2027
                   </h3>
                   <div className="flex flex-col sm:flex-row gap-4 justify-center items-center text-gray-600 mb-6">
                     <div className="flex items-center space-x-2">
@@ -771,14 +731,14 @@ const HomePage: React.FC = () => {
                     </div>
                     <div className="flex items-center space-x-2">
                       <MapPin className="w-5 h-5 text-emerald-600" />
-                      <span>Ft. Walton Beach, FL</span>
+                      <span>Okaloosa Island, Florida</span>
                     </div>
                   </div>
                 </div>
 
                 <div className="text-center mb-8">
                   <button className="bg-gradient-to-r from-sky-600 to-emerald-600 text-white px-12 py-4 rounded-full text-xl font-bold hover:from-sky-700 hover:to-emerald-700 transition-all duration-200 transform hover:scale-105 shadow-lg hover:shadow-xl">
-                    <span onClick={handleRegisterClick}>Register Now</span>
+                    <span onClick={handleRegisterClick}>Reserve Your Seat</span>
                   </button>
                   <p className="text-gray-600 mt-4 text-sm">
                     <Clock className="w-4 h-4 inline mr-1" />
@@ -881,7 +841,7 @@ const HomePage: React.FC = () => {
               </a>
             </div>
             <p className="text-gray-400 mb-8">
-              {rangeShort} • Ft. Walton Beach, Florida
+              {rangeShort} • Okaloosa Island, Florida
             </p>
 
             <div className="grid md:grid-cols-3 gap-8 mb-8">
@@ -919,14 +879,14 @@ const HomePage: React.FC = () => {
                 <h4 className="font-semibold text-white mb-3">Follow Us</h4>
                 <div className="space-y-2 text-gray-400">
                   <p>LinkedIn • @ClearVisionLeader</p>
-                  <p>#ClearVisionSummit2026</p>
+                  <p>#ClearVisionSummit2027</p>
                 </div>
               </div>
             </div>
 
             <div className="border-t border-gray-800 pt-8">
               <p className="text-gray-500">
-                &copy; 2026 Clear Vision Leadership Wellness Summit. All rights
+                &copy; 2027 Clear Vision Leadership Wellness Summit. All rights
                 reserved.
               </p>
             </div>
