@@ -7,8 +7,6 @@ import {
   Heart,
   Sparkles,
   Eye,
-  Compass,
-  Sun,
   Wind,
   Droplets,
   Music,
@@ -25,8 +23,6 @@ import {
   Building2,
   UserCheck,
   Activity,
-  Brain,
-  Dumbbell,
   PauseCircle,
   Footprints,
   PenLine,
@@ -35,7 +31,6 @@ import {
   Tent,
   Gift,
   Coffee,
-  Package,
   BookMarked,
   Menu,
   X,
@@ -269,173 +264,84 @@ const HomePage: React.FC = () => {
         </div>
       </section>
 
-      {/* ==================== 2. BEHIND EVERY LEADER ==================== */}
-      <section
-        id="story"
-        className="relative bg-sand-50 py-20 md:py-32 overflow-hidden"
-      >
-        <div className="max-w-4xl mx-auto px-6 lg:px-8">
-          <div className="space-y-8 md:space-y-12">
-            <Reveal>
-              <p className="font-serif text-[clamp(1.75rem,5vw,3rem)] text-navy-800 leading-[1.3]">
-                Behind every title...
-              </p>
-            </Reveal>
-            <Reveal delay={150}>
-              <p className="font-serif text-[clamp(1.75rem,5vw,3rem)] text-turquoise-700 leading-[1.3] pl-6 md:pl-12">
-                is a person.
-              </p>
-            </Reveal>
-            <Reveal delay={100}>
-              <p className="font-serif text-[clamp(1.75rem,5vw,3rem)] text-navy-800 leading-[1.3]">
-                Behind every responsibility...
-              </p>
-            </Reveal>
-            <Reveal delay={150}>
-              <p className="font-serif text-[clamp(1.75rem,5vw,3rem)] text-turquoise-700 leading-[1.3] pl-6 md:pl-12">
-                is someone carrying more than most people know.
-              </p>
-            </Reveal>
-            <Reveal delay={100}>
-              <p className="font-serif text-[clamp(1.75rem,5vw,3rem)] text-navy-800 leading-[1.3]">
-                Behind every strong leader...
-              </p>
-            </Reveal>
-            <Reveal delay={150}>
-              <p className="font-serif text-[clamp(1.75rem,5vw,3rem)] text-turquoise-700 leading-[1.3] pl-6 md:pl-12">
-                is someone quietly asking,
-              </p>
-            </Reveal>
-            <Reveal delay={200}>
-              <p className="font-serif text-[clamp(1.75rem,5vw,3rem)] text-navy-900 italic leading-[1.3] pl-6 md:pl-12">
-                "When do I get to breathe?"
-              </p>
-            </Reveal>
-            <Reveal delay={300}>
-              <div className="pt-6 md:pt-10">
-                <div className="w-16 h-px bg-gold-400 mb-5"></div>
-                <p className="font-serif text-[clamp(2.25rem,7vw,4rem)] text-gold-600 leading-tight">
-                  We SEE You.
-                </p>
-              </div>
-            </Reveal>
-          </div>
-        </div>
-      </section>
-
-      {/* ==================== 3. WHY WE CREATED THIS ==================== */}
+      {/* ==================== WHO THIS IS FOR ==================== */}
       <section className="bg-white py-24 md:py-36">
-        <div className="max-w-3xl mx-auto px-6 lg:px-8 text-center">
+        <div className="max-w-6xl mx-auto px-6 lg:px-8">
           <Reveal>
-            <p className="text-turquoise-600 font-sans text-sm tracking-[0.25em] uppercase mb-6">
-              Why We Created This
+            <p className="text-turquoise-600 font-sans text-sm tracking-[0.25em] uppercase mb-6 text-center">
+              Who This Is For
             </p>
           </Reveal>
           <Reveal delay={100}>
-            <h2 className="font-serif text-[clamp(1.75rem,4.5vw,3.5rem)] text-navy-900 mb-10 leading-[1.2]">
-              We watched leaders give everything to everyone else — and forget
-              to save something for themselves.
+            <h2 className="font-serif text-[clamp(1.75rem,4.5vw,3.5rem)] text-navy-900 mb-6 text-center leading-[1.2]">
+              You don't have to earn your way into this room.
             </h2>
           </Reveal>
-          <div className="space-y-8">
-            <Reveal delay={150}>
-              <p className="text-base md:text-xl text-gray-600 leading-relaxed">
-                We saw pastors holding the grief of congregations. Physicians
-                carrying the weight of lives. Educators pouring into children
-                who may never say thank you. First responders running toward
-                what everyone else runs from.
-              </p>
-            </Reveal>
-            <Reveal delay={200}>
-              <p className="text-base md:text-xl text-gray-600 leading-relaxed">
-                We noticed that the strongest among us are often the quietest
-                about their own exhaustion. That the ones who carry everyone
-                else rarely have someone who carries them.
-              </p>
-            </Reveal>
-            <Reveal delay={250}>
-              <p className="font-serif text-xl md:text-3xl text-navy-800 italic leading-relaxed">
-                So we created a space — not for keynotes and networking, but for
-                breath. For rest. For being seen.
-              </p>
-            </Reveal>
-          </div>
-        </div>
-      </section>
-
-      {/* ==================== 4. WHO WE SEE ==================== */}
-      <section className="bg-navy-900 py-24 md:py-36 relative overflow-hidden">
-        <div
-          className="absolute inset-0 opacity-5"
-          style={{
-            backgroundImage: `url('https://images.pexels.com/photos/1032650/pexels-photo-1032650.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080&fit=crop')`,
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-          }}
-        ></div>
-        <div className="relative max-w-6xl mx-auto px-6 lg:px-8">
-          <Reveal>
-            <p className="text-turquoise-300 font-sans text-sm tracking-[0.25em] uppercase mb-6 text-center">
-              Who We SEE
+          <Reveal delay={150}>
+            <p className="text-base md:text-lg text-gray-600 leading-relaxed mb-10 max-w-2xl mx-auto text-center">
+              If you've spent your life carrying responsibility for others, this
+              experience was created with you in mind.
             </p>
           </Reveal>
-          <Reveal delay={100}>
-            <h2 className="font-serif text-[clamp(1.75rem,4.5vw,3.5rem)] text-white mb-16 text-center leading-[1.2]">
-              You don't have to carry it alone.
-            </h2>
+          <Reveal delay={200}>
+            <p className="font-serif text-xl md:text-2xl text-navy-800 italic text-center mb-16">
+              You don't need another conference.
+              <br />
+              You need space to breathe.
+            </p>
           </Reveal>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
             {[
               {
                 icon: Shield,
-                title: "Military Leaders, Spouses & Veterans",
+                title: "Military Leaders",
                 message:
-                  "Mission comes first. Until now. This is space to breathe, reconnect, and restore.",
+                  "Leading through constant change, mission demands, and service to others.",
               },
               {
                 icon: Stethoscope,
                 title: "Healthcare Professionals",
                 message:
-                  "You care for others every day. Here, care is extended to you.",
+                  "Serving others every day while carrying the emotional weight of caring.",
               },
               {
                 icon: GraduationCap,
                 title: "Educators",
                 message:
-                  "You pour into the future. This is your opportunity to pause and be renewed.",
+                  "Pouring into students while often neglecting your own restoration.",
               },
               {
                 icon: Church,
                 title: "Pastors & Ministry Leaders",
                 message:
-                  "You carry people spiritually and emotionally. Come be poured into.",
+                  "Faithfully caring for everyone else while needing space to be restored yourself.",
               },
               {
                 icon: Building2,
-                title: "Business, Nonprofit & Community Leaders",
+                title: "Business & Community Leaders",
                 message:
-                  "Success should not require losing yourself in the process.",
+                  "Making decisions that affect people while carrying the pressure few people see.",
               },
               {
                 icon: UserCheck,
-                title: "The Leader No One Checks On",
+                title: "Anyone Ready To Breathe Again",
                 message:
-                  "You are strong for everyone else. Here, someone remembers to ask how you are.",
+                  "If you're carrying more than people realize, this space was created for you.",
               },
             ].map((card, i) => (
               <Reveal key={i} delay={i * 100}>
-                <div className="group h-full p-6 md:p-8 rounded-2xl bg-navy-800/60 border border-turquoise-200/15 hover:border-turquoise-300/40 transition-all duration-500 hover:bg-navy-800/80">
-                  <div className="w-12 h-12 rounded-full bg-turquoise-500/20 flex items-center justify-center mb-5 group-hover:bg-gold-400/20 transition-colors duration-500">
+                <div className="group h-full p-6 md:p-8 rounded-2xl bg-sand-50 border border-sand-200 hover:border-turquoise-300 hover:shadow-lg transition-all duration-500">
+                  <div className="w-12 h-12 rounded-full bg-turquoise-100 flex items-center justify-center mb-5 group-hover:bg-gold-100 transition-colors duration-500">
                     <card.icon
-                      className="w-6 h-6 text-turquoise-200 group-hover:text-gold-300 transition-colors duration-500"
+                      className="w-6 h-6 text-turquoise-600 group-hover:text-gold-600 transition-colors duration-500"
                       aria-hidden="true"
                     />
                   </div>
-                  <h3 className="font-serif text-xl md:text-2xl text-turquoise-200 mb-4">
+                  <h3 className="font-serif text-xl md:text-2xl text-navy-900 mb-3">
                     {card.title}
                   </h3>
-                  <p className="text-sand-100/85 leading-relaxed text-sm md:text-base">
+                  <p className="text-gray-600 leading-relaxed text-sm md:text-base">
                     {card.message}
                   </p>
                 </div>
@@ -634,107 +540,56 @@ const HomePage: React.FC = () => {
         </div>
       </section>
 
-      {/* ==================== 6. MEET THE EXPERTS ==================== */}
-      <section className="bg-white py-24 md:py-36">
-        <div className="max-w-6xl mx-auto px-6 lg:px-8">
-          <Reveal>
-            <p className="text-turquoise-600 font-sans text-sm tracking-[0.25em] uppercase mb-6 text-center">
-              Meet the Experts Guiding Your Journey
-            </p>
-          </Reveal>
-          <Reveal delay={100}>
-            <h2 className="font-serif text-[clamp(1.75rem,4.5vw,3.5rem)] text-navy-900 mb-4 text-center leading-[1.2]">
-              Guides who understand the weight.
-            </h2>
-          </Reveal>
-          <Reveal delay={150}>
-            <p className="text-base md:text-lg text-gray-500 mb-16 text-center max-w-2xl mx-auto">
-              Our faculty will be announced soon — practitioners, coaches, and
-              voices who have walked the road of leadership themselves.
-            </p>
-          </Reveal>
-
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-            {[
-              { label: "Leadership Wellness", icon: Compass },
-              { label: "Mental & Emotional Wellness", icon: Brain },
-              { label: "Physical Wellness", icon: Activity },
-              { label: "Men's Health", icon: Dumbbell },
-              { label: "Women's Health", icon: Heart },
-              { label: "Military & Family Wellness", icon: Shield },
-            ].map((person, i) => (
-              <Reveal key={i} delay={i * 80}>
-                <div className="group rounded-2xl overflow-hidden border border-sand-200 hover:shadow-xl transition-all duration-500">
-                  <div className="aspect-[4/3] relative overflow-hidden bg-gradient-to-br from-navy-800 via-turquoise-800 to-navy-700">
-                    <div className="absolute inset-0 flex flex-col items-center justify-center p-6 text-center">
-                      <div className="w-16 h-16 rounded-full bg-turquoise-500/20 flex items-center justify-center mb-5 group-hover:bg-gold-400/20 transition-colors duration-500">
-                        <person.icon
-                          className="w-8 h-8 text-turquoise-200 group-hover:text-gold-300 transition-colors duration-500"
-                          strokeWidth={1.25}
-                          aria-hidden="true"
-                        />
-                      </div>
-                      <h3 className="font-serif text-lg md:text-xl text-white mb-2">
-                        {person.label}
-                      </h3>
-                      <p className="text-turquoise-200/80 text-xs md:text-sm tracking-wide">
-                        2027 Expert Announcement Coming Soon
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </Reveal>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ==================== 7. HOW YOU'LL LEAVE ==================== */}
-      <section className="bg-navy-900 py-24 md:py-36 relative overflow-hidden">
-        <div className="max-w-6xl mx-auto px-6 lg:px-8">
-          <Reveal>
-            <p className="text-turquoise-300 font-sans text-sm tracking-[0.25em] uppercase mb-6 text-center">
-              How You'll Leave
-            </p>
-          </Reveal>
-          <Reveal delay={100}>
-            <h2 className="font-serif text-[clamp(1.75rem,4.5vw,3.5rem)] text-white mb-10 text-center leading-[1.2]">
-              Not the same person who arrived.
-            </h2>
-          </Reveal>
-          <Reveal delay={150}>
-            <p className="font-serif text-lg md:text-2xl text-turquoise-100 italic text-center mb-16 max-w-3xl mx-auto leading-relaxed">
-              You will not leave with more weight to carry. You will leave with
-              greater clarity, renewed capacity, and practical tools to live
-              and lead well.
-            </p>
-          </Reveal>
-
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
-            {[
-              { icon: Eye, word: "Seen" },
-              { icon: Heart, word: "Rested" },
-              { icon: Compass, word: "Clear" },
-              { icon: Sparkles, word: "Renewed" },
-              { icon: Users, word: "Connected" },
-              { icon: Package, word: "Equipped" },
-              { icon: Sun, word: "Hopeful" },
-              { icon: ArrowRight, word: "Ready" },
-            ].map((item, i) => (
-              <Reveal key={i} delay={i * 60}>
-                <div className="group h-full p-5 md:p-8 rounded-2xl bg-navy-800/50 border border-turquoise-200/10 hover:border-gold-400/40 transition-all duration-500 text-center">
-                  <div className="w-12 h-12 rounded-full bg-turquoise-500/20 flex items-center justify-center mb-4 mx-auto group-hover:bg-gold-400/20 transition-colors duration-500">
-                    <item.icon
-                      className="w-6 h-6 text-turquoise-200 group-hover:text-gold-300 transition-colors duration-500"
-                      aria-hidden="true"
-                    />
-                  </div>
-                  <h3 className="font-serif text-lg md:text-2xl text-white">
-                    {item.word}
-                  </h3>
-                </div>
-              </Reveal>
-            ))}
+      {/* ==================== BEHIND EVERY LEADER (STORY) ==================== */}
+      <section
+        id="story"
+        className="relative bg-sand-50 py-20 md:py-32 overflow-hidden"
+      >
+        <div className="max-w-4xl mx-auto px-6 lg:px-8">
+          <div className="space-y-8 md:space-y-12">
+            <Reveal>
+              <p className="font-serif text-[clamp(1.75rem,5vw,3rem)] text-navy-800 leading-[1.3]">
+                Behind every title...
+              </p>
+            </Reveal>
+            <Reveal delay={150}>
+              <p className="font-serif text-[clamp(1.75rem,5vw,3rem)] text-turquoise-700 leading-[1.3] pl-6 md:pl-12">
+                is a person.
+              </p>
+            </Reveal>
+            <Reveal delay={100}>
+              <p className="font-serif text-[clamp(1.75rem,5vw,3rem)] text-navy-800 leading-[1.3]">
+                Behind every responsibility...
+              </p>
+            </Reveal>
+            <Reveal delay={150}>
+              <p className="font-serif text-[clamp(1.75rem,5vw,3rem)] text-turquoise-700 leading-[1.3] pl-6 md:pl-12">
+                is someone carrying more than most people know.
+              </p>
+            </Reveal>
+            <Reveal delay={100}>
+              <p className="font-serif text-[clamp(1.75rem,5vw,3rem)] text-navy-800 leading-[1.3]">
+                Behind every strong leader...
+              </p>
+            </Reveal>
+            <Reveal delay={150}>
+              <p className="font-serif text-[clamp(1.75rem,5vw,3rem)] text-turquoise-700 leading-[1.3] pl-6 md:pl-12">
+                is someone quietly asking,
+              </p>
+            </Reveal>
+            <Reveal delay={200}>
+              <p className="font-serif text-[clamp(1.75rem,5vw,3rem)] text-navy-900 italic leading-[1.3] pl-6 md:pl-12">
+                "When do I get to breathe?"
+              </p>
+            </Reveal>
+            <Reveal delay={300}>
+              <div className="pt-6 md:pt-10">
+                <div className="w-16 h-px bg-gold-400 mb-5"></div>
+                <p className="font-serif text-[clamp(2.25rem,7vw,4rem)] text-gold-600 leading-tight">
+                  We SEE You.
+                </p>
+              </div>
+            </Reveal>
           </div>
         </div>
       </section>
