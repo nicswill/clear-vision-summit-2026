@@ -118,7 +118,7 @@ const AttendeeRegistration: React.FC = () => {
               <div className="grid md:grid-cols-2 gap-3 text-sky-700">
                 <div className="flex items-center space-x-2">
                   <CheckCircle className="w-4 h-4 flex-shrink-0" />
-                  <span className="text-sm">Full 3-day summit access</span>
+                  <span className="text-sm">Full 1.5-day summit access</span>
                 </div>
                 <div className="flex items-center space-x-2">
                   <CheckCircle className="w-4 h-4 flex-shrink-0" />
@@ -514,13 +514,7 @@ const AttendeeRegistration: React.FC = () => {
               {/* Submit Button */}
               <div className="text-center pt-6">
                 <button
-                  type="button"
-                  onClick={() =>
-                    window.open(
-                      "https://clearvisionleader.com/2026-clearvision-leadership-wellness-summit/",
-                      "_blank"
-                    )
-                  }
+                  type="submit"
                   className="bg-gradient-to-r from-sky-600 to-blue-600 text-white px-12 py-4 rounded-full text-lg font-semibold hover:from-sky-700 hover:to-blue-700 transition-all duration-200 transform hover:scale-105 shadow-lg hover:shadow-xl cursor-pointer"
                 >
                   Complete Attendee Registration

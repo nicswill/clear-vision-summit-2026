@@ -496,13 +496,7 @@ const SpeakerRegistration: React.FC = () => {
               {/* Submit Button */}
               <div className="text-center pt-6">
                 <button
-                  type="button"
-                  onClick={() =>
-                    window.open(
-                      "https://clearvisionleader.com/2025-speakers/",
-                      "_blank"
-                    )
-                  }
+                  type="submit"
                   className="bg-gradient-to-r from-amber-600 to-orange-600 text-white px-12 py-4 rounded-full text-lg font-semibold hover:from-amber-700 hover:to-orange-700 transition-all duration-200 transform hover:scale-105 shadow-lg hover:shadow-xl cursor-pointer"
                 >
                   Complete Speaker Registration

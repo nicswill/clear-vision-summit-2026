@@ -19,7 +19,7 @@ const RegisterPage: React.FC<RegisterPageProps> = () => {
         "Share your expertise and inspire fellow leaders at the summit. Join our lineup of transformational speakers.",
       features: [
         "Speaking opportunity at the summit",
-        "Full summit access",
+        "Full 1.5-day summit access",
         "Speaker networking events",
         "Professional headshots and bio inclusion",
         "Recording of your session",
@@ -27,7 +27,7 @@ const RegisterPage: React.FC<RegisterPageProps> = () => {
       color: "from-amber-500 to-orange-500",
       bgColor: "from-amber-50 to-orange-50",
       borderColor: "border-amber-200",
-      link: "https://clearvisionleader.com/2025-speakers/",
+      link: "",
     },
     {
       type: "Coach",
@@ -37,7 +37,7 @@ const RegisterPage: React.FC<RegisterPageProps> = () => {
         "Guide and mentor attendees through their leadership journey. Facilitate POD sessions and provide personalized guidance.",
       features: [
         "Lead POD (Pause + Plan) sessions",
-        "Full summit access",
+        "Full 1.5-day summit access",
         "Coach training materials",
         "Networking with fellow coaches",
         "Continuing education credits",
@@ -45,7 +45,7 @@ const RegisterPage: React.FC<RegisterPageProps> = () => {
       color: "from-emerald-500 to-teal-500",
       bgColor: "from-emerald-50 to-teal-50",
       borderColor: "border-emerald-200",
-      link: "https://clearvisionleader.com/2025-coaches/",
+      link: "",
     },
     {
       type: "Attendee",
@@ -54,7 +54,7 @@ const RegisterPage: React.FC<RegisterPageProps> = () => {
       description:
         "Join fellow leaders for this transformative wellness and leadership experience. Your journey to clarity starts here.",
       features: [
-        "Full 3-day summit access",
+        "Full 1.5-day summit access",
         "All wellness sessions",
         "POD session participation",
         "Welcome reception and meals",
@@ -63,7 +63,7 @@ const RegisterPage: React.FC<RegisterPageProps> = () => {
       color: "from-sky-500 to-blue-500",
       bgColor: "from-sky-50 to-blue-50",
       borderColor: "border-sky-200",
-      link: "https://clearvisionleader.com/2026-clearvision-leadership-wellness-summit/",
+      link: "",
     },
   ];
 
@@ -173,14 +173,22 @@ const RegisterPage: React.FC<RegisterPageProps> = () => {
                   </div>
 
                   <div className="text-center">
-                    <a
-                      href={option.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className={`inline-flex items-center space-x-2 bg-gradient-to-r ${option.color} text-white px-8 py-3 rounded-full font-semibold hover:shadow-lg transition-all duration-200 transform hover:scale-105`}
-                    >
-                      <span>Register as {option.type}</span>
-                    </a>
+                    {option.link ? (
+                      <a
+                        href={option.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className={`inline-flex items-center space-x-2 bg-gradient-to-r ${option.color} text-white px-8 py-3 rounded-full font-semibold hover:shadow-lg transition-all duration-200 transform hover:scale-105`}
+                      >
+                        <span>Register as {option.type}</span>
+                      </a>
+                    ) : (
+                      <div
+                        className={`inline-flex items-center space-x-2 bg-gradient-to-r ${option.color} text-white px-8 py-3 rounded-full font-semibold opacity-90 cursor-default`}
+                      >
+                        <span>2027 details coming soon</span>
+                      </div>
+                    )}
                   </div>
                 </div>
               );
