@@ -218,62 +218,33 @@ const HomePage: React.FC = () => {
       </nav>
 
       {/* ==================== 1. HERO ==================== */}
-      <header className="relative min-h-screen flex items-center overflow-hidden">
-        <div className="absolute inset-0">
-          <div
-            className="absolute inset-0"
-            style={{
-              backgroundImage: `url('/hero-coastal-sunrise.jpg')`,
-              backgroundSize: "cover",
-              backgroundPosition: "center",
-              backgroundRepeat: "no-repeat",
-            }}
-          ></div>
-          <div className="absolute inset-0 bg-gradient-to-b from-navy-900/75 via-navy-800/60 to-navy-900/85"></div>
+      <header>
+        {/* Offset for fixed nav (h-20 = 80px) */}
+        <div className="pt-20">
+          <img
+            src="/hero-coastal-sunrise.jpg"
+            alt="Clear Vision Leadership Wellness Summit 2027 — We SEE You. January 29–30, 2027, Okaloosa Island, Florida."
+            className="w-full h-auto block"
+          />
         </div>
+      </header>
 
-        <div className="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-24 text-center w-full">
-          {/* Eyebrow */}
-          <p className="text-turquoise-200 font-sans text-xs sm:text-sm md:text-base tracking-[0.2em] sm:tracking-[0.25em] uppercase mb-6 animate-fade-in">
-            Clear Vision Leadership Wellness Summit 2027
-          </p>
-
-          {/* Headline */}
-          <h1 className="font-serif text-[clamp(3rem,10vw,8rem)] text-white mb-6 leading-[1.05] animate-fade-in-up">
-            We SEE You.
-          </h1>
-
-          {/* Gold divider */}
-          <div className="flex items-center justify-center gap-4 mb-8 animate-fade-in" style={{ animationDelay: "0.1s" }}>
-            <div className="w-12 h-px bg-gold-400/70"></div>
-            <div className="w-2 h-2 rounded-full bg-gold-400"></div>
-            <div className="w-12 h-px bg-gold-400/70"></div>
-          </div>
-
-          {/* Emotional tagline */}
-          <p
-            className="font-serif text-lg sm:text-xl md:text-2xl text-turquoise-100 italic mb-6 max-w-2xl mx-auto animate-fade-in-up leading-relaxed"
-            style={{ animationDelay: "0.15s" }}
-          >
+      {/* ==================== 1b. INTRO INVITATION ==================== */}
+      <section className="bg-navy-900 py-20 md:py-28">
+        <div className="max-w-3xl mx-auto px-6 lg:px-8 text-center">
+          <p className="font-serif text-xl sm:text-2xl md:text-3xl text-turquoise-100 italic mb-8 leading-relaxed animate-fade-in-up">
             The world celebrates what leaders accomplish. We create a space
             where leaders can breathe, reconnect, and restore.
           </p>
 
-          {/* Supporting paragraph */}
-          <p
-            className="text-sm sm:text-base md:text-lg text-sand-100/90 mb-10 max-w-2xl mx-auto leading-relaxed animate-fade-in-up"
-            style={{ animationDelay: "0.3s" }}
-          >
+          <p className="text-base md:text-lg text-sand-100/80 mb-12 leading-relaxed max-w-2xl mx-auto animate-fade-in-up">
             You spend every day carrying responsibilities, solving problems,
-            leading teams, serving families, and showing up for others. Now it
-            is time to restore the leader beneath the responsibility.
+            leading teams, serving families, and showing up for others. This
+            experience creates space for you to pause, realign, and reconnect
+            with the leader beneath the responsibility.
           </p>
 
-          {/* CTA buttons */}
-          <div
-            className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in-up"
-            style={{ animationDelay: "0.45s" }}
-          >
+          <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in-up">
             <button
               onClick={handleRegisterClick}
               className="bg-gold-400 text-navy-900 px-8 py-4 rounded-full text-base font-semibold hover:bg-gold-300 hover:shadow-xl transition-all duration-200 transform hover:scale-105 shadow-lg flex items-center justify-center gap-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-gold-200 focus-visible:ring-offset-2 focus-visible:ring-offset-navy-900"
@@ -288,16 +259,8 @@ const HomePage: React.FC = () => {
               Become a Partner
             </button>
           </div>
-
-          {/* Date & location */}
-          <p
-            className="mt-10 text-sm text-sand-100/80 tracking-wide animate-fade-in"
-            style={{ animationDelay: "0.6s" }}
-          >
-            {heroDateRange}
-          </p>
         </div>
-      </header>
+      </section>
 
       {/* ==================== 2. BEHIND EVERY LEADER ==================== */}
       <section
