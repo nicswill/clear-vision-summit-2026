@@ -2,21 +2,33 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
-    <title>
-      Clear Vision Leadership Wellness Summit 2027 | January 29–30 | Okaloosa
-      Island, FL
-    </title>
+
+    <!-- Favicon & Icons -->
+    <link rel="icon" type="image/png" href="/cv-mark-red.png" />
+    <link rel="shortcut icon" type="image/png" href="/cv-mark-red.png" />
+    <link rel="apple-touch-icon" href="/cv-mark-red.png" />
+    <meta name="theme-color" content="#0F2747" />
+
+    <!-- Web App Manifest -->
+    <link rel="manifest" href="/site.webmanifest" />
+
+    <!-- Canonical -->
+    <link rel="canonical" href="https://summit.clearvisionleader.com" />
+
+    <!-- Primary SEO -->
+    <title>Clear Vision Leadership Wellness Summit 2027 | January 29–30 | Okaloosa Island, FL</title>
     <meta
       name="description"
-      content="We SEE You. The Clear Vision Leadership Wellness Summit 2027 creates a space where leaders can breathe, reconnect, and restore. Join us January 29–30, 2027 at The Island Resort, Okaloosa Island, Florida."
+      content="We SEE You. The Clear Vision Leadership Wellness Summit 2027 creates a space where leaders can breathe, reconnect, and restore. Join us January 29–30, 2027 at The Island Resort on Okaloosa Island, Florida."
     />
     <meta
       name="keywords"
@@ -25,33 +37,78 @@
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:site_name" content="Clear Vision Leadership Wellness Summit" />
+    <meta property="og:url" content="https://summit.clearvisionleader.com" />
     <meta
       property="og:title"
       content="Clear Vision Leadership Wellness Summit 2027 — We SEE You."
     />
     <meta
       property="og:description"
-      content="Restoring the leader beneath the responsibility. Join us January 29–30, 2027 at The Island Resort, Okaloosa Island, Florida."
+      content="Restoring the leader beneath the responsibility. Join us January 29–30, 2027 at The Island Resort on Okaloosa Island, Florida."
     />
     <meta
       property="og:image"
-      content="https://images.pexels.com/photos/1032650/pexels-photo-1032650.jpeg?auto=compress&cs=tinysrgb&w=1200&h=630&fit=crop"
+      content="https://summit.clearvisionleader.com/social-share-2027.jpg"
+    />
+    <meta property="og:image:type" content="image/jpeg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta
+      property="og:image:alt"
+      content="Clear Vision Leadership Wellness Summit 2027 — We SEE You. January 29–30, 2027. Okaloosa Island, Florida."
     />
 
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image" />
+    <!-- Twitter / X -->
+    <meta name="twitter:card" content="summary_large_image" />
     <meta
-      property="twitter:title"
+      name="twitter:title"
       content="Clear Vision Leadership Wellness Summit 2027 — We SEE You."
     />
     <meta
-      property="twitter:description"
-      content="Restoring the leader beneath the responsibility. Join us January 29–30, 2027 at The Island Resort, Okaloosa Island, Florida."
+      name="twitter:description"
+      content="Restoring the leader beneath the responsibility. January 29–30, 2027 • Okaloosa Island, Florida."
     />
     <meta
-      property="twitter:image"
-      content="https://images.pexels.com/photos/1032650/pexels-photo-1032650.jpeg?auto=compress&cs=tinysrgb&w=1200&h=630&fit=crop"
+      name="twitter:image"
+      content="https://summit.clearvisionleader.com/social-share-2027.jpg"
     />
+    <meta
+      name="twitter:image:alt"
+      content="Clear Vision Leadership Wellness Summit 2027 — We SEE You."
+    />
+
+    <!-- Event Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Event",
+      "name": "Clear Vision Leadership Wellness Summit 2027",
+      "description": "A 1.5-day leadership wellness experience designed to restore the leader beneath the responsibility.",
+      "startDate": "2027-01-29",
+      "endDate": "2027-01-30",
+      "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+      "eventStatus": "https://schema.org/EventScheduled",
+      "url": "https://summit.clearvisionleader.com",
+      "image": "https://summit.clearvisionleader.com/social-share-2027.jpg",
+      "location": {
+        "@type": "Place",
+        "name": "The Island Resort at Fort Walton Beach",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Okaloosa Island",
+          "addressRegion": "Florida",
+          "addressCountry": "United States"
+        }
+      },
+      "organizer": {
+        "@type": "Organization",
+        "name": "Clear Vision Consulting",
+        "url": "https://clearvisionleader.com"
+      }
+    }
+    </script>
   </head>
   <body>
     <div id="root"></div>

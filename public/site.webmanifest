@@ -1,0 +1,16 @@
+{
+  "name": "Clear Vision Leadership Wellness Summit 2027",
+  "short_name": "Clear Vision Summit",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0F2747",
+  "theme_color": "#0F2747",
+  "icons": [
+    {
+      "src": "/cv-mark-red.png",
+      "sizes": "any",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
