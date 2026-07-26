@@ -223,54 +223,79 @@ const HomePage: React.FC = () => {
           <div
             className="absolute inset-0"
             style={{
-              backgroundImage: `url('/social-share-2027.jpg')`,
+              backgroundImage: `url('/hero-coastal-sunrise.jpg')`,
               backgroundSize: "cover",
               backgroundPosition: "center",
+              backgroundRepeat: "no-repeat",
             }}
           ></div>
-          <div className="absolute inset-0 bg-gradient-to-b from-navy-900/40 via-navy-900/20 to-navy-900/50"></div>
+          <div className="absolute inset-0 bg-gradient-to-b from-navy-900/75 via-navy-800/60 to-navy-900/85"></div>
         </div>
 
-        <div className="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 pb-20 text-center w-full">
-          <h1 className="sr-only">Clear Vision Leadership Wellness Summit 2027 — We SEE You.</h1>
+        <div className="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-24 text-center w-full">
+          {/* Eyebrow */}
+          <p className="text-turquoise-200 font-sans text-xs sm:text-sm md:text-base tracking-[0.2em] sm:tracking-[0.25em] uppercase mb-6 animate-fade-in">
+            Clear Vision Leadership Wellness Summit 2027
+          </p>
 
-          <div className="mt-64 sm:mt-72 md:mt-80">
-            <p
-              className="font-serif text-lg sm:text-xl md:text-2xl text-white italic mb-8 max-w-2xl mx-auto animate-fade-in-up leading-relaxed drop-shadow-lg"
-              style={{ animationDelay: "0.15s" }}
-            >
-              The world celebrates what leaders accomplish. We create a space
-              where leaders can breathe, reconnect, and restore.
-            </p>
+          {/* Headline */}
+          <h1 className="font-serif text-[clamp(3rem,10vw,8rem)] text-white mb-6 leading-[1.05] animate-fade-in-up">
+            We SEE You.
+          </h1>
 
-            <p
-              className="text-sm sm:text-base md:text-lg text-white/95 mb-10 max-w-2xl mx-auto leading-relaxed animate-fade-in-up drop-shadow-lg"
-              style={{ animationDelay: "0.3s" }}
-            >
-              You spend every day carrying responsibilities, solving problems,
-              leading teams, serving families, and showing up for others. Now it
-              is time to restore the leader beneath the responsibility.
-            </p>
-
-            <div
-              className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in-up"
-              style={{ animationDelay: "0.45s" }}
-            >
-              <button
-                onClick={handleRegisterClick}
-                className="bg-gold-400 text-navy-900 px-8 py-4 rounded-full text-base font-semibold hover:bg-gold-300 hover:shadow-xl transition-all duration-200 transform hover:scale-105 shadow-lg flex items-center justify-center gap-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-gold-200 focus-visible:ring-offset-2 focus-visible:ring-offset-navy-900"
-              >
-                Reserve Your Seat
-                <ArrowRight className="w-5 h-5" aria-hidden="true" />
-              </button>
-              <button
-                onClick={handlePartnerEmail}
-                className="border-2 border-turquoise-200/80 text-turquoise-50 px-8 py-4 rounded-full text-base font-semibold hover:bg-turquoise-200/15 hover:border-turquoise-100 transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-turquoise-200 focus-visible:ring-offset-2 focus-visible:ring-offset-navy-900"
-              >
-                Become a Partner
-              </button>
-            </div>
+          {/* Gold divider */}
+          <div className="flex items-center justify-center gap-4 mb-8 animate-fade-in" style={{ animationDelay: "0.1s" }}>
+            <div className="w-12 h-px bg-gold-400/70"></div>
+            <div className="w-2 h-2 rounded-full bg-gold-400"></div>
+            <div className="w-12 h-px bg-gold-400/70"></div>
           </div>
+
+          {/* Emotional tagline */}
+          <p
+            className="font-serif text-lg sm:text-xl md:text-2xl text-turquoise-100 italic mb-6 max-w-2xl mx-auto animate-fade-in-up leading-relaxed"
+            style={{ animationDelay: "0.15s" }}
+          >
+            The world celebrates what leaders accomplish. We create a space
+            where leaders can breathe, reconnect, and restore.
+          </p>
+
+          {/* Supporting paragraph */}
+          <p
+            className="text-sm sm:text-base md:text-lg text-sand-100/90 mb-10 max-w-2xl mx-auto leading-relaxed animate-fade-in-up"
+            style={{ animationDelay: "0.3s" }}
+          >
+            You spend every day carrying responsibilities, solving problems,
+            leading teams, serving families, and showing up for others. Now it
+            is time to restore the leader beneath the responsibility.
+          </p>
+
+          {/* CTA buttons */}
+          <div
+            className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in-up"
+            style={{ animationDelay: "0.45s" }}
+          >
+            <button
+              onClick={handleRegisterClick}
+              className="bg-gold-400 text-navy-900 px-8 py-4 rounded-full text-base font-semibold hover:bg-gold-300 hover:shadow-xl transition-all duration-200 transform hover:scale-105 shadow-lg flex items-center justify-center gap-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-gold-200 focus-visible:ring-offset-2 focus-visible:ring-offset-navy-900"
+            >
+              Reserve Your Seat
+              <ArrowRight className="w-5 h-5" aria-hidden="true" />
+            </button>
+            <button
+              onClick={handlePartnerEmail}
+              className="border-2 border-turquoise-200/80 text-turquoise-50 px-8 py-4 rounded-full text-base font-semibold hover:bg-turquoise-200/15 hover:border-turquoise-100 transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-turquoise-200 focus-visible:ring-offset-2 focus-visible:ring-offset-navy-900"
+            >
+              Become a Partner
+            </button>
+          </div>
+
+          {/* Date & location */}
+          <p
+            className="mt-10 text-sm text-sand-100/80 tracking-wide animate-fade-in"
+            style={{ animationDelay: "0.6s" }}
+          >
+            {heroDateRange}
+          </p>
         </div>
       </header>
 
