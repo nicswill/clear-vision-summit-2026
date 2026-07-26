@@ -163,7 +163,7 @@ const HomePage: React.FC = () => {
                 onClick={handleRegisterClick}
                 className="hidden sm:inline-flex bg-gold-400 text-navy-900 px-5 py-2 rounded-full hover:bg-gold-300 transition-all duration-200 text-sm font-semibold shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-gold-200 focus-visible:ring-offset-2 focus-visible:ring-offset-navy-900"
               >
-                Reserve Your Seat
+                Begin Your Reset
               </button>
 
               <button
@@ -205,7 +205,7 @@ const HomePage: React.FC = () => {
                 onClick={() => handleMobileNavClick(handleRegisterClick)}
                 className="block w-full bg-gold-400 text-navy-900 px-4 py-3 rounded-full text-base font-semibold mt-3 hover:bg-gold-300 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-gold-200"
               >
-                Reserve Your Seat
+                Begin Your Reset
               </button>
             </div>
           </div>
@@ -251,7 +251,7 @@ const HomePage: React.FC = () => {
               onClick={handleRegisterClick}
               className="bg-gold-400 text-navy-900 px-8 py-4 rounded-full text-base font-semibold hover:bg-gold-300 hover:shadow-xl transition-all duration-200 transform hover:scale-105 shadow-lg flex items-center justify-center gap-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-gold-200 focus-visible:ring-offset-2 focus-visible:ring-offset-navy-900"
             >
-              Reserve Your Seat
+              Begin Your Reset
               <ArrowRight className="w-5 h-5" aria-hidden="true" />
             </button>
             <button
@@ -723,7 +723,7 @@ const HomePage: React.FC = () => {
                 onClick={handleRegisterClick}
                 className="bg-gold-400 text-navy-900 px-8 py-4 rounded-full text-base font-semibold hover:bg-gold-300 hover:shadow-xl transition-all duration-200 transform hover:scale-105 shadow-lg flex items-center justify-center gap-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-gold-200 focus-visible:ring-offset-2 focus-visible:ring-offset-navy-900"
               >
-                Reserve Your Seat
+                Begin Your Reset
                 <ArrowRight className="w-5 h-5" aria-hidden="true" />
               </button>
               <button
@@ -797,7 +797,7 @@ const HomePage: React.FC = () => {
                     onClick={handleRegisterClick}
                     className="block text-sand-100/70 hover:text-turquoise-200 transition-colors mx-auto text-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-gold-400 rounded px-2 py-1"
                   >
-                    Reserve Your Seat
+                    Begin Your Reset
                   </button>
                 </div>
               </div>
