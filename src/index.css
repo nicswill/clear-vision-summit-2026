@@ -15,3 +15,21 @@ h2,
 h3 {
   font-family: '"Playfair Display"', Georgia, serif;
 }
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+:focus-visible {
+  outline: 2px solid #d4a256;
+  outline-offset: 2px;
+}
