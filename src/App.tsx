@@ -234,15 +234,22 @@ const HomePage: React.FC = () => {
         <div className="max-w-3xl mx-auto px-6 lg:px-8 text-center">
           <p className="font-serif text-xl sm:text-2xl md:text-3xl text-turquoise-100 italic mb-8 leading-relaxed animate-fade-in-up">
             The world celebrates what leaders accomplish. We create a space
-            where leaders can breathe, reconnect, and restore.
+            where leaders can finally breathe, reconnect, and restore.
           </p>
 
           <p className="text-base md:text-lg text-sand-100/80 mb-12 leading-relaxed max-w-2xl mx-auto animate-fade-in-up">
-            You spend every day carrying responsibilities, solving problems,
-            leading teams, serving families, and showing up for others. This
-            experience creates space for you to pause, realign, and reconnect
-            with the leader beneath the responsibility.
+            Every day you carry responsibility. You solve problems, lead teams,
+            serve families, and show up for others. This is your invitation to
+            pause, realign, and reconnect with the leader beneath the
+            responsibility.
           </p>
+
+          <div className="flex flex-col items-center gap-5 mb-10 animate-fade-in-up">
+            <p className="font-serif text-lg md:text-xl text-gold-300 italic">
+              Reserve your place in the experience.
+            </p>
+            <div className="w-16 h-px bg-gold-400/70"></div>
+          </div>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in-up">
             <button
