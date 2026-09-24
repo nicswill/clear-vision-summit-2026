@@ -94,7 +94,7 @@ const speakers: Speaker[] = [
   },
   {
     name: "Derick X. Richardson",
-    image: "/speakers/derick-richardson.jpeg",
+    image: "/speakers/derick-richardson.png",
     role: "Artist • Curator • Founder, Xavier Fine Art",
     session: "Creative Pause: A Guided Painting Experience",
     description:
@@ -915,11 +915,7 @@ const HomePage: React.FC = () => {
                     <img
                       src={speaker.image}
                       alt={speaker.name}
-                      className={`h-full w-full object-cover transition duration-500 group-hover:scale-[1.025] ${
-                        speaker.name === "Derick X. Richardson"
-                          ? "object-center scale-[0.88]"
-                          : "object-top"
-                      }`}
+                      className="h-full w-full object-cover object-top transition duration-500 group-hover:scale-[1.025]"
                     />
 
                     <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-navy-900/70 to-transparent" />
