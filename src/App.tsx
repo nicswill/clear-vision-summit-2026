@@ -1,297 +1,419 @@
-import React, { useState, useEffect, useRef } from "react";
-import { Routes, Route, useNavigate } from "react-router-dom";
+import React, { useEffect, useState } from "react";
 import {
   ArrowRight,
+  CalendarDays,
   Mail,
+  MapPin,
+  Menu,
   Phone,
-  Heart,
   Sparkles,
-  Eye,
-  Wind,
-  Droplets,
-  Music,
-  Mic,
-  BookOpen,
   Users,
-  Leaf,
-  Waves,
-  Hand,
+  Heart,
   Shield,
   Stethoscope,
   GraduationCap,
   Church,
   Building2,
   UserCheck,
-  Activity,
+  Music,
+  Mic,
   PauseCircle,
+  Wind,
   Footprints,
-  PenLine,
+  Activity,
   RefreshCw,
-  Scan,
-  Tent,
+  PenLine,
+  BookOpen,
   Gift,
+  Droplets,
   Coffee,
+  Waves,
+  Tent,
+  Hand,
   BookMarked,
-  Menu,
+  Eye,
+  Scan,
   X,
 } from "lucide-react";
-import RegisterPage from "./components/RegisterPage";
-import CoachRegistration from "./components/CoachRegistration";
-import SpeakerRegistration from "./components/SpeakerRegistration";
-import AttendeeRegistration from "./components/AttendeeRegistration";
 import Reveal from "./components/Reveal";
 
+const REGISTRATION_URL =
+  "https://clearvisionleader.com/2027-summit-registration/";
+
+const EVENT = {
+  year: 2027,
+  dateRange: "January 29–30, 2027",
+  city: "Okaloosa Island, Florida",
+  venue: "The Island Resort at Fort Walton Beach",
+};
+
+type Speaker = {
+  name: string;
+  image: string;
+  role: string;
+  session: string;
+  subtitle?: string;
+  description: string;
+};
+
+const speakers: Speaker[] = [
+  {
+    name: "Matea Suarez, LMHC, NCC",
+    image: "/speakers/matea-suarez.jpeg",
+    role: "Licensed Mental Health Counselor • Clinical Leader",
+    session:
+      "The Weight We Carry: Wellness, Burnout, and Learning to Care for Ourselves Too",
+    description:
+      "An honest conversation about the often-unseen emotional weight carried by helping professionals, with practical attention to burnout, compassion fatigue, nervous-system awareness, healthy boundaries, and sustainable self-care.",
+  },
+  {
+    name: "Dr. Nikki Brooks Seevers",
+    image: "/speakers/dr-nikki-brooks-seevers.jpeg",
+    role: "Founder • Wellness Scholar",
+    session: "Four Mirrors, One You",
+    subtitle: "Seeing Well. Being Well. Leading Well.",
+    description:
+      "Explore how emotional intelligence shapes four powerful reflections: how we see ourselves, how others see us, how digital spaces interpret our behavior, and who people ultimately experience through our leadership.",
+  },
+  {
+    name: "Dr. Phyllis Nsiah-Kumi",
+    image: "/speakers/dr-phyllis-nsiah-kumi.jpeg",
+    role: "Physician • Women's Health Leader • Leadership Coach",
+    session:
+      "Pause. Pivot. Proactivate: The Midlife Leadership Reset They Didn't Teach You",
+    description:
+      "Known to her community as Doc Kumi, she brings a practical roadmap for midlife leaders to pause, see themselves more clearly, reclaim their health and voice, and move intentionally into the next chapter of leadership and life.",
+  },
+  {
+    name: "KUTImack.",
+    image: "/speakers/kutimack.jpeg",
+    role: "TEDx Speaker • Performance Strategist",
+    session: "Be Your Best Daily®",
+    description:
+      "Known as the Fitness Philosopher and Rockstar Professor, KUTImack. translates lessons from business, fitness, academia, performance, and reinvention into practical systems for building better days and more sustainable leadership.",
+  },
+  {
+    name: "Derick X. Richardson",
+    image: "/speakers/derick-richardson.jpeg",
+    role: "Artist • Curator • Founder, Xavier Fine Art",
+    session: "Creative Pause: A Guided Painting Experience",
+    description:
+      "Step away from the demands of leadership and make room to create. This guided painting experience uses creativity as a restorative practice for slowing down, quieting the noise, reflecting, and making space for clarity.",
+  },
+];
+
 const HomePage: React.FC = () => {
-  const navigate = useNavigate();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
-  const mobileMenuRef = useRef<HTMLDivElement | null>(null);
-  const mobileMenuButtonRef = useRef<HTMLButtonElement | null>(null);
-
-  const EVENT = {
-    year: 2027,
-    dateRange: "January 29–30, 2027",
-    city: "Okaloosa Island, Florida",
-    venue: "The Island Resort at Fort Walton Beach",
-  };
 
   const heroDateRange = `${EVENT.dateRange} · ${EVENT.city}`;
 
-  const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    element?.scrollIntoView({ behavior: "smooth" });
-  };
-
   const handleRegisterClick = () => {
-    navigate("/register");
-    setTimeout(() => window.scrollTo(0, 0), 100);
+    window.location.href = REGISTRATION_URL;
   };
 
   const handlePartnerEmail = () => {
     const subject = encodeURIComponent(
-      "2027 Clear Vision Summit Partnership Interest"
+      "2027 Clear Vision Summit Partnership Interest",
     );
+
     window.location.href = `mailto:ClearvisionConference@gmail.com?subject=${subject}`;
   };
 
-  const handleMobileNavClick = (action: () => void) => {
-    action();
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+
+    element?.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    });
+
     setMobileMenuOpen(false);
   };
 
   useEffect(() => {
-    const handleScroll = () => setIsScrolled(window.scrollY > 40);
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 40);
+    };
+
+    handleScroll();
+
     window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
   }, []);
 
   useEffect(() => {
-    const handleKeyDown = (e: KeyboardEvent) => {
-      if (!mobileMenuOpen) return;
-      if (e.key === "Escape") {
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
         setMobileMenuOpen(false);
-        mobileMenuButtonRef.current?.focus();
       }
     };
+
     document.addEventListener("keydown", handleKeyDown);
-    return () => document.removeEventListener("keydown", handleKeyDown);
-  }, [mobileMenuOpen]);
+
+    return () => {
+      document.removeEventListener("keydown", handleKeyDown);
+    };
+  }, []);
 
   useEffect(() => {
-    if (mobileMenuOpen) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "";
-    }
+    document.body.style.overflow = mobileMenuOpen ? "hidden" : "";
+
     return () => {
       document.body.style.overflow = "";
     };
   }, [mobileMenuOpen]);
 
   const navLinks = [
-    { label: "The Story", action: () => scrollToSection("story") },
-    { label: "Experience", action: () => scrollToSection("experience") },
-    { label: "Voices", action: () => scrollToSection("voices") },
-    { label: "Partners", action: () => scrollToSection("partners") },
+    {
+      label: "Experience",
+      id: "experience",
+    },
+    {
+      label: "Hosts",
+      id: "hosts",
+    },
+    {
+      label: "Speakers",
+      id: "speakers",
+    },
+    {
+      label: "The Story",
+      id: "story",
+    },
+    {
+      label: "Partners",
+      id: "partners",
+    },
   ];
 
   return (
     <div className="min-h-screen bg-white">
       {/* ==================== NAVIGATION ==================== */}
       <nav
-        className={`fixed top-0 w-full z-50 transition-all duration-300 ${
+        className={`fixed top-0 z-50 w-full transition-all duration-300 ${
           isScrolled
-            ? "bg-navy-900/95 backdrop-blur-md shadow-lg"
-            : "bg-navy-900/80 backdrop-blur-sm"
+            ? "bg-navy-900/95 shadow-lg backdrop-blur-md"
+            : "bg-navy-900/85 backdrop-blur-sm"
         }`}
         aria-label="Main navigation"
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-20">
-            <a
-              href="https://clearvisionleader.com"
-              className="flex items-center gap-3 focus:outline-none focus-visible:ring-2 focus-visible:ring-gold-400 focus-visible:ring-offset-2 focus-visible:ring-offset-navy-900 rounded-lg"
-              aria-label="Clear Vision home"
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="flex h-20 items-center justify-between">
+            <button
+              type="button"
+              onClick={() =>
+                window.scrollTo({
+                  top: 0,
+                  behavior: "smooth",
+                })
+              }
+              className="flex items-center gap-3 rounded-lg text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-gold-400"
+              aria-label="Return to top"
             >
               <img
                 src="/cv logo .png"
                 alt="Clear Vision Leadership Wellness Summit"
                 className="h-12 w-auto object-contain"
               />
-              <span className="hidden sm:block font-serif text-lg text-white tracking-wide leading-tight">
+
+              <span className="hidden font-serif text-lg leading-tight tracking-wide text-white sm:block">
                 Clear Vision
-                <span className="block text-xs font-sans tracking-[0.2em] uppercase text-turquoise-200">
+                <span className="block font-sans text-xs uppercase tracking-[0.2em] text-turquoise-200">
                   Wellness Summit 2027
                 </span>
               </span>
-            </a>
+            </button>
 
-            <div className="hidden md:flex items-center space-x-8">
+            <div className="hidden items-center gap-7 lg:flex">
               {navLinks.map((link) => (
                 <button
-                  key={link.label}
-                  onClick={link.action}
-                  className="text-white/85 hover:text-turquoise-200 transition-colors font-medium text-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-gold-400 focus-visible:ring-offset-2 focus-visible:ring-offset-navy-900 rounded-md px-1"
+                  key={link.id}
+                  onClick={() => scrollToSection(link.id)}
+                  className="rounded-md px-1 text-sm font-medium text-white/85 transition-colors hover:text-turquoise-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-gold-400"
                 >
                   {link.label}
                 </button>
               ))}
-            </div>
 
-            <div className="flex items-center gap-3">
               <button
                 onClick={handleRegisterClick}
-                className="hidden sm:inline-flex bg-gold-400 text-navy-900 px-5 py-2 rounded-full hover:bg-gold-300 transition-all duration-200 text-sm font-semibold shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-gold-200 focus-visible:ring-offset-2 focus-visible:ring-offset-navy-900"
+                className="rounded-full bg-gold-400 px-5 py-2.5 text-sm font-bold text-navy-900 shadow-md transition hover:bg-gold-300"
               >
-                Begin Your Reset
-              </button>
-
-              <button
-                ref={mobileMenuButtonRef}
-                onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                className="md:hidden text-white p-2 rounded-lg hover:bg-navy-800 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-gold-400 focus-visible:ring-offset-2 focus-visible:ring-offset-navy-900"
-                aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
-                aria-expanded={mobileMenuOpen}
-                aria-controls="mobile-menu"
-              >
-                {mobileMenuOpen ? (
-                  <X className="w-6 h-6" />
-                ) : (
-                  <Menu className="w-6 h-6" />
-                )}
+                Register Now
               </button>
             </div>
+
+            <button
+              type="button"
+              onClick={() => setMobileMenuOpen((open) => !open)}
+              className="rounded-lg p-2 text-white lg:hidden"
+              aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
+              aria-expanded={mobileMenuOpen}
+            >
+              {mobileMenuOpen ? <X size={26} /> : <Menu size={26} />}
+            </button>
           </div>
         </div>
 
-        {/* Mobile menu */}
         {mobileMenuOpen && (
-          <div
-            ref={mobileMenuRef}
-            id="mobile-menu"
-            className="md:hidden absolute top-full left-0 right-0 bg-navy-900/98 backdrop-blur-md shadow-xl border-t border-navy-700"
-          >
-            <div className="px-4 py-6 space-y-1">
+          <div className="absolute left-0 right-0 top-full border-t border-navy-700 bg-navy-900 shadow-xl lg:hidden">
+            <div className="space-y-1 px-4 py-6">
               {navLinks.map((link) => (
                 <button
-                  key={link.label}
-                  onClick={() => handleMobileNavClick(link.action)}
-                  className="block w-full text-left text-white/90 hover:text-turquoise-200 hover:bg-navy-800/50 transition-colors font-medium text-base px-4 py-3 rounded-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-gold-400"
+                  key={link.id}
+                  onClick={() => scrollToSection(link.id)}
+                  className="block w-full rounded-lg px-4 py-3 text-left font-medium text-white/90 transition-colors hover:bg-navy-800/60 hover:text-turquoise-200"
                 >
                   {link.label}
                 </button>
               ))}
+
               <button
-                onClick={() => handleMobileNavClick(handleRegisterClick)}
-                className="block w-full bg-gold-400 text-navy-900 px-4 py-3 rounded-full text-base font-semibold mt-3 hover:bg-gold-300 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-gold-200"
+                onClick={handleRegisterClick}
+                className="mt-4 block w-full rounded-full bg-gold-400 px-4 py-3 font-bold text-navy-900"
               >
-                Begin Your Reset
+                Register Now — $249 Early Bird
               </button>
             </div>
           </div>
         )}
       </nav>
 
-      {/* ==================== 1. HERO ==================== */}
-      <header>
-        {/* Offset for fixed nav (h-20 = 80px) */}
-        <div className="pt-20">
+      {/* ==================== HERO ==================== */}
+      <header className="relative overflow-hidden bg-navy-900 pt-20">
+        <div className="relative min-h-[78vh]">
           <img
-            src="/hero-coastal-sunrise.jpg"
+            src="/hero-coastal-sunrise-clean.png"
             alt="Clear Vision Leadership Wellness Summit 2027 — We SEE You. January 29–30, 2027, Okaloosa Island, Florida."
-            className="w-full h-auto block"
+            className="absolute inset-0 h-full w-full object-cover"
           />
+
+          <div className="absolute inset-0 bg-gradient-to-r from-navy-900/95 via-navy-900/78 to-navy-900/25" />
+          <div className="absolute inset-0 bg-gradient-to-t from-navy-900/85 via-transparent to-transparent" />
+
+          <div className="relative mx-auto flex min-h-[78vh] max-w-7xl items-center px-6 py-20 lg:px-8">
+            <div className="max-w-3xl">
+              <Reveal>
+                <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-gold-300/40 bg-gold-300/10 px-4 py-2 text-sm font-semibold text-gold-300">
+                  <Sparkles size={16} />
+                  Registration is now open
+                </div>
+
+                <p className="mb-4 text-sm font-semibold uppercase tracking-[0.25em] text-turquoise-200">
+                  Clear Vision Leadership Wellness Summit 2027
+                </p>
+
+                <h1 className="font-serif text-[clamp(3.8rem,11vw,7.5rem)] leading-[0.92] text-white">
+                  We SEE You.
+                </h1>
+
+                <p className="mt-6 font-serif text-2xl text-sand-100 sm:text-3xl">
+                  A Leadership &amp; Wellness Experience
+                </p>
+
+                <p className="mt-7 max-w-2xl text-base leading-8 text-sand-100/80 sm:text-lg">
+                  The world celebrates what leaders accomplish. We create a
+                  space where leaders can finally breathe, reconnect, restore,
+                  and be seen beyond the responsibilities they carry.
+                </p>
+
+                <div className="mt-8 flex flex-col gap-4 text-sand-100 sm:flex-row sm:flex-wrap sm:items-center">
+                  <div className="flex items-center gap-2">
+                    <CalendarDays className="text-gold-300" size={21} />
+
+                    <span className="font-semibold">{EVENT.dateRange}</span>
+                  </div>
+
+                  <div className="hidden h-5 w-px bg-white/30 sm:block" />
+
+                  <div className="flex items-center gap-2">
+                    <MapPin className="text-gold-300" size={21} />
+
+                    <span className="font-semibold">{EVENT.city}</span>
+                  </div>
+                </div>
+
+                <p className="mt-3 text-sm text-sand-100/70">{EVENT.venue}</p>
+
+                <div className="mt-10 flex flex-col gap-4 sm:flex-row">
+                  <button
+                    onClick={handleRegisterClick}
+                    className="inline-flex items-center justify-center gap-2 rounded-full bg-gold-400 px-8 py-4 font-bold text-navy-900 shadow-xl transition hover:-translate-y-0.5 hover:bg-gold-300"
+                  >
+                    Register Now — $249 Early Bird
+                    <ArrowRight size={19} />
+                  </button>
+
+                  <button
+                    onClick={() => scrollToSection("speakers")}
+                    className="rounded-full border-2 border-turquoise-200/70 px-8 py-4 font-semibold text-white transition hover:bg-turquoise-200/10"
+                  >
+                    Meet the Speakers
+                  </button>
+                </div>
+
+                <div className="mt-5 flex flex-wrap gap-x-5 gap-y-2 text-sm text-sand-100/65">
+                  <span>Early Bird $249</span>
+                  <span>Regular Registration $299</span>
+                  <span>Limited-time rate</span>
+                </div>
+              </Reveal>
+            </div>
+          </div>
         </div>
       </header>
 
-      {/* ==================== 1b. INTRO INVITATION ==================== */}
+      {/* ==================== INTRO INVITATION ==================== */}
       <section className="bg-navy-900 py-20 md:py-28">
-        <div className="max-w-3xl mx-auto px-6 lg:px-8 text-center">
-          <p className="font-serif text-xl sm:text-2xl md:text-3xl text-turquoise-100 italic mb-8 leading-relaxed animate-fade-in-up">
-            The world celebrates what leaders accomplish. We create a space
-            where leaders can finally breathe, reconnect, and restore.
-          </p>
-
-          <p className="text-base md:text-lg text-sand-100/80 mb-12 leading-relaxed max-w-2xl mx-auto animate-fade-in-up">
-            Every day you carry responsibility. You solve problems, lead teams,
-            serve families, and show up for others. This is your invitation to
-            pause, realign, and reconnect with the leader beneath the
-            responsibility.
-          </p>
-
-          <div className="flex flex-col items-center gap-5 mb-10 animate-fade-in-up">
-            <p className="font-serif text-lg md:text-xl text-gold-300 italic">
-              Reserve your place in the experience.
-            </p>
-            <div className="w-16 h-px bg-gold-400/70"></div>
-          </div>
-
-          <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in-up">
-            <button
-              onClick={handleRegisterClick}
-              className="bg-gold-400 text-navy-900 px-8 py-4 rounded-full text-base font-semibold hover:bg-gold-300 hover:shadow-xl transition-all duration-200 transform hover:scale-105 shadow-lg flex items-center justify-center gap-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-gold-200 focus-visible:ring-offset-2 focus-visible:ring-offset-navy-900"
-            >
-              Begin Your Reset
-              <ArrowRight className="w-5 h-5" aria-hidden="true" />
-            </button>
-            <button
-              onClick={handlePartnerEmail}
-              className="border-2 border-turquoise-200/80 text-turquoise-50 px-8 py-4 rounded-full text-base font-semibold hover:bg-turquoise-200/15 hover:border-turquoise-100 transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-turquoise-200 focus-visible:ring-offset-2 focus-visible:ring-offset-navy-900"
-            >
-              Become a Partner
-            </button>
-          </div>
-        </div>
-      </section>
-
-      {/* ==================== WHO THIS IS FOR ==================== */}
-      <section className="bg-white py-24 md:py-36">
-        <div className="max-w-6xl mx-auto px-6 lg:px-8">
+        <div className="mx-auto max-w-3xl px-6 text-center lg:px-8">
           <Reveal>
-            <p className="text-turquoise-600 font-sans text-sm tracking-[0.25em] uppercase mb-6 text-center">
-              Who This Is For
-            </p>
-          </Reveal>
-          <Reveal delay={100}>
-            <h2 className="font-serif text-[clamp(1.75rem,4.5vw,3.5rem)] text-navy-900 mb-6 text-center leading-[1.2]">
-              You don't have to earn your way into this room.
-            </h2>
-          </Reveal>
-          <Reveal delay={150}>
-            <p className="text-base md:text-lg text-gray-600 leading-relaxed mb-10 max-w-2xl mx-auto text-center">
-              If you've spent your life carrying responsibility for others, this
-              experience was created with you in mind.
-            </p>
-          </Reveal>
-          <Reveal delay={200}>
-            <p className="font-serif text-xl md:text-2xl text-navy-800 italic text-center mb-16">
+            <p className="font-serif text-xl italic leading-relaxed text-turquoise-100 sm:text-2xl md:text-3xl">
               You don't need another conference.
               <br />
               You need space to breathe.
             </p>
+
+            <p className="mx-auto mt-8 max-w-2xl text-base leading-relaxed text-sand-100/75 md:text-lg">
+              Every day you solve problems, lead teams, serve families, support
+              communities, and show up for others. This is your invitation to
+              pause, realign, and reconnect with the person beneath the
+              responsibility.
+            </p>
+
+            <button
+              onClick={handleRegisterClick}
+              className="mt-10 inline-flex items-center gap-2 rounded-full bg-gold-400 px-8 py-4 font-bold text-navy-900 shadow-lg transition hover:bg-gold-300"
+            >
+              Reserve Your Place
+              <ArrowRight size={19} />
+            </button>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* ==================== WHO THIS IS FOR ==================== */}
+      <section className="bg-white py-24 md:py-32">
+        <div className="mx-auto max-w-6xl px-6 lg:px-8">
+          <Reveal>
+            <p className="text-center text-sm uppercase tracking-[0.25em] text-turquoise-600">
+              Who This Is For
+            </p>
+
+            <h2 className="mt-5 text-center font-serif text-[clamp(2rem,5vw,3.5rem)] leading-tight text-navy-900">
+              You don't have to earn your way into this room.
+            </h2>
+
+            <p className="mx-auto mt-6 max-w-2xl text-center text-lg leading-8 text-gray-600">
+              If you've spent your life carrying responsibility for others, this
+              experience was created with you in mind.
+            </p>
           </Reveal>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+          <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {[
               {
                 icon: Shield,
@@ -321,132 +443,177 @@ const HomePage: React.FC = () => {
                 icon: Building2,
                 title: "Business & Community Leaders",
                 message:
-                  "Making decisions that affect people while carrying the pressure few people see.",
+                  "Making decisions that affect people while carrying pressure few people see.",
               },
               {
                 icon: UserCheck,
-                title: "Anyone Ready To Breathe Again",
+                title: "Anyone Ready to Breathe Again",
                 message:
                   "If you're carrying more than people realize, this space was created for you.",
               },
-            ].map((card, i) => (
-              <Reveal key={i} delay={i * 100}>
-                <div className="group h-full p-6 md:p-8 rounded-2xl bg-sand-50 border border-sand-200 hover:border-turquoise-300 hover:shadow-lg transition-all duration-500">
-                  <div className="w-12 h-12 rounded-full bg-turquoise-100 flex items-center justify-center mb-5 group-hover:bg-gold-100 transition-colors duration-500">
-                    <card.icon
-                      className="w-6 h-6 text-turquoise-600 group-hover:text-gold-600 transition-colors duration-500"
-                      aria-hidden="true"
-                    />
-                  </div>
-                  <h3 className="font-serif text-xl md:text-2xl text-navy-900 mb-3">
-                    {card.title}
-                  </h3>
-                  <p className="text-gray-600 leading-relaxed text-sm md:text-base">
-                    {card.message}
-                  </p>
-                </div>
-              </Reveal>
-            ))}
+            ].map((card, index) => {
+              const Icon = card.icon;
+
+              return (
+                <Reveal key={card.title} delay={index * 80}>
+                  <article className="h-full rounded-2xl border border-sand-200 bg-sand-50 p-7 transition hover:border-turquoise-300 hover:shadow-lg">
+                    <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-full bg-turquoise-100">
+                      <Icon className="text-turquoise-700" size={23} />
+                    </div>
+
+                    <h3 className="font-serif text-2xl text-navy-900">
+                      {card.title}
+                    </h3>
+
+                    <p className="mt-3 leading-7 text-gray-600">
+                      {card.message}
+                    </p>
+                  </article>
+                </Reveal>
+              );
+            })}
           </div>
         </div>
       </section>
 
-      {/* ==================== 5. THE EXPERIENCE ==================== */}
+      {/* ==================== THE EXPERIENCE ==================== */}
       <section
         id="experience"
-        className="bg-sand-50 py-24 md:py-36 relative overflow-hidden"
+        className="scroll-mt-20 bg-sand-50 py-24 md:py-32"
       >
-        <div className="max-w-5xl mx-auto px-6 lg:px-8">
+        <div className="mx-auto max-w-5xl px-6 lg:px-8">
           <Reveal>
-            <p className="text-turquoise-600 font-sans text-sm tracking-[0.25em] uppercase mb-6 text-center">
+            <p className="text-center text-sm uppercase tracking-[0.25em] text-turquoise-600">
               The Experience
             </p>
-          </Reveal>
-          <Reveal delay={100}>
-            <h2 className="font-serif text-[clamp(1.75rem,4.5vw,3.5rem)] text-navy-900 mb-4 text-center leading-[1.2]">
+
+            <h2 className="mt-5 text-center font-serif text-[clamp(2rem,5vw,3.5rem)] leading-tight text-navy-900">
               A journey back to yourself.
             </h2>
-          </Reveal>
-          <Reveal delay={150}>
-            <p className="text-center text-gray-500 mb-16 max-w-2xl mx-auto text-sm md:text-base">
+
+            <p className="mx-auto mt-5 max-w-2xl text-center text-base leading-7 text-gray-500 md:text-lg">
               A 1.5-day leadership wellness experience — January 29–30, 2027
             </p>
           </Reveal>
 
-          <div className="space-y-16 md:space-y-20">
+          <div className="mt-16 space-y-16 md:space-y-20">
             {/* FRIDAY — ARRIVE & EXHALE */}
             <Reveal>
-              <div className="grid md:grid-cols-[200px_1fr] gap-4 md:gap-12 items-start">
-                <div className="md:text-right md:pt-2">
-                  <p className="text-turquoise-600 font-sans text-sm tracking-[0.2em] uppercase mb-2">
+              <div className="grid items-start gap-4 md:grid-cols-[200px_1fr] md:gap-12">
+                <div className="md:pt-2 md:text-right">
+                  <p className="mb-2 text-sm uppercase tracking-[0.2em] text-turquoise-600">
                     Friday
                   </p>
-                  <h3 className="font-serif text-2xl md:text-3xl text-navy-900">
+
+                  <h3 className="font-serif text-2xl text-navy-900 md:text-3xl">
                     Arrive &amp; Exhale
                   </h3>
                 </div>
+
                 <div className="md:border-l md:border-sand-300 md:pl-12">
-                  <p className="text-base md:text-xl text-gray-700 leading-relaxed mb-5">
+                  <p className="mb-5 text-base leading-relaxed text-gray-700 md:text-xl">
                     You arrive and are welcomed by name. The pace begins to slow
                     as you enter the Clear Vision Concierge Experience, receive
                     your Wellness Reset Box, and settle into spaces designed for
-                    hydration, reflection, and ease.
+                    hydration, reflection, connection, and ease.
                   </p>
+
                   <div className="flex flex-wrap gap-2">
                     {[
-                      { icon: Hand, label: "Concierge Check-In" },
-                      { icon: Gift, label: "Wellness Reset Box" },
-                      { icon: Droplets, label: "Hydration Bar" },
-                      { icon: Coffee, label: "Tea Bar" },
-                      { icon: Sparkles, label: "Welcome Experience" },
-                    ].map((f, fi) => (
-                      <span
-                        key={fi}
-                        className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-turquoise-50 text-turquoise-700 text-sm border border-turquoise-200"
-                      >
-                        <f.icon className="w-3.5 h-3.5" aria-hidden="true" />
-                        {f.label}
-                      </span>
-                    ))}
+                      {
+                        icon: Hand,
+                        label: "Concierge Check-In",
+                      },
+                      {
+                        icon: Gift,
+                        label: "Wellness Reset Box",
+                      },
+                      {
+                        icon: Droplets,
+                        label: "Hydration Bar",
+                      },
+                      {
+                        icon: Coffee,
+                        label: "Tea Bar",
+                      },
+                      {
+                        icon: Sparkles,
+                        label: "Welcome Experience",
+                      },
+                    ].map((feature) => {
+                      const Icon = feature.icon;
+
+                      return (
+                        <span
+                          key={feature.label}
+                          className="inline-flex items-center gap-1.5 rounded-full border border-turquoise-200 bg-turquoise-50 px-3 py-1.5 text-sm text-turquoise-700"
+                        >
+                          <Icon size={14} aria-hidden="true" />
+                          {feature.label}
+                        </span>
+                      );
+                    })}
                   </div>
                 </div>
               </div>
             </Reveal>
 
-            {/* FRIDAY EVENING — SOULFUL NIGHT */}
+            {/* FRIDAY EVENING */}
             <Reveal>
-              <div className="grid md:grid-cols-[200px_1fr] gap-4 md:gap-12 items-start">
-                <div className="md:text-right md:pt-2">
-                  <p className="text-turquoise-600 font-sans text-sm tracking-[0.2em] uppercase mb-2">
+              <div className="grid items-start gap-4 md:grid-cols-[200px_1fr] md:gap-12">
+                <div className="md:pt-2 md:text-right">
+                  <p className="mb-2 text-sm uppercase tracking-[0.2em] text-turquoise-600">
                     Friday Evening
                   </p>
-                  <h3 className="font-serif text-2xl md:text-3xl text-navy-900">
+
+                  <h3 className="font-serif text-2xl text-navy-900 md:text-3xl">
                     Soulful Night
                   </h3>
                 </div>
+
                 <div className="md:border-l md:border-sand-300 md:pl-12">
-                  <p className="text-base md:text-xl text-gray-700 leading-relaxed mb-5">
+                  <p className="mb-5 text-base leading-relaxed text-gray-700 md:text-xl">
                     Friday evening is not a formal conference opening. It is a
                     soulful welcome filled with music, spoken word, meaningful
                     connection, and a message from Dr. Kay that sets the heart
                     and rhythm for the experience.
                   </p>
+
                   <div className="flex flex-wrap gap-2">
                     {[
-                      { icon: Music, label: "Live Music" },
-                      { icon: Mic, label: "Spoken Word" },
-                      { icon: Sparkles, label: "Dr. Kay's Welcome" },
-                      { icon: Users, label: "Connection" },
-                      { icon: Eye, label: "Reflection" },
-                    ].map((f, fi) => (
-                      <span
-                        key={fi}
-                        className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-turquoise-50 text-turquoise-700 text-sm border border-turquoise-200"
-                      >
-                        <f.icon className="w-3.5 h-3.5" aria-hidden="true" />
-                        {f.label}
-                      </span>
-                    ))}
+                      {
+                        icon: Music,
+                        label: "Live Music",
+                      },
+                      {
+                        icon: Mic,
+                        label: "Spoken Word",
+                      },
+                      {
+                        icon: Sparkles,
+                        label: "Dr. Kay's Welcome",
+                      },
+                      {
+                        icon: Users,
+                        label: "Connection",
+                      },
+                      {
+                        icon: Eye,
+                        label: "Reflection",
+                      },
+                    ].map((feature) => {
+                      const Icon = feature.icon;
+
+                      return (
+                        <span
+                          key={feature.label}
+                          className="inline-flex items-center gap-1.5 rounded-full border border-turquoise-200 bg-turquoise-50 px-3 py-1.5 text-sm text-turquoise-700"
+                        >
+                          <Icon size={14} aria-hidden="true" />
+                          {feature.label}
+                        </span>
+                      );
+                    })}
                   </div>
                 </div>
               </div>
@@ -454,41 +621,72 @@ const HomePage: React.FC = () => {
 
             {/* SATURDAY — BE WELL */}
             <Reveal>
-              <div className="grid md:grid-cols-[200px_1fr] gap-4 md:gap-12 items-start">
-                <div className="md:text-right md:pt-2">
-                  <p className="text-turquoise-600 font-sans text-sm tracking-[0.2em] uppercase mb-2">
+              <div className="grid items-start gap-4 md:grid-cols-[200px_1fr] md:gap-12">
+                <div className="md:pt-2 md:text-right">
+                  <p className="mb-2 text-sm uppercase tracking-[0.2em] text-turquoise-600">
                     Saturday
                   </p>
-                  <h3 className="font-serif text-2xl md:text-3xl text-navy-900">
+
+                  <h3 className="font-serif text-2xl text-navy-900 md:text-3xl">
                     Be Well
                   </h3>
                 </div>
+
                 <div className="md:border-l md:border-sand-300 md:pl-12">
-                  <p className="text-base md:text-xl text-gray-700 leading-relaxed mb-5">
+                  <p className="mb-5 text-base leading-relaxed text-gray-700 md:text-xl">
                     Saturday creates room for the whole leader. Through expert
                     wellness conversations, intentional movement, quiet
                     reflection, and restorative experiences, you are invited to
                     reconnect with your body, calm your mind, and gain clarity.
                   </p>
+
                   <div className="flex flex-wrap gap-2">
                     {[
-                      { icon: PauseCircle, label: "Permission to Pause™" },
-                      { icon: Wind, label: "Breathwork" },
-                      { icon: Footprints, label: "Beach Walk & Reflection" },
-                      { icon: Activity, label: "Men's Health" },
-                      { icon: Heart, label: "Women's Health" },
-                      { icon: RefreshCw, label: "Movement" },
-                      { icon: PenLine, label: "Journal Time" },
-                      { icon: BookOpen, label: "Wellness Conversations" },
-                    ].map((f, fi) => (
-                      <span
-                        key={fi}
-                        className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-turquoise-50 text-turquoise-700 text-sm border border-turquoise-200"
-                      >
-                        <f.icon className="w-3.5 h-3.5" aria-hidden="true" />
-                        {f.label}
-                      </span>
-                    ))}
+                      {
+                        icon: PauseCircle,
+                        label: "Permission to Pause™",
+                      },
+                      {
+                        icon: Wind,
+                        label: "Breathwork",
+                      },
+                      {
+                        icon: Footprints,
+                        label: "Beach Walk & Reflection",
+                      },
+                      {
+                        icon: Activity,
+                        label: "Men's Health",
+                      },
+                      {
+                        icon: Heart,
+                        label: "Women's Health",
+                      },
+                      {
+                        icon: RefreshCw,
+                        label: "Movement",
+                      },
+                      {
+                        icon: PenLine,
+                        label: "Journal Time",
+                      },
+                      {
+                        icon: BookOpen,
+                        label: "Wellness Conversations",
+                      },
+                    ].map((feature) => {
+                      const Icon = feature.icon;
+
+                      return (
+                        <span
+                          key={feature.label}
+                          className="inline-flex items-center gap-1.5 rounded-full border border-turquoise-200 bg-turquoise-50 px-3 py-1.5 text-sm text-turquoise-700"
+                        >
+                          <Icon size={14} aria-hidden="true" />
+                          {feature.label}
+                        </span>
+                      );
+                    })}
                   </div>
                 </div>
               </div>
@@ -496,42 +694,76 @@ const HomePage: React.FC = () => {
 
             {/* SATURDAY — RESTORE & RETURN */}
             <Reveal>
-              <div className="grid md:grid-cols-[200px_1fr] gap-4 md:gap-12 items-start">
-                <div className="md:text-right md:pt-2">
-                  <p className="text-turquoise-600 font-sans text-sm tracking-[0.2em] uppercase mb-2">
+              <div className="grid items-start gap-4 md:grid-cols-[200px_1fr] md:gap-12">
+                <div className="md:pt-2 md:text-right">
+                  <p className="mb-2 text-sm uppercase tracking-[0.2em] text-turquoise-600">
                     Saturday
                   </p>
-                  <h3 className="font-serif text-2xl md:text-3xl text-navy-900">
+
+                  <h3 className="font-serif text-2xl text-navy-900 md:text-3xl">
                     Restore &amp; Return
                   </h3>
                 </div>
+
                 <div className="md:border-l md:border-sand-300 md:pl-12">
-                  <p className="text-base md:text-xl text-gray-700 leading-relaxed mb-5">
-                    The afternoon brings deeper connection, intentional sector
-                    communities, and signature Clear Vision experiences
-                    designed to help you release what you have been carrying
-                    and return home with a more sustainable rhythm.
+                  <p className="mb-5 text-base leading-relaxed text-gray-700 md:text-xl">
+                    The afternoon brings deeper connection, intentional
+                    communities, and signature Clear Vision experiences designed
+                    to help you release what you have been carrying and return
+                    home with a more sustainable rhythm.
                   </p>
+
                   <div className="flex flex-wrap gap-2">
                     {[
-                      { icon: Tent, label: "Military Pavilion" },
-                      { icon: Stethoscope, label: "Healthcare Pavilion" },
-                      { icon: GraduationCap, label: "Education Pavilion" },
-                      { icon: Church, label: "Faith & Ministry Pavilion" },
-                      { icon: Building2, label: "Business Pavilion" },
-                      { icon: PauseCircle, label: "Pause Lounge" },
-                      { icon: Sparkles, label: "Minutes Matter™ Reset Room" },
-                      { icon: Scan, label: "Mirror Walk" },
-                      { icon: Waves, label: "Closing Reflection" },
-                    ].map((f, fi) => (
-                      <span
-                        key={fi}
-                        className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-turquoise-50 text-turquoise-700 text-sm border border-turquoise-200"
-                      >
-                        <f.icon className="w-3.5 h-3.5" aria-hidden="true" />
-                        {f.label}
-                      </span>
-                    ))}
+                      {
+                        icon: Tent,
+                        label: "Military Pavilion",
+                      },
+                      {
+                        icon: Stethoscope,
+                        label: "Healthcare Pavilion",
+                      },
+                      {
+                        icon: GraduationCap,
+                        label: "Education Pavilion",
+                      },
+                      {
+                        icon: Church,
+                        label: "Faith & Ministry Pavilion",
+                      },
+                      {
+                        icon: Building2,
+                        label: "Business Pavilion",
+                      },
+                      {
+                        icon: PauseCircle,
+                        label: "Pause Lounge",
+                      },
+                      {
+                        icon: Sparkles,
+                        label: "Minutes Matter™ Reset Room",
+                      },
+                      {
+                        icon: Scan,
+                        label: "Mirror Walk",
+                      },
+                      {
+                        icon: Waves,
+                        label: "Closing Reflection",
+                      },
+                    ].map((feature) => {
+                      const Icon = feature.icon;
+
+                      return (
+                        <span
+                          key={feature.label}
+                          className="inline-flex items-center gap-1.5 rounded-full border border-turquoise-200 bg-turquoise-50 px-3 py-1.5 text-sm text-turquoise-700"
+                        >
+                          <Icon size={14} aria-hidden="true" />
+                          {feature.label}
+                        </span>
+                      );
+                    })}
                   </div>
                 </div>
               </div>
@@ -540,52 +772,312 @@ const HomePage: React.FC = () => {
         </div>
       </section>
 
-      {/* ==================== BEHIND EVERY LEADER (STORY) ==================== */}
+      {/* ==================== MEET YOUR HOSTS ==================== */}
+      <section
+        id="hosts"
+        className="scroll-mt-20 overflow-hidden bg-white py-24 md:py-32"
+      >
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <div className="grid items-center gap-12 lg:grid-cols-[1.02fr_0.98fr] lg:gap-16">
+            <Reveal>
+              <div className="relative">
+                <div className="absolute -left-5 -top-5 h-28 w-28 rounded-full bg-gold-300/20" />
+
+                <div className="absolute -bottom-6 -right-5 h-36 w-36 rounded-full bg-turquoise-300/15" />
+
+                <img
+                  src="/speakers/nick-kennita-williams.png"
+                  alt="Nicholas Williams and Dr. Kennita Dr. Kay Williams, hosts of the Clear Vision Leadership Wellness Summit"
+                  className="relative z-10 w-full rounded-[2rem] object-cover shadow-2xl"
+                />
+              </div>
+            </Reveal>
+
+            <Reveal delay={120}>
+              <div>
+                <p className="text-sm uppercase tracking-[0.25em] text-turquoise-600">
+                  Meet Your Hosts
+                </p>
+
+                <h2 className="mt-5 font-serif text-[clamp(2.2rem,5vw,4rem)] leading-tight text-navy-900">
+                  Dr. Kennita “Dr. Kay” Williams &amp; Nicholas Williams
+                </h2>
+
+                <p className="mt-7 text-lg leading-8 text-gray-600">
+                  Clear Vision was built around a simple but powerful belief:
+                  leaders deserve spaces where they do not have to perform,
+                  prove, produce, or carry everything alone.
+                </p>
+
+                <p className="mt-5 text-lg leading-8 text-gray-600">
+                  Together, Dr. Kay and Nicholas create leadership experiences
+                  centered on clarity, restoration, connection, and sustainable
+                  rhythms for life and leadership.
+                </p>
+
+                <p className="mt-5 text-lg leading-8 text-gray-600">
+                  The Clear Vision Leadership Wellness Summit reflects that
+                  commitment — creating a room where the people who spend so
+                  much of their lives seeing, serving, supporting, and leading
+                  others can finally experience what it means to be seen too.
+                </p>
+
+                <div className="mt-8 rounded-2xl border border-gold-200 bg-sand-50 p-6">
+                  <p className="font-serif text-xl italic leading-8 text-navy-800">
+                    “The leaders who carry everyone else need space to breathe,
+                    reconnect, and remember that their wellness matters too.”
+                  </p>
+                </div>
+              </div>
+            </Reveal>
+          </div>
+
+          {/* DR. KAY FEATURE */}
+          <Reveal delay={150}>
+            <div className="mt-20 grid overflow-hidden rounded-[2rem] bg-navy-900 shadow-xl lg:grid-cols-[0.8fr_1.2fr]">
+              <div className="relative min-h-[420px]">
+                <img
+                  src="/speakers/dr-kay-williams.jpg"
+                  alt="Dr. Kennita Dr. Kay Williams"
+                  className="absolute inset-0 h-full w-full object-cover object-top"
+                />
+
+                <div className="absolute inset-0 bg-gradient-to-t from-navy-900/55 via-transparent to-transparent lg:bg-gradient-to-r lg:from-transparent lg:to-navy-900/20" />
+              </div>
+
+              <div className="flex items-center p-8 sm:p-10 lg:p-14">
+                <div>
+                  <p className="text-sm uppercase tracking-[0.25em] text-gold-300">
+                    Summit Founder &amp; Host
+                  </p>
+
+                  <h3 className="mt-4 font-serif text-3xl text-white sm:text-4xl">
+                    Dr. Kennita “Dr. Kay” Williams
+                  </h3>
+
+                  <p className="mt-3 text-sm font-semibold uppercase tracking-[0.16em] text-turquoise-200">
+                    Leadership Strategist • Coach • Speaker • Founder, Clear
+                    Vision Consulting
+                  </p>
+
+                  <p className="mt-7 text-base leading-8 text-sand-100/80 md:text-lg">
+                    Dr. Kay's work centers on helping leaders gain clarity,
+                    strengthen alignment, and build healthier rhythms for
+                    leadership and life. Through Clear Vision, she creates
+                    spaces where leaders can step away from constant
+                    responsibility long enough to reconnect with themselves,
+                    their purpose, and what matters most.
+                  </p>
+
+                  <p className="mt-5 text-base leading-8 text-sand-100/80 md:text-lg">
+                    At the Summit, she sets the heart and rhythm of the
+                    experience — reminding leaders that wellness is not separate
+                    from effective leadership. It is part of how we sustain it.
+                  </p>
+
+                  <p className="mt-7 font-serif text-xl italic text-gold-300">
+                    Permission to Pause™
+                  </p>
+                </div>
+              </div>
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* ==================== MEET THE SPEAKERS ==================== */}
+      <section id="speakers" className="scroll-mt-20 bg-sand-50 py-24 md:py-32">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <Reveal>
+            <div className="mx-auto max-w-3xl text-center">
+              <p className="text-sm uppercase tracking-[0.25em] text-turquoise-600">
+                Meet the 2027 Speakers
+              </p>
+
+              <h2 className="mt-5 font-serif text-[clamp(2.2rem,5vw,4rem)] leading-tight text-navy-900">
+                Voices selected for the whole leader.
+              </h2>
+
+              <p className="mx-auto mt-6 max-w-2xl text-lg leading-8 text-gray-600">
+                This year's speakers bring expertise in emotional wellness,
+                women's health, performance, creativity, leadership, and the
+                practical work of caring for yourself while continuing to care
+                for others.
+              </p>
+            </div>
+          </Reveal>
+
+          <div className="mt-16 grid gap-8 md:grid-cols-2 xl:grid-cols-3">
+            {speakers.map((speaker, index) => (
+              <Reveal key={speaker.name} delay={index * 80}>
+                <article className="group flex h-full flex-col overflow-hidden rounded-[2rem] border border-sand-200 bg-white shadow-[0_16px_50px_rgba(10,48,71,0.08)] transition duration-300 hover:-translate-y-1 hover:shadow-xl">
+                  <div className="relative aspect-[4/4.5] overflow-hidden bg-navy-900">
+                    <img
+                      src={speaker.image}
+                      alt={speaker.name}
+                      className={`h-full w-full object-cover transition duration-500 group-hover:scale-[1.025] ${
+                        speaker.name === "Derick X. Richardson"
+                          ? "object-center scale-[0.88]"
+                          : "object-top"
+                      }`}
+                    />
+
+                    <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-navy-900/70 to-transparent" />
+                  </div>
+
+                  <div className="flex flex-1 flex-col p-7">
+                    <p className="text-xs font-semibold uppercase tracking-[0.18em] text-turquoise-600">
+                      {speaker.role}
+                    </p>
+
+                    <h3 className="mt-3 font-serif text-2xl leading-tight text-navy-900">
+                      {speaker.name}
+                    </h3>
+
+                    <div className="my-5 h-px w-12 bg-gold-400" />
+
+                    <p className="font-serif text-xl leading-7 text-navy-800">
+                      {speaker.session}
+                    </p>
+                    {speaker.subtitle && (
+                      <p className="mt-2 font-serif italic text-turquoise-700">
+                        {speaker.subtitle}
+                      </p>
+                    )}
+
+                    <p className="mt-5 flex-1 text-base leading-7 text-gray-600">
+                      {speaker.description}
+                    </p>
+                  </div>
+                </article>
+              </Reveal>
+            ))}
+          </div>
+          <Reveal delay={150}>
+            <div className="mx-auto mt-14 max-w-3xl text-center">
+              <p className="font-serif text-xl italic leading-8 text-navy-800 md:text-2xl">
+                Different voices. Different experiences. One shared invitation:
+                pause long enough to see yourself again.
+              </p>
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* ==================== REGISTRATION MOMENT ==================== */}
+      <section className="bg-navy-900 py-20 md:py-24">
+        <div className="mx-auto max-w-5xl px-6 text-center lg:px-8">
+          <Reveal>
+            <p className="text-sm uppercase tracking-[0.25em] text-turquoise-200">
+              Registration Is Open
+            </p>
+
+            <h2 className="mx-auto mt-5 max-w-3xl font-serif text-[clamp(2.2rem,5vw,4rem)] leading-tight text-white">
+              Give yourself permission to be in the room.
+            </h2>
+
+            <p className="mx-auto mt-6 max-w-2xl text-lg leading-8 text-sand-100/75">
+              Reserve your place for the 2027 Clear Vision Leadership Wellness
+              Summit and experience a different kind of leadership gathering —
+              one designed with the whole leader in mind.
+            </p>
+
+            <div className="mx-auto mt-10 grid max-w-2xl gap-4 sm:grid-cols-2">
+              <div className="rounded-2xl border border-gold-300/35 bg-white/5 p-6">
+                <p className="text-sm uppercase tracking-[0.18em] text-gold-300">
+                  Early Bird
+                </p>
+
+                <p className="mt-2 font-serif text-5xl text-white">$249</p>
+
+                <p className="mt-2 text-sm text-sand-100/65">
+                  Limited-time registration rate
+                </p>
+              </div>
+
+              <div className="rounded-2xl border border-white/15 bg-white/5 p-6">
+                <p className="text-sm uppercase tracking-[0.18em] text-turquoise-200">
+                  Regular Registration
+                </p>
+
+                <p className="mt-2 font-serif text-5xl text-white">$299</p>
+
+                <p className="mt-2 text-sm text-sand-100/65">
+                  Begins after Early Bird registration ends
+                </p>
+              </div>
+            </div>
+
+            <button
+              onClick={handleRegisterClick}
+              className="mt-10 inline-flex items-center justify-center gap-2 rounded-full bg-gold-400 px-9 py-4 text-base font-bold text-navy-900 shadow-xl transition hover:-translate-y-0.5 hover:bg-gold-300"
+            >
+              Register Now — $249 Early Bird
+              <ArrowRight size={20} />
+            </button>
+
+            <p className="mt-5 text-sm text-sand-100/55">
+              January 29–30, 2027 · The Island Resort at Fort Walton Beach ·
+              Okaloosa Island, Florida
+            </p>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* ==================== BEHIND EVERY LEADER / STORY ==================== */}
       <section
         id="story"
-        className="relative bg-sand-50 py-20 md:py-32 overflow-hidden"
+        className="scroll-mt-20 overflow-hidden bg-sand-50 py-20 md:py-32"
       >
-        <div className="max-w-4xl mx-auto px-6 lg:px-8">
+        <div className="mx-auto max-w-4xl px-6 lg:px-8">
           <div className="space-y-8 md:space-y-12">
             <Reveal>
-              <p className="font-serif text-[clamp(1.75rem,5vw,3rem)] text-navy-800 leading-[1.3]">
+              <p className="font-serif text-[clamp(1.75rem,5vw,3rem)] leading-[1.3] text-navy-800">
                 Behind every title...
               </p>
             </Reveal>
-            <Reveal delay={150}>
-              <p className="font-serif text-[clamp(1.75rem,5vw,3rem)] text-turquoise-700 leading-[1.3] pl-6 md:pl-12">
+
+            <Reveal delay={100}>
+              <p className="pl-6 font-serif text-[clamp(1.75rem,5vw,3rem)] leading-[1.3] text-turquoise-700 md:pl-12">
                 is a person.
               </p>
             </Reveal>
+
             <Reveal delay={100}>
-              <p className="font-serif text-[clamp(1.75rem,5vw,3rem)] text-navy-800 leading-[1.3]">
+              <p className="font-serif text-[clamp(1.75rem,5vw,3rem)] leading-[1.3] text-navy-800">
                 Behind every responsibility...
               </p>
             </Reveal>
-            <Reveal delay={150}>
-              <p className="font-serif text-[clamp(1.75rem,5vw,3rem)] text-turquoise-700 leading-[1.3] pl-6 md:pl-12">
+
+            <Reveal delay={100}>
+              <p className="pl-6 font-serif text-[clamp(1.75rem,5vw,3rem)] leading-[1.3] text-turquoise-700 md:pl-12">
                 is someone carrying more than most people know.
               </p>
             </Reveal>
+
             <Reveal delay={100}>
-              <p className="font-serif text-[clamp(1.75rem,5vw,3rem)] text-navy-800 leading-[1.3]">
+              <p className="font-serif text-[clamp(1.75rem,5vw,3rem)] leading-[1.3] text-navy-800">
                 Behind every strong leader...
               </p>
             </Reveal>
-            <Reveal delay={150}>
-              <p className="font-serif text-[clamp(1.75rem,5vw,3rem)] text-turquoise-700 leading-[1.3] pl-6 md:pl-12">
+
+            <Reveal delay={100}>
+              <p className="pl-6 font-serif text-[clamp(1.75rem,5vw,3rem)] leading-[1.3] text-turquoise-700 md:pl-12">
                 is someone quietly asking,
               </p>
             </Reveal>
-            <Reveal delay={200}>
-              <p className="font-serif text-[clamp(1.75rem,5vw,3rem)] text-navy-900 italic leading-[1.3] pl-6 md:pl-12">
-                "When do I get to breathe?"
+
+            <Reveal delay={150}>
+              <p className="pl-6 font-serif text-[clamp(1.75rem,5vw,3rem)] italic leading-[1.3] text-navy-900 md:pl-12">
+                “When do I get to breathe?”
               </p>
             </Reveal>
-            <Reveal delay={300}>
+
+            <Reveal delay={200}>
               <div className="pt-6 md:pt-10">
-                <div className="w-16 h-px bg-gold-400 mb-5"></div>
-                <p className="font-serif text-[clamp(2.25rem,7vw,4rem)] text-gold-600 leading-tight">
+                <div className="mb-5 h-px w-16 bg-gold-400" />
+
+                <p className="font-serif text-[clamp(2.5rem,7vw,4.5rem)] leading-tight text-gold-600">
                   We SEE You.
                 </p>
               </div>
@@ -594,117 +1086,105 @@ const HomePage: React.FC = () => {
         </div>
       </section>
 
-      {/* ==================== 8. VOICES FROM LEADERS ==================== */}
-      <section
-        id="voices"
-        className="bg-sand-50 py-24 md:py-36 relative overflow-hidden"
-      >
-        <div className="max-w-4xl mx-auto px-6 lg:px-8 text-center">
-          <Reveal>
-            <p className="text-turquoise-600 font-sans text-sm tracking-[0.25em] uppercase mb-6">
-              Voices From Leaders
-            </p>
-          </Reveal>
-          <Reveal delay={100}>
-            <h2 className="font-serif text-[clamp(1.75rem,4.5vw,3.5rem)] text-navy-900 mb-16 leading-[1.2]">
-              They came carrying weight. They left feeling seen.
-            </h2>
-          </Reveal>
-
-          <Reveal delay={150}>
-            <div className="max-w-2xl mx-auto py-8">
-              <div className="w-16 h-px bg-gold-400 mx-auto mb-8"></div>
-              <p className="font-serif text-xl md:text-3xl text-navy-800 leading-relaxed mb-6">
-                Stories from previous Clear Vision experiences will be shared
-                here soon.
-              </p>
-              <p className="font-serif text-base md:text-xl text-turquoise-600 italic">
-                Real voices. Real restoration. Real clarity.
-              </p>
-              <div className="w-16 h-px bg-gold-400 mx-auto mt-8"></div>
-            </div>
-          </Reveal>
-        </div>
-      </section>
-
-      {/* ==================== 9. BECOME PART OF THE RESTORATION ==================== */}
+      {/* ==================== PARTNERS ==================== */}
       <section
         id="partners"
-        className="bg-white py-24 md:py-36 relative overflow-hidden"
+        className="scroll-mt-20 overflow-hidden bg-white py-24 md:py-32"
       >
-        <div className="max-w-5xl mx-auto px-6 lg:px-8 text-center">
+        <div className="mx-auto max-w-5xl px-6 text-center lg:px-8">
           <Reveal>
-            <p className="text-turquoise-600 font-sans text-sm tracking-[0.25em] uppercase mb-6">
+            <p className="text-sm uppercase tracking-[0.25em] text-turquoise-600">
               Become Part of the Restoration
             </p>
-          </Reveal>
-          <Reveal delay={100}>
-            <h2 className="font-serif text-[clamp(1.75rem,4.5vw,3.5rem)] text-navy-900 mb-8 leading-[1.2]">
+
+            <h2 className="mt-5 font-serif text-[clamp(2rem,5vw,3.5rem)] leading-tight text-navy-900">
               Partner with us in restoring the ones who carry everyone else.
             </h2>
-          </Reveal>
-          <Reveal delay={150}>
-            <p className="text-base md:text-xl text-gray-600 leading-relaxed mb-14 max-w-2xl mx-auto">
-              Partner with Clear Vision to help restore military leaders and
-              families, healthcare professionals, educators, ministry leaders,
-              and community builders who spend their lives serving others.
+
+            <p className="mx-auto mt-6 max-w-2xl text-lg leading-8 text-gray-600">
+              Partner with Clear Vision to help create restorative experiences
+              for military leaders and families, healthcare professionals,
+              educators, ministry leaders, business leaders, and community
+              builders who spend their lives serving others.
             </p>
           </Reveal>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6 mb-14">
+          <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {[
-              { icon: Tent, label: "Military Pavilion Partner" },
-              { icon: Leaf, label: "Wellness Experience Partner" },
-              { icon: Users, label: "Community Access & Scholarship Partner" },
-              { icon: Hand, label: "Hospitality Partner" },
-              { icon: Droplets, label: "Hydration Partner" },
-              { icon: BookMarked, label: "Leadership Resource Partner" },
-            ].map((card, i) => (
-              <Reveal key={i} delay={i * 80}>
-                <div className="group h-full p-6 md:p-8 rounded-2xl bg-sand-50 border border-sand-200 hover:border-turquoise-300 hover:shadow-lg transition-all duration-500">
-                  <div className="w-12 h-12 rounded-full bg-turquoise-100 flex items-center justify-center mb-4 mx-auto group-hover:bg-gold-100 transition-colors duration-500">
-                    <card.icon
-                      className="w-6 h-6 text-turquoise-600 group-hover:text-gold-600 transition-colors duration-500"
-                      aria-hidden="true"
-                    />
-                  </div>
-                  <h3 className="font-serif text-base md:text-lg text-navy-900">
-                    {card.label}
-                  </h3>
-                </div>
-              </Reveal>
-            ))}
+              {
+                icon: Tent,
+                label: "Military Pavilion Partner",
+              },
+              {
+                icon: Heart,
+                label: "Wellness Experience Partner",
+              },
+              {
+                icon: Users,
+                label: "Community Access & Scholarship Partner",
+              },
+              {
+                icon: Hand,
+                label: "Hospitality Partner",
+              },
+              {
+                icon: Droplets,
+                label: "Hydration Partner",
+              },
+              {
+                icon: BookMarked,
+                label: "Leadership Resource Partner",
+              },
+            ].map((partner, index) => {
+              const Icon = partner.icon;
+
+              return (
+                <Reveal key={partner.label} delay={index * 70}>
+                  <article className="h-full rounded-2xl border border-sand-200 bg-sand-50 p-7 transition hover:border-turquoise-300 hover:shadow-lg">
+                    <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-turquoise-100">
+                      <Icon className="text-turquoise-700" size={22} />
+                    </div>
+
+                    <h3 className="font-serif text-lg text-navy-900">
+                      {partner.label}
+                    </h3>
+                  </article>
+                </Reveal>
+              );
+            })}
           </div>
 
-          <Reveal delay={200}>
+          <Reveal delay={150}>
             <button
               onClick={handlePartnerEmail}
-              className="bg-navy-900 text-white px-8 py-4 rounded-full text-base font-semibold hover:bg-navy-800 transition-all duration-200 transform hover:scale-105 shadow-lg flex items-center justify-center gap-2 mx-auto focus:outline-none focus-visible:ring-2 focus-visible:ring-gold-400 focus-visible:ring-offset-2 focus-visible:ring-offset-white"
+              className="mx-auto mt-12 inline-flex items-center justify-center gap-2 rounded-full bg-navy-900 px-8 py-4 font-semibold text-white shadow-lg transition hover:bg-navy-800"
             >
-              <Mail className="w-5 h-5" aria-hidden="true" />
+              <Mail size={19} />
               Express Partnership Interest
             </button>
           </Reveal>
         </div>
       </section>
 
-      {/* ==================== 10. CINEMATIC CTA ==================== */}
-      <section className="relative min-h-[90vh] flex items-center overflow-hidden">
+      {/* ==================== FINAL CINEMATIC CTA ==================== */}
+      <section className="relative flex min-h-[82vh] items-center overflow-hidden">
         <div className="absolute inset-0">
           <div
             className="absolute inset-0"
             style={{
-              backgroundImage: `url('https://images.pexels.com/photos/268415/pexels-photo-268415.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080&fit=crop')`,
-              backgroundSize: "cover",
+              backgroundImage:
+                "url('https://images.pexels.com/photos/268415/pexels-photo-268415.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080&fit=crop')",
               backgroundPosition: "center",
+              backgroundSize: "cover",
             }}
-          ></div>
-          <div className="absolute inset-0 bg-gradient-to-b from-navy-900/90 via-navy-800/75 to-navy-900/95"></div>
+          />
+
+          <div className="absolute inset-0 bg-gradient-to-b from-navy-900/90 via-navy-800/78 to-navy-900/95" />
         </div>
 
-        <div className="relative max-w-4xl mx-auto px-6 lg:px-8 text-center py-28 md:py-32">
+        <div className="relative mx-auto max-w-4xl px-6 py-28 text-center lg:px-8">
           <Reveal>
-            <h2 className="font-serif text-[clamp(1.75rem,5vw,4.5rem)] text-white mb-8 leading-[1.15]">
+            <h2 className="font-serif text-[clamp(2.2rem,6vw,4.5rem)] leading-[1.12] text-white">
               The Leaders Who Carry Everyone Else...
               <br />
               <span className="text-turquoise-200">
@@ -712,30 +1192,41 @@ const HomePage: React.FC = () => {
               </span>
             </h2>
           </Reveal>
-          <Reveal delay={200}>
-            <p className="font-serif text-[clamp(1.5rem,4vw,3rem)] text-gold-400 italic mb-12">
+
+          <Reveal delay={150}>
+            <p className="mt-8 font-serif text-[clamp(2rem,5vw,3.5rem)] italic text-gold-400">
               We SEE You.
             </p>
           </Reveal>
+
+          <Reveal delay={220}>
+            <p className="mx-auto mt-7 max-w-2xl text-lg leading-8 text-sand-100/75">
+              January 29–30, 2027. Two days to breathe, reconnect, restore, and
+              return to leadership with greater clarity.
+            </p>
+          </Reveal>
+
           <Reveal delay={300}>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div className="mt-10 flex flex-col justify-center gap-4 sm:flex-row">
               <button
                 onClick={handleRegisterClick}
-                className="bg-gold-400 text-navy-900 px-8 py-4 rounded-full text-base font-semibold hover:bg-gold-300 hover:shadow-xl transition-all duration-200 transform hover:scale-105 shadow-lg flex items-center justify-center gap-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-gold-200 focus-visible:ring-offset-2 focus-visible:ring-offset-navy-900"
+                className="inline-flex items-center justify-center gap-2 rounded-full bg-gold-400 px-9 py-4 font-bold text-navy-900 shadow-xl transition hover:-translate-y-0.5 hover:bg-gold-300"
               >
-                Begin Your Reset
-                <ArrowRight className="w-5 h-5" aria-hidden="true" />
+                Register Now — $249 Early Bird
+                <ArrowRight size={20} />
               </button>
+
               <button
                 onClick={handlePartnerEmail}
-                className="border-2 border-turquoise-200/80 text-turquoise-50 px-8 py-4 rounded-full text-base font-semibold hover:bg-turquoise-200/15 hover:border-turquoise-100 transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-turquoise-200 focus-visible:ring-offset-2 focus-visible:ring-offset-navy-900"
+                className="rounded-full border-2 border-turquoise-200/80 px-8 py-4 font-semibold text-turquoise-50 transition hover:bg-turquoise-200/10"
               >
                 Become a Partner
               </button>
             </div>
           </Reveal>
-          <Reveal delay={400}>
-            <p className="mt-10 text-sm text-sand-100/80 tracking-wide">
+
+          <Reveal delay={350}>
+            <p className="mt-10 text-sm tracking-wide text-sand-100/70">
               {heroDateRange}
             </p>
           </Reveal>
@@ -743,13 +1234,13 @@ const HomePage: React.FC = () => {
       </section>
 
       {/* ==================== FOOTER ==================== */}
-      <footer className="bg-navy-900 text-white py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <footer className="bg-navy-900 py-16 text-white">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="text-center">
-            <div className="flex items-center justify-center gap-3 mb-6">
+            <div className="mb-6 flex items-center justify-center gap-3">
               <a
                 href="https://clearvisionleader.com"
-                className="focus:outline-none focus-visible:ring-2 focus-visible:ring-gold-400 focus-visible:ring-offset-2 focus-visible:ring-offset-navy-900 rounded-lg"
+                className="rounded-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-gold-400"
                 aria-label="Clear Vision home"
               >
                 <img
@@ -758,83 +1249,107 @@ const HomePage: React.FC = () => {
                   className="h-14 w-auto object-contain"
                 />
               </a>
+
               <div className="text-left">
                 <a
                   href="https://clearvisionleader.com"
-                  className="font-serif text-xl text-white hover:text-turquoise-200 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-gold-400 focus-visible:ring-offset-2 focus-visible:ring-offset-navy-900 rounded px-1"
+                  className="font-serif text-xl text-white transition hover:text-turquoise-200"
                 >
                   Clear Vision
                 </a>
-                <p className="text-sm font-sans tracking-[0.2em] uppercase text-turquoise-200">
+
+                <p className="text-sm uppercase tracking-[0.2em] text-turquoise-200">
                   Wellness Summit 2027
                 </p>
               </div>
             </div>
 
-            <p className="text-sand-100/70 mb-10 text-sm md:text-base">
+            <p className="mb-3 text-sm text-sand-100/70 md:text-base">
               {EVENT.dateRange} · {EVENT.city}
             </p>
 
-            <div className="grid sm:grid-cols-3 gap-8 md:gap-10 mb-10 max-w-3xl mx-auto">
-              <div className="text-center">
-                <h4 className="font-semibold text-white mb-3 text-base">
-                  Quick Links
-                </h4>
+            <p className="mb-10 text-sm text-sand-100/55">{EVENT.venue}</p>
+
+            <div className="mx-auto mb-12 grid max-w-4xl gap-10 sm:grid-cols-3">
+              {/* QUICK LINKS */}
+              <div>
+                <h4 className="mb-4 font-semibold text-white">Quick Links</h4>
+
                 <div className="space-y-2">
                   <button
-                    onClick={() => scrollToSection("story")}
-                    className="block text-sand-100/70 hover:text-turquoise-200 transition-colors mx-auto text-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-gold-400 rounded px-2 py-1"
-                  >
-                    The Story
-                  </button>
-                  <button
                     onClick={() => scrollToSection("experience")}
-                    className="block text-sand-100/70 hover:text-turquoise-200 transition-colors mx-auto text-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-gold-400 rounded px-2 py-1"
+                    className="block w-full text-sm text-sand-100/70 transition hover:text-turquoise-200"
                   >
                     Experience
                   </button>
+
+                  <button
+                    onClick={() => scrollToSection("hosts")}
+                    className="block w-full text-sm text-sand-100/70 transition hover:text-turquoise-200"
+                  >
+                    Hosts
+                  </button>
+
+                  <button
+                    onClick={() => scrollToSection("speakers")}
+                    className="block w-full text-sm text-sand-100/70 transition hover:text-turquoise-200"
+                  >
+                    Speakers
+                  </button>
+
+                  <button
+                    onClick={() => scrollToSection("story")}
+                    className="block w-full text-sm text-sand-100/70 transition hover:text-turquoise-200"
+                  >
+                    The Story
+                  </button>
+
                   <button
                     onClick={handleRegisterClick}
-                    className="block text-sand-100/70 hover:text-turquoise-200 transition-colors mx-auto text-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-gold-400 rounded px-2 py-1"
+                    className="block w-full text-sm font-semibold text-gold-300 transition hover:text-gold-200"
                   >
-                    Begin Your Reset
+                    Register Now
                   </button>
                 </div>
               </div>
-              <div className="text-center">
-                <h4 className="font-semibold text-white mb-3 text-base">
-                  Contact
-                </h4>
-                <div className="space-y-2 text-sand-100/70">
+
+              {/* CONTACT */}
+              <div>
+                <h4 className="mb-4 font-semibold text-white">Contact</h4>
+
+                <div className="space-y-3 text-sand-100/70">
                   <a
                     href="mailto:ClearvisionConference@gmail.com"
-                    className="flex items-center justify-center gap-2 hover:text-turquoise-200 transition-colors text-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-gold-400 rounded px-2 py-1"
+                    className="flex items-center justify-center gap-2 text-sm transition hover:text-turquoise-200"
                   >
-                    <Mail className="w-4 h-4" aria-hidden="true" />
+                    <Mail size={16} />
                     ClearvisionConference@gmail.com
                   </a>
+
                   <a
                     href="tel:+18504993261"
-                    className="flex items-center justify-center gap-2 hover:text-turquoise-200 transition-colors text-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-gold-400 rounded px-2 py-1"
+                    className="flex items-center justify-center gap-2 text-sm transition hover:text-turquoise-200"
                   >
-                    <Phone className="w-4 h-4" aria-hidden="true" />
+                    <Phone size={16} />
                     (850) 499-3261
                   </a>
                 </div>
               </div>
-              <div className="text-center">
-                <h4 className="font-semibold text-white mb-3 text-base">
-                  Follow Us
-                </h4>
-                <div className="space-y-2 text-sand-100/70 text-sm">
-                  <p>LinkedIn details coming soon</p>
+
+              {/* SUMMIT */}
+              <div>
+                <h4 className="mb-4 font-semibold text-white">2027 Summit</h4>
+
+                <div className="space-y-2 text-sm text-sand-100/70">
+                  <p>We SEE You.</p>
+                  <p>A Leadership &amp; Wellness Experience</p>
                   <p>#ClearVisionSummit2027</p>
                 </div>
               </div>
             </div>
 
             <div className="border-t border-navy-700 pt-8">
-              <p className="text-sand-100/50 text-sm">
+              <p className="text-sm text-sand-100/50">
                 &copy; 2027 Clear Vision Leadership Wellness Summit. All rights
                 reserved.
               </p>
@@ -847,15 +1362,7 @@ const HomePage: React.FC = () => {
 };
 
 function App() {
-  return (
-    <Routes>
-      <Route path="/" element={<HomePage />} />
-      <Route path="/register" element={<RegisterPage />} />
-      <Route path="/register/coach" element={<CoachRegistration />} />
-      <Route path="/register/speaker" element={<SpeakerRegistration />} />
-      <Route path="/register/attendee" element={<AttendeeRegistration />} />
-    </Routes>
-  );
+  return <HomePage />;
 }
 
 export default App;
