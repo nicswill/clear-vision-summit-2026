@@ -173,6 +173,10 @@ const HomePage: React.FC = () => {
       id: "experience",
     },
     {
+      label: "Why This Summit",
+      id: "why-this-summit",
+    },
+    {
       label: "Military Pavilion",
       id: "military",
     },
@@ -342,6 +346,13 @@ const HomePage: React.FC = () => {
                     that support them.
                   </p>
                   <button
+                    onClick={() => scrollToSection("why-this-summit")}
+                    className="block w-full text-sm text-sand-100/70 transition hover:text-turquoise-200"
+                  >
+                    Why This Summit
+                  </button>
+
+                  <button
                     onClick={() => scrollToSection("military")}
                     className="mt-2 inline-flex items-center gap-2 text-sm font-semibold text-gold-300 transition hover:text-gold-200"
                   >
@@ -424,6 +435,148 @@ const HomePage: React.FC = () => {
         </div>
       </section>
 
+
+      {/* ==================== BEHIND EVERY LEADER / STORY ==================== */}
+      <section
+        id="story"
+        className="scroll-mt-20 overflow-hidden bg-sand-50 py-20 md:py-32"
+      >
+        <div className="mx-auto max-w-4xl px-6 lg:px-8">
+          <Reveal>
+            <p className="mb-12 text-sm font-semibold uppercase tracking-[0.25em] text-turquoise-600">
+              Before We Talk About Leadership…
+            </p>
+          </Reveal>
+          <div className="space-y-8 md:space-y-12">
+            <Reveal>
+              <p className="font-serif text-[clamp(1.75rem,5vw,3rem)] leading-[1.3] text-navy-800">
+                Behind every title...
+              </p>
+            </Reveal>
+
+            <Reveal delay={100}>
+              <p className="pl-6 font-serif text-[clamp(1.75rem,5vw,3rem)] leading-[1.3] text-turquoise-700 md:pl-12">
+                is a person.
+              </p>
+            </Reveal>
+
+            <Reveal delay={100}>
+              <p className="font-serif text-[clamp(1.75rem,5vw,3rem)] leading-[1.3] text-navy-800">
+                Behind every responsibility...
+              </p>
+            </Reveal>
+
+            <Reveal delay={100}>
+              <p className="pl-6 font-serif text-[clamp(1.75rem,5vw,3rem)] leading-[1.3] text-turquoise-700 md:pl-12">
+                is someone carrying more than most people know.
+              </p>
+            </Reveal>
+
+            <Reveal delay={100}>
+              <p className="font-serif text-[clamp(1.75rem,5vw,3rem)] leading-[1.3] text-navy-800">
+                Behind every strong leader...
+              </p>
+            </Reveal>
+
+            <Reveal delay={100}>
+              <p className="pl-6 font-serif text-[clamp(1.75rem,5vw,3rem)] leading-[1.3] text-turquoise-700 md:pl-12">
+                is someone who rarely gets permission to stop.
+              </p>
+            </Reveal>
+
+            <Reveal delay={120}>
+              <p className="pt-4 font-sans text-base font-medium uppercase tracking-[0.12em] text-gray-500 md:text-lg">
+                And sometimes that person is quietly asking:
+              </p>
+            </Reveal>
+
+            <Reveal delay={150}>
+              <p className="pl-6 font-serif text-[clamp(1.75rem,5vw,3rem)] italic leading-[1.3] text-navy-900 md:pl-12">
+                “When do I get to breathe?”
+              </p>
+            </Reveal>
+
+            <Reveal delay={200}>
+              <div className="pt-6 md:pt-10">
+                <div className="mb-5 h-px w-16 bg-gold-400" />
+
+                <p className="font-serif text-[clamp(2rem,5vw,3.25rem)] leading-tight text-turquoise-700">
+                  Here.
+                </p>
+                <p className="mt-2 font-serif text-[clamp(2.5rem,7vw,4.5rem)] italic leading-tight text-gold-600">
+                  We SEE You.
+                </p>
+              </div>
+            </Reveal>
+          </div>
+        </div>
+      </section>
+
+      {/* ==================== WHY THIS SUMMIT ==================== */}
+      <section
+        id="why-this-summit"
+        className="scroll-mt-20 overflow-hidden bg-navy-900 py-20 text-white md:py-28"
+      >
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <Reveal>
+            <div className="mx-auto max-w-4xl text-center">
+              <p className="text-sm font-semibold uppercase tracking-[0.25em] text-gold-300">
+                Why This Summit
+              </p>
+              <h2 className="mt-5 font-serif text-[clamp(2.25rem,5vw,4rem)] leading-tight text-white">
+                This is not a sit-and-listen conference.
+              </h2>
+              <p className="mx-auto mt-7 max-w-3xl text-lg leading-8 text-sand-100/75">
+                You won't spend two days sitting in a ballroom collecting notes
+                you'll never look at again.
+              </p>
+              <p className="mx-auto mt-3 max-w-3xl font-serif text-xl leading-8 text-turquoise-100 md:text-2xl">
+                The Clear Vision Leadership Wellness Summit is designed as an
+                experience.
+              </p>
+            </div>
+          </Reveal>
+
+          <div className="mx-auto mt-14 grid max-w-6xl grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-6">
+            {[
+              { label: "MOVE.", icon: Activity },
+              { label: "BREATHE.", icon: Wind },
+              { label: "CREATE.", icon: Sparkles },
+              { label: "REFLECT.", icon: Eye },
+              { label: "LEARN.", icon: BookOpen },
+              { label: "RECONNECT.", icon: Heart },
+            ].map((item, index) => {
+              const Icon = item.icon;
+              return (
+                <Reveal key={item.label} delay={index * 60}>
+                  <div className="flex min-h-[145px] h-full flex-col items-center justify-center rounded-2xl border border-turquoise-200/20 bg-white/[0.04] px-3 py-6 text-center">
+                    <Icon className="mb-4 text-gold-300" size={24} />
+                    <p className="font-serif text-lg text-white md:text-xl">
+                      {item.label}
+                    </p>
+                  </div>
+                </Reveal>
+              );
+            })}
+          </div>
+
+          <Reveal delay={150}>
+            <div className="mx-auto mt-14 max-w-3xl text-center">
+              <p className="text-lg leading-8 text-sand-100/75">
+                You will experience practical tools you can take home and
+                integrate into the rhythm of your life and leadership.
+              </p>
+              <div className="mx-auto my-8 h-px w-16 bg-gold-400" />
+              <p className="font-serif text-2xl leading-9 text-white md:text-3xl">
+                Because healthy leadership isn't something you simply learn.
+              </p>
+              <p className="mt-3 font-serif text-2xl italic leading-9 text-gold-300 md:text-3xl">
+                It's something you practice.
+              </p>
+            </div>
+          </Reveal>
+        </div>
+      </section>
 
       {/* ==================== FEATURED MILITARY PAVILION ==================== */}
       <section
@@ -1177,68 +1330,6 @@ const HomePage: React.FC = () => {
               Okaloosa Island, Florida
             </p>
           </Reveal>
-        </div>
-      </section>
-
-      {/* ==================== BEHIND EVERY LEADER / STORY ==================== */}
-      <section
-        id="story"
-        className="scroll-mt-20 overflow-hidden bg-sand-50 py-20 md:py-32"
-      >
-        <div className="mx-auto max-w-4xl px-6 lg:px-8">
-          <div className="space-y-8 md:space-y-12">
-            <Reveal>
-              <p className="font-serif text-[clamp(1.75rem,5vw,3rem)] leading-[1.3] text-navy-800">
-                Behind every title...
-              </p>
-            </Reveal>
-
-            <Reveal delay={100}>
-              <p className="pl-6 font-serif text-[clamp(1.75rem,5vw,3rem)] leading-[1.3] text-turquoise-700 md:pl-12">
-                is a person.
-              </p>
-            </Reveal>
-
-            <Reveal delay={100}>
-              <p className="font-serif text-[clamp(1.75rem,5vw,3rem)] leading-[1.3] text-navy-800">
-                Behind every responsibility...
-              </p>
-            </Reveal>
-
-            <Reveal delay={100}>
-              <p className="pl-6 font-serif text-[clamp(1.75rem,5vw,3rem)] leading-[1.3] text-turquoise-700 md:pl-12">
-                is someone carrying more than most people know.
-              </p>
-            </Reveal>
-
-            <Reveal delay={100}>
-              <p className="font-serif text-[clamp(1.75rem,5vw,3rem)] leading-[1.3] text-navy-800">
-                Behind every strong leader...
-              </p>
-            </Reveal>
-
-            <Reveal delay={100}>
-              <p className="pl-6 font-serif text-[clamp(1.75rem,5vw,3rem)] leading-[1.3] text-turquoise-700 md:pl-12">
-                is someone quietly asking,
-              </p>
-            </Reveal>
-
-            <Reveal delay={150}>
-              <p className="pl-6 font-serif text-[clamp(1.75rem,5vw,3rem)] italic leading-[1.3] text-navy-900 md:pl-12">
-                “When do I get to breathe?”
-              </p>
-            </Reveal>
-
-            <Reveal delay={200}>
-              <div className="pt-6 md:pt-10">
-                <div className="mb-5 h-px w-16 bg-gold-400" />
-
-                <p className="font-serif text-[clamp(2.5rem,7vw,4.5rem)] leading-tight text-gold-600">
-                  We SEE You.
-                </p>
-              </div>
-            </Reveal>
-          </div>
         </div>
       </section>
 
