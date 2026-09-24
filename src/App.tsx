@@ -1339,9 +1339,19 @@ const HomePage: React.FC = () => {
             </div>
           </Reveal>
 
-          <div className="mt-16 grid gap-8 md:grid-cols-2 xl:grid-cols-3">
+          <div className="mt-16 grid gap-8 md:grid-cols-2 xl:grid-cols-6">
             {speakers.map((speaker, index) => (
-              <Reveal key={speaker.name} delay={index * 80}>
+              <Reveal
+                key={speaker.name}
+                delay={index * 80}
+                className={
+                  index < 3
+                    ? "xl:col-span-2"
+                    : index === 3
+                      ? "xl:col-span-2 xl:col-start-2"
+                      : "xl:col-span-2"
+                }
+              >
                 <article className="group flex h-full flex-col overflow-hidden rounded-[2rem] border border-sand-200 bg-white shadow-[0_16px_50px_rgba(10,48,71,0.08)] transition duration-300 hover:-translate-y-1 hover:shadow-xl">
                   <div className="relative aspect-[4/4.5] overflow-hidden bg-navy-900">
                     <img
