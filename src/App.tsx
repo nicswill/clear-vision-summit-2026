@@ -311,18 +311,26 @@ const HomePage: React.FC = () => {
                   Clear Vision Leadership Wellness Summit 2027
                 </p>
 
-                <h1 className="font-serif text-[clamp(3.8rem,11vw,7.5rem)] leading-[0.92] text-white">
-                  We SEE You.
+                <h1 className="max-w-4xl font-serif text-[clamp(3rem,8vw,6rem)] leading-[0.98] text-white">
+                  The Leaders Who Carry Everyone Else
+                  <span className="mt-2 block text-turquoise-100">
+                    Need Space to Breathe, Too.
+                  </span>
                 </h1>
 
-                <p className="mt-6 font-serif text-2xl text-sand-100 sm:text-3xl">
+                <p className="mt-6 font-serif text-[clamp(2rem,5vw,3.4rem)] italic leading-tight text-gold-300">
+                  We SEE You.
+                </p>
+
+                <p className="mt-6 font-serif text-xl text-sand-100 sm:text-2xl">
                   A Leadership &amp; Wellness Experience
                 </p>
 
                 <p className="mt-7 max-w-2xl text-base leading-8 text-sand-100/80 sm:text-lg">
-                  The world celebrates what leaders accomplish. We create a
-                  space where leaders can finally breathe, reconnect, restore,
-                  and be seen beyond the responsibilities they carry.
+                  Two days designed to help leaders step away from the demands
+                  of responsibility, reconnect with themselves, experience
+                  practical wellness tools, and return to life and leadership
+                  with greater clarity.
                 </p>
 
                 <div className="mt-5 max-w-2xl rounded-2xl border border-turquoise-200/20 bg-navy-900/30 px-5 py-4 backdrop-blur-sm">
@@ -528,14 +536,14 @@ const HomePage: React.FC = () => {
               <div className="mt-9 flex flex-col justify-center gap-4 sm:flex-row">
                 <button
                   onClick={handleRegisterClick}
-                  className="inline-flex min-h-[52px] items-center justify-center gap-2 rounded-full bg-gold-400 px-7 py-4 font-bold text-navy-900 shadow-lg transition hover:bg-gold-300"
+                  className="inline-flex min-h-[52px] w-full items-center justify-center gap-2 rounded-full bg-gold-400 px-6 py-4 text-center text-sm font-bold leading-5 text-navy-900 shadow-lg transition hover:bg-gold-300 sm:w-auto sm:px-7 sm:text-base"
                 >
                   I'm Military-Connected — Reserve My Place
                   <ArrowRight size={19} />
                 </button>
                 <button
                   onClick={handlePartnerEmail}
-                  className="min-h-[52px] rounded-full border-2 border-turquoise-200/80 px-7 py-4 font-semibold text-turquoise-50 transition hover:bg-turquoise-200/10"
+                  className="min-h-[52px] w-full rounded-full border-2 border-turquoise-200/80 px-6 py-4 text-center text-sm font-semibold leading-5 text-turquoise-50 transition hover:bg-turquoise-200/10 sm:w-auto sm:px-7 sm:text-base"
                 >
                   Partner With the Military Pavilion
                 </button>
