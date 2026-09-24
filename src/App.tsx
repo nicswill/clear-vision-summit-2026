@@ -33,6 +33,7 @@ import {
   BookMarked,
   Eye,
   Scan,
+  Compass,
   X,
 } from "lucide-react";
 import Reveal from "./components/Reveal";
