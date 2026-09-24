@@ -349,7 +349,6 @@ const HomePage: React.FC = () => {
                     onClick={() => scrollToSection("why-this-summit")}
                     className="block w-full text-sm text-sand-100/70 transition hover:text-turquoise-200"
                   >
-                    Why This Summit
                   </button>
 
                   <button
@@ -708,6 +707,48 @@ const HomePage: React.FC = () => {
         </div>
       </section>
 
+      {/* ==================== CLARITY PRESCRIPTION ==================== */}
+      <section id="clarity-prescription" className="scroll-mt-20 overflow-hidden bg-sand-50 py-20 md:py-28">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <Reveal>
+            <div className="mx-auto max-w-4xl text-center">
+              <p className="text-sm font-semibold uppercase tracking-[0.25em] text-turquoise-600">Your Clarity Prescription</p>
+              <h2 className="mt-5 font-serif text-[clamp(2.25rem,5vw,4rem)] leading-tight text-navy-900">You won't leave with more information.</h2>
+              <p className="mt-4 font-serif text-xl italic leading-8 text-turquoise-700 md:text-2xl">You'll leave with your own Clarity Prescription.</p>
+              <p className="mx-auto mt-8 max-w-3xl text-lg leading-8 text-gray-600">From the moment you arrive, the Summit invites you to pay attention to what your body, mind, relationships, leadership, and life may be telling you.</p>
+              <p className="mx-auto mt-5 max-w-3xl text-lg leading-8 text-gray-600">Through assessment, reflection, movement, creativity, conversation, and restorative experiences, you'll begin identifying the practices that help you function and lead well.</p>
+            </div>
+          </Reveal>
+          <div className="mx-auto mt-14 grid max-w-6xl gap-5 md:grid-cols-2 xl:grid-cols-5">
+            {[
+              { icon: Activity, title: "MOVE YOUR BODY", text: "Reconnect with energy." },
+              { icon: PauseCircle, title: "CALM YOUR MIND", text: "Create space between stimulus and response." },
+              { icon: Wind, title: "BREATHE DEEPLY", text: "Interrupt the rush." },
+              { icon: Heart, title: "FUEL YOUR BODY", text: "Support the person doing the leading." },
+              { icon: Compass, title: "LIVE WITH PURPOSE", text: "Reconnect leadership to what matters." },
+            ].map((anchor, index) => {
+              const Icon = anchor.icon;
+              return (
+                <Reveal key={anchor.title} delay={index * 70}>
+                  <article className="h-full rounded-2xl border border-sand-200 bg-white p-6 text-center shadow-[0_12px_35px_rgba(10,48,71,0.05)]">
+                    <div className="mx-auto mb-5 flex h-12 w-12 items-center justify-center rounded-full bg-turquoise-100"><Icon className="text-turquoise-700" size={23} /></div>
+                    <h3 className="font-serif text-lg leading-6 text-navy-900">{anchor.title}</h3>
+                    <p className="mt-3 text-sm leading-6 text-gray-600">{anchor.text}</p>
+                  </article>
+                </Reveal>
+              );
+            })}
+          </div>
+          <Reveal delay={150}>
+            <div className="mx-auto mt-14 max-w-3xl text-center">
+              <div className="mx-auto mb-7 h-px w-16 bg-gold-400" />
+              <p className="font-serif text-2xl leading-9 text-navy-900 md:text-3xl">You don't need another person's wellness routine.</p>
+              <p className="mt-3 font-serif text-2xl italic leading-9 text-turquoise-700 md:text-3xl">You need to discover your rhythm.</p>
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
       {/* ==================== WHO THIS IS FOR ==================== */}
       <section className="bg-white py-24 md:py-32">
         <div className="mx-auto max-w-6xl px-6 lg:px-8">
@@ -786,6 +827,47 @@ const HomePage: React.FC = () => {
               );
             })}
           </div>
+        </div>
+      </section>
+
+      {/* ==================== EXPERIENCE ARCHITECTURE ==================== */}
+      <section className="overflow-hidden bg-white py-20 md:py-28">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <Reveal>
+            <div className="mx-auto max-w-4xl text-center">
+              <p className="text-sm font-semibold uppercase tracking-[0.25em] text-turquoise-600">Your Experience</p>
+              <h2 className="mt-5 font-serif text-[clamp(2.25rem,5vw,4rem)] leading-tight text-navy-900">Experience another pathway toward healthier leadership.</h2>
+              <p className="mx-auto mt-7 max-w-3xl text-lg leading-8 text-gray-600">The Summit connects practical wellness, reflection, creativity, movement, and expert guidance so the experience feels like one restorative journey — not a collection of unrelated sessions.</p>
+            </div>
+          </Reveal>
+          <div className="mt-14 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+            {[
+              { icon: Wind, title: "BREATHE", body: "Guided breathwork and nervous-system resets designed to help you slow down, become present, and reconnect." },
+              { icon: Sparkles, title: "CREATE", body: "Derick X. Richardson — Creative Pause: A Guided Painting Experience." },
+              { icon: Eye, title: "UNDERSTAND YOURSELF", body: "Dr. Nikki Brooks Seevers — Four Mirrors, One You. Seeing Well. Being Well. Leading Well." },
+              { icon: RefreshCw, title: "RESET", body: "Pause spaces, sensory experiences, and practical restorative tools create room to step away from stimulation and reconnect." },
+              { icon: Heart, title: "RECLAIM YOUR HEALTH", body: "Dr. Phyllis Nsiah-Kumi — Pause. Pivot. Proactivate: The Midlife Leadership Reset They Didn't Teach You." },
+              { icon: Activity, title: "MOVE", body: "Intentional physical movement and embodied wellness reconnect leadership to the body doing the leading." },
+            ].map((item, index) => {
+              const Icon = item.icon;
+              return (
+                <Reveal key={item.title} delay={index * 70}>
+                  <article className="h-full rounded-[2rem] border border-sand-200 bg-sand-50 p-7">
+                    <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-full bg-turquoise-100"><Icon className="text-turquoise-700" size={23} /></div>
+                    <p className="text-xs font-semibold uppercase tracking-[0.2em] text-turquoise-600">{item.title}</p>
+                    <p className="mt-4 leading-7 text-gray-600">{item.body}</p>
+                  </article>
+                </Reveal>
+              );
+            })}
+          </div>
+          <Reveal delay={150}>
+            <div className="mx-auto mt-6 max-w-4xl rounded-[2rem] border border-sand-200 bg-sand-50 p-7 md:p-8">
+              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-turquoise-600">BUILD BETTER DAYS</p>
+              <p className="mt-2 font-serif text-2xl text-navy-900">KUTImack. — Be Your Best Daily®</p>
+              <p className="mt-2 leading-7 text-gray-600">Practical systems for building better days and more sustainable leadership.</p>
+            </div>
+          </Reveal>
         </div>
       </section>
 
@@ -1082,6 +1164,42 @@ const HomePage: React.FC = () => {
               </div>
             </Reveal>
           </div>
+        </div>
+      </section>
+
+      {/* ==================== JOURNEY TO CLARITY ==================== */}
+      <section id="journey" className="scroll-mt-20 overflow-hidden bg-navy-900 py-20 text-white md:py-28">
+        <div className="mx-auto max-w-6xl px-6 lg:px-8">
+          <Reveal>
+            <div className="mx-auto max-w-3xl text-center">
+              <p className="text-sm font-semibold uppercase tracking-[0.25em] text-gold-300">Your Journey to Clarity</p>
+              <h2 className="mt-5 font-serif text-[clamp(2.25rem,5vw,4rem)] leading-tight">You don't have to arrive with the answers.</h2>
+            </div>
+          </Reveal>
+          <div className="mx-auto mt-14 grid max-w-5xl gap-4 md:grid-cols-3">
+            {[
+              ["ARRIVE", "You don't have to perform here."],
+              ["PAUSE", "Step away from the pace and responsibility."],
+              ["NOTICE", "What does your body, mind, and life need?"],
+              ["EXPERIENCE", "Try restorative practices instead of merely hearing about them."],
+              ["CHOOSE", "Identify what works for you."],
+              ["RETURN", "Go home with practices that support a healthier rhythm."],
+            ].map(([title, body], index) => (
+              <Reveal key={title} delay={index * 60}>
+                <article className="h-full rounded-2xl border border-turquoise-200/20 bg-white/[0.04] p-6">
+                  <p className="text-xs font-semibold tracking-[0.2em] text-gold-300">0{index + 1}</p>
+                  <h3 className="mt-3 font-serif text-2xl">{title}</h3>
+                  <p className="mt-3 leading-7 text-sand-100/70">{body}</p>
+                </article>
+              </Reveal>
+            ))}
+          </div>
+          <Reveal delay={150}>
+            <div className="mx-auto mt-12 max-w-4xl text-center">
+              <p className="font-serif text-3xl leading-tight text-sand-100 md:text-4xl">Come in with cloudy vision.</p>
+              <p className="mt-3 font-serif text-3xl italic leading-tight text-gold-300 md:text-4xl">Leave with greater clarity.</p>
+            </div>
+          </Reveal>
         </div>
       </section>
 
