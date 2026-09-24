@@ -173,6 +173,10 @@ const HomePage: React.FC = () => {
       id: "experience",
     },
     {
+      label: "Military Pavilion",
+      id: "military",
+    },
+    {
       label: "Hosts",
       id: "hosts",
     },
@@ -321,6 +325,21 @@ const HomePage: React.FC = () => {
                   and be seen beyond the responsibilities they carry.
                 </p>
 
+                <div className="mt-5 max-w-2xl rounded-2xl border border-turquoise-200/20 bg-navy-900/30 px-5 py-4 backdrop-blur-sm">
+                  <p className="text-sm leading-6 text-turquoise-50/90 sm:text-base">
+                    Featuring a dedicated Military Pavilion for service members,
+                    veterans, military spouses, families, and the organizations
+                    that support them.
+                  </p>
+                  <button
+                    onClick={() => scrollToSection("military")}
+                    className="mt-2 inline-flex items-center gap-2 text-sm font-semibold text-gold-300 transition hover:text-gold-200"
+                  >
+                    Explore the Military Pavilion
+                    <ArrowRight size={16} />
+                  </button>
+                </div>
+
                 <div className="mt-8 flex flex-col gap-4 text-sand-100 sm:flex-row sm:flex-wrap sm:items-center">
                   <div className="flex items-center gap-2">
                     <CalendarDays className="text-gold-300" size={21} />
@@ -391,6 +410,137 @@ const HomePage: React.FC = () => {
               Reserve Your Place
               <ArrowRight size={19} />
             </button>
+          </Reveal>
+        </div>
+      </section>
+
+
+      {/* ==================== FEATURED MILITARY PAVILION ==================== */}
+      <section
+        id="military"
+        className="scroll-mt-20 overflow-hidden bg-white py-24 md:py-32"
+      >
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <Reveal>
+            <div className="mx-auto max-w-4xl text-center">
+              <div className="mx-auto mb-6 flex h-14 w-14 items-center justify-center rounded-full bg-turquoise-100">
+                <Shield className="text-turquoise-700" size={27} />
+              </div>
+
+              <p className="text-sm font-semibold uppercase tracking-[0.25em] text-turquoise-600">
+                Featured Summit Experience
+              </p>
+
+              <h2 className="mt-5 font-serif text-[clamp(2.5rem,6vw,4.75rem)] leading-tight text-navy-900">
+                The Military Pavilion
+              </h2>
+
+              <p className="mx-auto mt-5 max-w-3xl font-serif text-xl italic leading-8 text-navy-800 md:text-2xl">
+                A dedicated space for those who serve — and the families who
+                serve beside them.
+              </p>
+
+              <div className="mx-auto mt-7 h-px w-16 bg-gold-400" />
+
+              <p className="mx-auto mt-8 max-w-3xl text-lg leading-8 text-gray-600">
+                Military life carries a unique rhythm of service,
+                responsibility, transition, sacrifice, and leadership. The
+                Military Pavilion creates a dedicated space within the Clear
+                Vision Leadership Wellness Summit for active-duty service
+                members, veterans, military spouses, caregivers, and
+                military-connected families.
+              </p>
+
+              <p className="mx-auto mt-7 max-w-3xl font-serif text-2xl text-navy-900">
+                This isn't another resource fair.
+              </p>
+
+              <p className="mx-auto mt-4 max-w-3xl text-lg leading-8 text-gray-600">
+                It is an intentional space to connect, discover, reset, and
+                belong — bringing together trusted organizations, practical
+                resources, meaningful conversations, and restorative
+                experiences designed with the military-connected community in
+                mind.
+              </p>
+            </div>
+          </Reveal>
+
+          <div className="mt-16 grid gap-5 sm:grid-cols-2 xl:grid-cols-4">
+            {[
+              {
+                icon: Users,
+                title: "CONNECT",
+                description:
+                  "Build relationships with military-connected leaders, families, organizations, and community partners.",
+              },
+              {
+                icon: BookOpen,
+                title: "DISCOVER",
+                description:
+                  "Explore resources supporting transition, careers, family wellbeing, education, financial readiness, community connection, and life beyond service.",
+              },
+              {
+                icon: RefreshCw,
+                title: "RESET",
+                description:
+                  "Experience practical wellness tools and micro practices that support healthier rhythms through demanding seasons of military life.",
+              },
+              {
+                icon: Heart,
+                title: "BELONG",
+                description:
+                  "Enter a space where people understand that service affects not only the person wearing the uniform, but the family serving alongside them.",
+              },
+            ].map((pillar, index) => {
+              const Icon = pillar.icon;
+
+              return (
+                <Reveal key={pillar.title} delay={index * 80}>
+                  <article className="h-full rounded-[2rem] border border-sand-200 bg-sand-50 p-7 transition hover:border-turquoise-300 hover:shadow-lg">
+                    <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-full bg-turquoise-100">
+                      <Icon className="text-turquoise-700" size={23} />
+                    </div>
+                    <div className="mb-5 h-px w-12 bg-gold-400" />
+                    <h3 className="font-serif text-2xl text-navy-900">
+                      {pillar.title}
+                    </h3>
+                    <p className="mt-4 leading-7 text-gray-600">
+                      {pillar.description}
+                    </p>
+                  </article>
+                </Reveal>
+              );
+            })}
+          </div>
+
+          <Reveal delay={150}>
+            <div className="mx-auto mt-16 max-w-5xl rounded-[2rem] bg-navy-900 px-7 py-11 text-center shadow-xl md:px-12">
+              <p className="font-serif text-2xl leading-9 text-sand-100 md:text-3xl">
+                You served. You supported. You carried the mission.
+              </p>
+              <p className="mt-4 font-serif text-4xl italic text-gold-300 md:text-5xl">
+                We SEE You.
+              </p>
+              <p className="mx-auto mt-5 max-w-2xl text-sand-100/70">
+                One Summit. Multiple communities. A shared need for restoration.
+              </p>
+
+              <div className="mt-9 flex flex-col justify-center gap-4 sm:flex-row">
+                <button
+                  onClick={handleRegisterClick}
+                  className="inline-flex min-h-[52px] items-center justify-center gap-2 rounded-full bg-gold-400 px-7 py-4 font-bold text-navy-900 shadow-lg transition hover:bg-gold-300"
+                >
+                  I'm Military-Connected — Reserve My Place
+                  <ArrowRight size={19} />
+                </button>
+                <button
+                  onClick={handlePartnerEmail}
+                  className="min-h-[52px] rounded-full border-2 border-turquoise-200/80 px-7 py-4 font-semibold text-turquoise-50 transition hover:bg-turquoise-200/10"
+                >
+                  Partner With the Military Pavilion
+                </button>
+              </div>
+            </div>
           </Reveal>
         </div>
       </section>
@@ -1105,6 +1255,31 @@ const HomePage: React.FC = () => {
             </p>
           </Reveal>
 
+          <Reveal delay={100}>
+            <div className="mx-auto mt-12 max-w-4xl rounded-[2rem] border border-turquoise-200 bg-sand-50 p-8 text-left md:p-10">
+              <p className="text-sm font-semibold uppercase tracking-[0.2em] text-turquoise-600">
+                Military Pavilion Partner
+              </p>
+              <h3 className="mt-4 font-serif text-3xl leading-tight text-navy-900">
+                Help create a dedicated restorative and resource experience for
+                the military-connected community.
+              </h3>
+              <p className="mt-5 text-lg leading-8 text-gray-600">
+                Military Pavilion Partners help expand access, connection,
+                resources, and restorative experiences for service members,
+                veterans, military spouses, caregivers, and families attending
+                the Summit.
+              </p>
+              <button
+                onClick={handlePartnerEmail}
+                className="mt-7 inline-flex min-h-[48px] items-center justify-center gap-2 rounded-full bg-navy-900 px-7 py-3.5 font-semibold text-white transition hover:bg-navy-800"
+              >
+                Explore Military Pavilion Partnership
+                <ArrowRight size={18} />
+              </button>
+            </div>
+          </Reveal>
+
           <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {[
               {
@@ -1277,6 +1452,13 @@ const HomePage: React.FC = () => {
                     className="block w-full text-sm text-sand-100/70 transition hover:text-turquoise-200"
                   >
                     Experience
+                  </button>
+
+                  <button
+                    onClick={() => scrollToSection("military")}
+                    className="block w-full text-sm text-sand-100/70 transition hover:text-turquoise-200"
+                  >
+                    Military Pavilion
                   </button>
 
                   <button
