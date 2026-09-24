@@ -299,7 +299,7 @@ const HomePage: React.FC = () => {
           <div className="absolute inset-0 bg-gradient-to-r from-navy-900/95 via-navy-900/78 to-navy-900/25" />
           <div className="absolute inset-0 bg-gradient-to-t from-navy-900/85 via-transparent to-transparent" />
 
-          <div className="relative mx-auto flex min-h-[78vh] max-w-7xl items-center px-6 py-20 lg:px-8">
+          <div className="relative mx-auto flex min-h-[78vh] max-w-7xl items-center px-6 pb-20 pt-24 sm:pt-28 lg:px-8 lg:pb-24 lg:pt-28">
             <div className="max-w-3xl">
               <Reveal>
                 <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-gold-300/40 bg-gold-300/10 px-4 py-2 text-sm font-semibold text-gold-300">
@@ -311,7 +311,7 @@ const HomePage: React.FC = () => {
                   Clear Vision Leadership Wellness Summit 2027
                 </p>
 
-                <h1 className="max-w-4xl font-serif text-[clamp(3rem,8vw,6rem)] leading-[0.98] text-white">
+                <h1 className="max-w-4xl font-serif text-[clamp(2.75rem,6.5vw,5.25rem)] leading-[0.94] text-white lg:max-w-3xl">
                   The Leaders Who Carry Everyone Else
                   <span className="mt-2 block text-turquoise-100">
                     Need Space to Breathe, Too.
