@@ -182,11 +182,11 @@ const HomePage: React.FC = () => {
       id: "military",
     },
     {
-      label: "Your Guides",
+      label: "Hosts",
       id: "hosts",
     },
     {
-      label: "Guides",
+      label: "Your Guides",
       id: "speakers",
     },
     {
@@ -1619,11 +1619,10 @@ const HomePage: React.FC = () => {
 
         <div className="relative mx-auto max-w-4xl px-6 py-28 text-center lg:px-8">
           <Reveal>
-            <h2 className="font-serif text-[clamp(2.2rem,6vw,4.5rem)] leading-[1.12] text-white">
-              The Leaders Who Carry Everyone Else...
-              <br />
-              <span className="text-turquoise-200">
-                Need Someone To Carry Them.
+            <h2 className="mx-auto mt-5 max-w-4xl font-serif text-[clamp(2.5rem,6vw,5rem)] leading-tight text-white">
+              You've carried enough.
+              <span className="mt-2 block text-turquoise-100">
+                For two days, you don't have to carry everything.
               </span>
             </h2>
           </Reveal>
@@ -1635,10 +1634,16 @@ const HomePage: React.FC = () => {
           </Reveal>
 
           <Reveal delay={220}>
-            <p className="mx-auto mt-7 max-w-2xl text-lg leading-8 text-sand-100/75">
-              January 29–30, 2027. Two days to breathe, reconnect, restore, and
-              return to leadership with greater clarity.
-            </p>
+            <div className="mx-auto mt-7 max-w-3xl text-lg leading-8 text-sand-100/75">
+              <p>Maybe you've been the leader. The caregiver. The problem solver.</p>
+              <p>The strong one. The person everyone calls.</p>
+              <p className="mt-5 font-serif text-2xl text-white">
+                Come breathe. Come reconnect. Come get clear.
+              </p>
+              <p className="mt-3 font-serif text-3xl italic text-gold-300">
+                We SEE You.
+              </p>
+            </div>
           </Reveal>
 
           <Reveal delay={300}>
@@ -1729,14 +1734,14 @@ const HomePage: React.FC = () => {
                     onClick={() => scrollToSection("hosts")}
                     className="block w-full text-sm text-sand-100/70 transition hover:text-turquoise-200"
                   >
-                    Your Guides
+                    Hosts
                   </button>
 
                   <button
                     onClick={() => scrollToSection("speakers")}
                     className="block w-full text-sm text-sand-100/70 transition hover:text-turquoise-200"
                   >
-                    Guides
+                    Your Guides
                   </button>
 
                   <button
