@@ -182,11 +182,11 @@ const HomePage: React.FC = () => {
       id: "military",
     },
     {
-      label: "Hosts",
+      label: "Your Guides",
       id: "hosts",
     },
     {
-      label: "Speakers",
+      label: "Guides",
       id: "speakers",
     },
     {
@@ -285,7 +285,7 @@ const HomePage: React.FC = () => {
                 onClick={handleRegisterClick}
                 className="mt-4 block w-full rounded-full bg-gold-400 px-4 py-3 font-bold text-navy-900"
               >
-                Register Now — $249 Early Bird
+                Reserve My Place — $249 Early Bird
               </button>
             </div>
           </div>
@@ -347,12 +347,6 @@ const HomePage: React.FC = () => {
                     that support them.
                   </p>
                   <button
-                    onClick={() => scrollToSection("why-this-summit")}
-                    className="block w-full text-sm text-sand-100/70 transition hover:text-turquoise-200"
-                  >
-                  </button>
-
-                  <button
                     onClick={() => scrollToSection("military")}
                     className="mt-2 inline-flex items-center gap-2 text-sm font-semibold text-gold-300 transition hover:text-gold-200"
                   >
@@ -384,7 +378,7 @@ const HomePage: React.FC = () => {
                     onClick={handleRegisterClick}
                     className="inline-flex items-center justify-center gap-2 rounded-full bg-gold-400 px-8 py-4 font-bold text-navy-900 shadow-xl transition hover:-translate-y-0.5 hover:bg-gold-300"
                   >
-                    Register Now — $249 Early Bird
+                    Reserve My Place — $249 Early Bird
                     <ArrowRight size={19} />
                   </button>
 
@@ -755,16 +749,16 @@ const HomePage: React.FC = () => {
         <div className="mx-auto max-w-6xl px-6 lg:px-8">
           <Reveal>
             <p className="text-center text-sm uppercase tracking-[0.25em] text-turquoise-600">
-              Who This Is For
+              Who Is This Room For?
             </p>
 
             <h2 className="mt-5 text-center font-serif text-[clamp(2rem,5vw,3.5rem)] leading-tight text-navy-900">
-              You don't have to earn your way into this room.
+              The leader everyone depends on.
             </h2>
 
             <p className="mx-auto mt-6 max-w-2xl text-center text-lg leading-8 text-gray-600">
-              If you've spent your life carrying responsibility for others, this
-              experience was created with you in mind.
+              You don't need a particular title to belong here. If others depend
+              on you, this room was created with you in mind.
             </p>
           </Reveal>
 
@@ -828,6 +822,45 @@ const HomePage: React.FC = () => {
               );
             })}
           </div>
+        </div>
+      </section>
+
+      {/* ==================== PERMISSION TO PAUSE ==================== */}
+      <section className="overflow-hidden bg-navy-900 py-20 text-white md:py-28">
+        <div className="mx-auto max-w-5xl px-6 text-center lg:px-8">
+          <Reveal>
+            <p className="text-sm font-semibold uppercase tracking-[0.25em] text-gold-300">
+              Permission to Pause™
+            </p>
+            <h2 className="mx-auto mt-5 max-w-4xl font-serif text-[clamp(2.25rem,5vw,4rem)] leading-tight">
+              You don't have to earn rest by reaching exhaustion.
+            </h2>
+            <div className="mx-auto mt-8 max-w-3xl space-y-3 text-lg leading-8 text-sand-100/75">
+              <p>You don't have to wait until everything is finished.</p>
+              <p>You don't have to explain why you need space.</p>
+            </div>
+            <p className="mx-auto mt-8 max-w-3xl text-lg leading-8 text-sand-100/80">
+              For two days, you are invited to lay down the title, quiet the
+              noise, and pay attention to the person underneath the responsibility.
+            </p>
+            <p className="mt-8 font-serif text-3xl italic text-gold-300">
+              Consider this your permission.
+            </p>
+            <div className="mx-auto mt-10 grid max-w-3xl grid-cols-2 gap-3 sm:grid-cols-4">
+              {["Pause.", "Breathe.", "Reconnect.", "Return."].map((word) => (
+                <div key={word} className="rounded-2xl border border-turquoise-200/20 bg-white/[0.04] px-4 py-5 font-serif text-xl">
+                  {word}
+                </div>
+              ))}
+            </div>
+            <button
+              onClick={handleRegisterClick}
+              className="mt-10 inline-flex min-h-[52px] items-center justify-center gap-2 rounded-full bg-gold-400 px-8 py-4 font-bold text-navy-900 transition hover:bg-gold-300"
+            >
+              Give Myself Permission to Pause
+              <ArrowRight size={19} />
+            </button>
+          </Reveal>
         </div>
       </section>
 
@@ -1323,18 +1356,16 @@ const HomePage: React.FC = () => {
           <Reveal>
             <div className="mx-auto max-w-3xl text-center">
               <p className="text-sm uppercase tracking-[0.25em] text-turquoise-600">
-                Meet the 2027 Speakers
+                The People Guiding Your Experience
               </p>
 
               <h2 className="mt-5 font-serif text-[clamp(2.2rem,5vw,4rem)] leading-tight text-navy-900">
-                Voices selected for the whole leader.
+                Practitioners. Physicians. Creatives. Coaches. Wellness leaders.
               </h2>
 
               <p className="mx-auto mt-6 max-w-2xl text-lg leading-8 text-gray-600">
-                This year's speakers bring expertise in emotional wellness,
-                women's health, performance, creativity, leadership, and the
-                practical work of caring for yourself while continuing to care
-                for others.
+                Each has been invited not simply to speak, but to help you
+                experience another pathway toward healthier leadership.
               </p>
             </div>
           </Reveal>
@@ -1415,9 +1446,11 @@ const HomePage: React.FC = () => {
             </h2>
 
             <p className="mx-auto mt-6 max-w-2xl text-lg leading-8 text-sand-100/75">
-              Reserve your place for the 2027 Clear Vision Leadership Wellness
-              Summit and experience a different kind of leadership gathering —
-              one designed with the whole leader in mind.
+              Your registration includes the complete two-day Clear Vision
+              experience — immersive leadership and wellness sessions, guided
+              creative experiences, movement and breathwork, restorative spaces,
+              wellness resources, meaningful connection with other leaders, and
+              practical tools you can continue using after the Summit.
             </p>
 
             <div className="mx-auto mt-10 grid max-w-2xl gap-4 sm:grid-cols-2">
@@ -1429,7 +1462,7 @@ const HomePage: React.FC = () => {
                 <p className="mt-2 font-serif text-5xl text-white">$249</p>
 
                 <p className="mt-2 text-sm text-sand-100/65">
-                  Limited-time registration rate
+                  Your two-day investment in the person behind the leadership.
                 </p>
               </div>
 
@@ -1450,7 +1483,7 @@ const HomePage: React.FC = () => {
               onClick={handleRegisterClick}
               className="mt-10 inline-flex items-center justify-center gap-2 rounded-full bg-gold-400 px-9 py-4 text-base font-bold text-navy-900 shadow-xl transition hover:-translate-y-0.5 hover:bg-gold-300"
             >
-              Register Now — $249 Early Bird
+              Reserve My Place — $249 Early Bird
               <ArrowRight size={20} />
             </button>
 
@@ -1478,10 +1511,11 @@ const HomePage: React.FC = () => {
             </h2>
 
             <p className="mx-auto mt-6 max-w-2xl text-lg leading-8 text-gray-600">
-              Partner with Clear Vision to help create restorative experiences
-              for military leaders and families, healthcare professionals,
-              educators, ministry leaders, business leaders, and community
-              builders who spend their lives serving others.
+              Your partnership doesn't simply sponsor an event. It creates access.
+              It helps create restorative experiences for military-connected
+              leaders and families, healthcare professionals, educators, ministry
+              leaders, business leaders, and community builders who spend their
+              lives serving others.
             </p>
           </Reveal>
 
@@ -1613,7 +1647,7 @@ const HomePage: React.FC = () => {
                 onClick={handleRegisterClick}
                 className="inline-flex items-center justify-center gap-2 rounded-full bg-gold-400 px-9 py-4 font-bold text-navy-900 shadow-xl transition hover:-translate-y-0.5 hover:bg-gold-300"
               >
-                Register Now — $249 Early Bird
+                Reserve My Place — $249 Early Bird
                 <ArrowRight size={20} />
               </button>
 
@@ -1621,7 +1655,7 @@ const HomePage: React.FC = () => {
                 onClick={handlePartnerEmail}
                 className="rounded-full border-2 border-turquoise-200/80 px-8 py-4 font-semibold text-turquoise-50 transition hover:bg-turquoise-200/10"
               >
-                Become a Partner
+                Become a Summit Partner
               </button>
             </div>
           </Reveal>
@@ -1695,14 +1729,14 @@ const HomePage: React.FC = () => {
                     onClick={() => scrollToSection("hosts")}
                     className="block w-full text-sm text-sand-100/70 transition hover:text-turquoise-200"
                   >
-                    Hosts
+                    Your Guides
                   </button>
 
                   <button
                     onClick={() => scrollToSection("speakers")}
                     className="block w-full text-sm text-sand-100/70 transition hover:text-turquoise-200"
                   >
-                    Speakers
+                    Guides
                   </button>
 
                   <button
