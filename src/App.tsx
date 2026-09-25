@@ -1809,6 +1809,19 @@ const HomePage: React.FC = () => {
 };
 
 function App() {
+  useEffect(() => {
+    if (window.location.pathname === "/military") {
+      const timer = window.setTimeout(() => {
+        document.getElementById("military")?.scrollIntoView({
+          behavior: "smooth",
+          block: "start",
+        });
+      }, 100);
+
+      return () => window.clearTimeout(timer);
+    }
+  }, []);
+
   return <HomePage />;
 }
 
