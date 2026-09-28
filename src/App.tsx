@@ -1479,9 +1479,41 @@ const HomePage: React.FC = () => {
               </div>
             </div>
 
+            <div className="mx-auto mt-12 max-w-4xl text-left">
+              <h3 className="text-center font-serif text-3xl leading-tight text-white md:text-4xl">
+                What’s Included in Your Summit Registration
+              </h3>
+              <p className="mx-auto mt-5 max-w-3xl text-center text-lg leading-8 text-sand-100/85">
+                Your Clear Vision Leadership Wellness Summit registration is more than a seat at a conference. It’s an invitation to pause, feel seen, and discover practical ways to restore your capacity for life and leadership.
+              </p>
+              <p className="mt-10 text-center text-sm font-semibold uppercase tracking-[0.18em] text-gold-300">
+                Your experience includes:
+              </p>
+              <div className="mt-5 grid gap-4 md:grid-cols-2">
+                {[
+                  "Soulful Night with live music, spoken word, and hot food stations",
+                  "A Clear Vision wellness box, conference T-shirt, and wellness goodies, including a custom oil and signature tea",
+                  "Hot breakfast and a catered lunch",
+                  "Access to Summit sessions and wellness modalities",
+                  "Interactive experiences designed to help you move, breathe, reflect, and create your own path to clarity",
+                ].map((item) => (
+                  <div key={item} className="flex gap-4 rounded-2xl border border-white/15 bg-white/5 p-5 text-sand-100">
+                    <Sparkles className="mt-1 shrink-0 text-gold-300" size={20} aria-hidden="true" />
+                    <p className="leading-7">{item}</p>
+                  </div>
+                ))}
+              </div>
+              <p className="mt-9 text-center font-serif text-xl italic text-white">
+                Come as you are. Leave with tools you can carry into everyday life.
+              </p>
+              <p className="mt-5 text-center text-xl font-bold text-gold-300">
+                We SEE You. Your reset begins here.
+              </p>
+            </div>
+
             <button
               onClick={handleRegisterClick}
-              className="mt-10 inline-flex items-center justify-center gap-2 rounded-full bg-gold-400 px-9 py-4 text-base font-bold text-navy-900 shadow-xl transition hover:-translate-y-0.5 hover:bg-gold-300"
+              className="mt-12 inline-flex items-center justify-center gap-2 rounded-full bg-gold-400 px-9 py-4 text-base font-bold text-navy-900 shadow-xl transition hover:-translate-y-0.5 hover:bg-gold-300"
             >
               Reserve My Place — $249 Early Bird
               <ArrowRight size={20} />
