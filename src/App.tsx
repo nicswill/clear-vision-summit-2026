@@ -40,6 +40,8 @@ import Reveal from "./components/Reveal";
 
 const REGISTRATION_URL =
   "https://clearvisionleader.com/2027-summit-registration/";
+const HOTEL_BOOKING_URL =
+  "https://bookings.theislandfl.com/offer/2701CLEARV";
 
 const EVENT = {
   year: 2027,
@@ -1523,6 +1525,20 @@ const HomePage: React.FC = () => {
               January 29–30, 2027 · The Island Resort at Fort Walton Beach ·
               Okaloosa Island, Florida
             </p>
+            <div className="mx-auto mt-8 max-w-2xl rounded-2xl border border-turquoise-200/30 bg-white/5 px-6 py-7">
+              <h3 className="font-serif text-2xl text-white">Plan your stay</h3>
+              <p className="mt-2 leading-7 text-sand-100/80">
+                Staying at The Island Resort? Use the Summit hotel booking link to reserve your room.
+              </p>
+              <a
+                href={HOTEL_BOOKING_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-5 inline-flex items-center justify-center gap-2 rounded-full border border-gold-300 px-6 py-3 font-semibold text-gold-300 transition hover:bg-gold-300 hover:text-navy-900"
+              >
+                Book Your Hotel Room <ArrowRight size={18} aria-hidden="true" />
+              </a>
+            </div>
           </Reveal>
         </div>
       </section>
